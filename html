@@ -1,0 +1,3101 @@
+<html lang="zh-TW" style="--scroll-progress: 0.33340694657433345;"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>年中考核 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --sp-bg: #090e1b;
+  --sp-card: rgba(18, 27, 46, 0.86);
+  --sp-fg: #f8fafc;
+  --sp-fg-soft: #d5dce8;
+  --sp-fg-mute: #91a0b7;
+  --sp-line: rgba(226, 232, 240, 0.16);
+  --sp-accent: #fbbf24;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+  --font-display: 'Noto Sans TC', 'PingFang TC', Inter, system-ui, sans-serif;
+  --font-body: 'Noto Sans TC', 'PingFang TC', Inter, system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  height: 100%;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  scrollbar-color: rgba(226,232,240,.35) #090e1b;
+}
+body {
+  margin: 0;
+  background: var(--sp-bg);
+  color: var(--sp-fg);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.7;
+}
+a { color: inherit; }
+
+.progress-bar { position: fixed; inset: 0 0 auto; height: 3px; background: rgba(255,255,255,.12); z-index: 1200; }
+.progress-bar .fill {
+  display: block; width: 100%; height: 100%; background: var(--sp-accent);
+  transform: scaleX(var(--scroll-progress, 0)); transform-origin: left center;
+}
+
+.mini-map {
+  position: fixed; top: 50%; right: 28px; z-index: 1100;
+  display: flex; flex-direction: column; gap: 16px;
+  transform: translateY(-50%);
+}
+.mini-map a {
+  position: relative; display: grid; place-items: center; width: 18px; height: 18px;
+  color: var(--sp-fg); text-decoration: none; outline-offset: 5px;
+}
+.mini-map .dot {
+  display: block; width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,.34); border: 1px solid rgba(255,255,255,.3);
+  transition: transform .25s ease, background .25s ease, border-color .25s ease;
+}
+.mini-map a.active .dot, .mini-map a:hover .dot {
+  transform: scale(1.45); background: var(--sp-accent); border-color: var(--sp-accent);
+}
+.mini-map .label {
+  position: absolute; right: 25px; padding: 5px 10px; border: 1px solid var(--sp-line);
+  border-radius: var(--radius-pill); background: rgba(9,14,27,.92); color: var(--sp-fg-soft);
+  font-size: 11px; letter-spacing: .08em; white-space: nowrap;
+  opacity: 0; transform: translateX(6px); transition: opacity .2s ease, transform .2s ease;
+}
+.mini-map a:hover .label, .mini-map a.active .label { opacity: 1; transform: translateX(0); }
+
+section[data-block] {
+  --act-color: #fbbf24;
+  position: relative; isolation: isolate; display: grid; place-items: center;
+  width: 100%; height: 100vh; height: 100svh; min-height: 100vh; min-height: 100svh;
+  overflow: hidden; scroll-snap-align: start; scroll-snap-stop: always;
+  background: var(--act-bg, #101827);
+}
+section[data-block]::before {
+  content: attr(data-act); position: absolute; z-index: 2;
+  top: clamp(24px, 4vh, 46px); left: max(24px, calc((100vw - 1280px) / 2 + 58px));
+  color: rgba(255,255,255,.64); font: 700 11px/1.2 ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  letter-spacing: .18em; text-transform: uppercase;
+}
+section[data-block][data-act="2026 Dialogue and Year-end Review"]::before {
+  left: auto; right: max(24px, calc((100vw - 1280px) / 2 + 58px)); text-align: right;
+}
+section[data-block]::after {
+  content: ''; position: absolute; z-index: 0; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 78% 18%, var(--act-glow, rgba(251,191,36,.17)), transparent 42%),
+              radial-gradient(ellipse at 8% 90%, rgba(255,255,255,.035), transparent 38%);
+}
+section[data-block] .container {
+  position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center;
+  width: min(100%, 1320px); height: 100%; min-height: 0; margin: 0 auto;
+  padding: clamp(76px, 10vh, 112px) clamp(30px, 7vw, 104px) clamp(34px, 6vh, 68px);
+}
+#hero { --act-color: #fbbf24; --act-bg: linear-gradient(135deg,#0b1325 0%,#101b32 58%,#0b1827 100%); --act-glow: rgba(59,130,246,.2); }
+#faq { --act-color: #c4b5fd; --act-bg: linear-gradient(135deg,#111226 0%,#1b1735 55%,#10172a 100%); --act-glow: rgba(139,92,246,.23); }
+#venues { --act-color: #c4b5fd; --act-bg: linear-gradient(135deg,#111226 0%,#1b1735 55%,#10172a 100%); --act-glow: rgba(139,92,246,.23); }
+#ai-apps { --act-color: #5eead4; --act-bg: linear-gradient(135deg,#0b191d 0%,#0e252a 58%,#101a29 100%); --act-glow: rgba(20,184,166,.2); }
+
+.section-label {
+  margin: 0 0 14px; color: var(--act-color); font-size: 12px; font-weight: 700;
+  letter-spacing: .16em; line-height: 1.4; text-transform: uppercase;
+}
+.section-h1 {
+  margin: 0 0 14px; color: var(--sp-fg); font-size: clamp(32px, 4.4vw, 58px);
+  font-weight: 700; line-height: 1.16; letter-spacing: -.035em; text-wrap: balance;
+}
+.section-h1.reveal.in { font-size: clamp(32px, 4.4vw, 46px); }
+p { margin: 0 0 12px; color: var(--sp-fg-soft); }
+
+#hero .container { justify-content: center; }
+#hero .inner { max-width: 1120px; padding: 0 !important; }
+.hero-display {
+  max-width: 1100px; margin: 0 0 22px; color: #fff;
+  font-size: clamp(58px, 10.5vw, 100px); font-weight: 800; line-height: .99;
+  letter-spacing: -.055em; white-space: normal; text-wrap: balance;
+}
+.hero-sub { max-width: 720px; margin: 0 0 34px; color: #cbd5e1; font-size: clamp(16px, 1.7vw, 22px); line-height: 1.7; white-space: normal; }
+.btn-group { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 46px;
+  padding: 10px 24px; border: 1px solid rgba(255,255,255,.24); border-radius: var(--radius-pill);
+  background: rgba(255,255,255,.06); color: #fff; font: 600 14px/1.2 var(--font-body);
+  text-decoration: none; transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+.btn:hover { transform: translateY(-2px); border-color: var(--act-color); background: rgba(255,255,255,.13); }
+.btn-primary { border-color: var(--act-color); background: var(--act-color); color: #111827; }
+.btn-primary:hover { background: #fcd34d; }
+
+#faq .container { width: 100%; max-width: none; padding: 0; overflow: hidden; }
+.faq-pages { width: 100%; height: 100%; overflow-y: auto; scroll-snap-type: y mandatory; scroll-behavior: smooth; overscroll-behavior-y: auto; scrollbar-width: none; }
+.faq-pages::-webkit-scrollbar { display: none; }
+.faq-slide {
+  position: relative; display: grid; place-items: center; width: 100%; height: 100vh; height: 100svh;
+  min-height: 100vh; min-height: 100svh; padding: 0; overflow: hidden;
+  scroll-snap-align: start; scroll-snap-stop: always;
+  background: radial-gradient(ellipse at 88% 22%,rgba(196,181,253,.11),transparent 38%);
+}
+.faq-slide:nth-child(2) { background: radial-gradient(ellipse at 84% 18%,rgba(94,234,212,.11),transparent 42%); }
+.faq-slide:nth-child(3) { background: radial-gradient(ellipse at 80% 20%,rgba(251,191,36,.1),transparent 42%); }
+.faq-slide::before {
+  content: attr(data-q); position: absolute; z-index: 0; top: 14%; right: max(8%,calc((100vw - 1120px)/2));
+  color: rgba(255,255,255,.035); font-size: clamp(120px,22vw,280px); font-weight: 800;
+  line-height: .9; letter-spacing: -.08em; pointer-events: none;
+}
+.faq-slide-content {
+  position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center;
+  width: min(100%,1220px); height: 100%; min-height: 0; margin: 0 auto; overflow-y: auto;
+  padding: clamp(78px,10vh,112px) clamp(30px,7vw,104px) clamp(28px,5vh,56px);
+  scrollbar-width: thin; scrollbar-color: rgba(196,181,253,.35) transparent;
+}
+.faq-slide .section-label { margin-bottom: 10px; }
+.faq-slide .section-h1 { max-width: 1000px; margin-bottom: 14px; font-size: clamp(32px,4.4vw,58px); }
+.faq-lead { max-width: 980px; margin: 0 0 20px; color: #e1e5ee; font-size: 15px; line-height: 1.7; }
+#faq .stats-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; margin: 0 0 10px; }
+#faq .stats-grid > .venue-item { min-height: 150px; }
+#faq-q1 .faq-slide-content { justify-content: flex-start; }
+#faq-q1 .q1-key-result-grid > .venue-item .venue-body { align-items: center; justify-content: center; }
+#faq-q1 .q1-key-card-copy { width: min(100%,32rem); text-align: left; }
+.q1-workflow-note { margin: 2px 0 8px; padding: clamp(12px,1.8vw,20px) clamp(14px,2vw,24px); border: 1px solid rgba(196,181,253,.28); border-left: 3px solid var(--act-color); border-radius: 12px; background: linear-gradient(110deg,rgba(124,93,203,.2),rgba(15,18,38,.58)); }
+.q1-workflow-note h3 { margin: 0 0 6px; color: #d8ccff; font-size: clamp(15px,1.55vw,19px); line-height: 1.4; }
+.q1-workflow-note p { margin: 0; color: #d7dbea; font-size: clamp(13px,1.25vw,15px); line-height: 1.65; }
+#faq .stat-card { min-width: 0; padding: clamp(14px,2vw,24px); border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius-md); background: rgba(9,14,27,.52); }
+#faq .stat-number { font-size: clamp(15px,1.55vw,20px); line-height: 1.4; }
+#faq .stat-card .stat-label { font-size: clamp(13px,calc(1.55vw - 2px),18px); line-height: 1.4; }
+#faq .stat-number { display: block; margin-bottom: 6px; color: #fff; font-weight: 700; }
+#faq .stat-card .stat-label { display: block; color: #cbd5e1; }
+.faq-page-nav { position: sticky; bottom: 0; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex: 0 0 auto; margin-top: auto; padding: 18px 0 2px; background: linear-gradient(transparent,rgba(20,19,45,.82) 35%); }
+.faq-page-count { color: rgba(255,255,255,.62); font: 700 11px/1 ui-monospace,'SFMono-Regular',Consolas,monospace; letter-spacing: .14em; }
+.faq-page-count i { padding: 0 4px; color: var(--act-color); font-style: normal; }
+.faq-page-nav > div { display: flex; align-items: center; gap: 8px; }
+.faq-page-nav a { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; color: var(--sp-fg-soft); font-size: 11px; font-weight: 700; text-decoration: none; transition: background .2s ease,border-color .2s ease,transform .2s ease; }
+.faq-page-nav a:hover { transform: translateY(-2px); border-color: var(--act-color); }
+.faq-page-nav a.current { border-color: var(--act-color); background: var(--act-color); color: #111827; }
+.faq-page-nav .next-section { display: flex; width: auto; height: auto; gap: 8px; padding: 9px 14px; border-radius: 999px; }
+  .faq-callouts { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; margin: 24px 0 18px; }
+.faq-slide-last .faq-page-nav { margin-top: auto; }
+#venues .container { justify-content: center; }
+#venues .section-label { margin-bottom: 8px; }
+#venues .section-h1 { margin-bottom: 4px; }
+#venues .container > p { margin-bottom: 0; font-size: 15px; }
+.venue-list {
+  display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); grid-template-rows: repeat(2,minmax(0,1fr));
+  flex: 1; min-height: 0; gap: 13px; margin-top: 18px;
+}
+.venue-item {
+  --card-glow: rgba(244,63,94,.16);
+  position: relative; min-width: 0; min-height: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.17);
+  border-radius: var(--radius-md); cursor: pointer;
+  background: radial-gradient(ellipse at 85% 12%,var(--card-glow),transparent 52%), linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));
+  box-shadow: 0 18px 40px rgba(0,0,0,.18); transition: transform .25s ease, border-color .25s ease, background .25s ease;
+}
+.venue-list .venue-item:nth-child(1) { --card-glow: rgba(139,92,246,.22); }
+.venue-list .venue-item:nth-child(2) { --card-glow: rgba(167,139,250,.24); }
+.venue-list .venue-item:nth-child(3) { --card-glow: rgba(196,181,253,.2); }
+.venue-list .venue-item:nth-child(4) { --card-glow: rgba(139,92,246,.22); }
+.venue-list .venue-item:nth-child(5) { --card-glow: rgba(129,140,248,.2); }
+.venue-list .venue-item:nth-child(6) { --card-glow: rgba(192,132,252,.22); }
+.venue-list .venue-item:nth-child(7) { --card-glow: rgba(167,139,250,.2); }
+.venue-list .venue-item:nth-child(8) { --card-glow: rgba(196,181,253,.24); }
+.venue-item:hover { transform: translateY(-3px); border-color: rgba(255,255,255,.38); }
+.venue-item:focus-visible { outline: 2px solid var(--act-color); outline-offset: 3px; }
+.venue-carousel { position: absolute; inset: 0; overflow: hidden; }
+.venue-track { position: relative; width: 100%; height: 100%; overflow: hidden; }
+.venue-bg { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; opacity: 1; }
+.venue-bg:not(:first-child) { transform: translateX(100%); }
+.venue-item:hover .venue-bg:nth-child(2), .venue-item:focus-visible .venue-bg:nth-child(2) { animation: venue-slide-2 6s linear infinite; }
+.venue-item:hover .venue-bg:nth-child(3), .venue-item:focus-visible .venue-bg:nth-child(3) { animation: venue-slide-3 6s linear infinite; }
+.venue-item:hover .venue-bg:nth-child(4), .venue-item:focus-visible .venue-bg:nth-child(4) { animation: venue-slide-4 6s linear infinite; }
+@keyframes venue-slide-2 {
+  0% { transform: translateX(100%); }
+  10%, 99.99% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+@keyframes venue-slide-3 {
+  0%, 33.333% { transform: translateX(100%); }
+  43.333%, 99.99% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+@keyframes venue-slide-4 {
+  0%, 66.667% { transform: translateX(100%); }
+  76.667%, 99.99% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+.venue-tint { position: absolute; inset: 0; background: linear-gradient(145deg,rgba(255,255,255,.025),transparent 58%,rgba(0,0,0,.26)); }
+.venue-overlay { position: absolute; inset: 0; background: linear-gradient(135deg,rgba(244,63,94,.15),transparent 70%); opacity: 0; transition: opacity .2s ease; }
+.venue-list .venue-overlay { background: linear-gradient(135deg,rgba(139,92,246,.16),transparent 70%); }
+.venue-item:hover .venue-overlay { opacity: 1; }
+.venue-body { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; padding: clamp(14px,2vw,24px); }
+.venue-body::before { content: ""; position: absolute; inset: 42% 0 0; pointer-events: none; background: linear-gradient(to top, rgba(0,0,0,.76), rgba(0,0,0,.42) 45%, transparent); }
+.venue-body > * { position: relative; z-index: 1; }
+.venue-name { color: #fff; font-size: clamp(15px,1.55vw,20px); font-weight: 700; line-height: 1.4; text-wrap: balance; }
+.venue-sub { margin: 0 0 5px; color: #cbd5e1; font-size: 11px; line-height: 1.4; letter-spacing: .06em; }
+.venue-list .venue-sub { color: #ddd6fe; font-size: 10px; font-weight: 700; letter-spacing: .12em; }
+
+.modal-backdrop {
+  display: none; position: fixed; inset: 0; z-index: 2000; align-items: center; justify-content: center;
+  padding: 24px; background: rgba(3,7,18,.78); backdrop-filter: blur(12px);
+}
+.modal-backdrop.open { display: flex; }
+.modal {
+  position: relative; width: 100%; max-width: 920px; max-height: 86vh; overflow-y: auto;
+  border: 1px solid rgba(255,255,255,.15); border-radius: var(--radius-lg);
+  background: #111827; color: var(--sp-fg); box-shadow: 0 30px 100px rgba(0,0,0,.48);
+  animation: modal-in .22s ease-out;
+}
+@keyframes modal-in { from { opacity: 0; transform: translateY(12px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.modal img { max-height: 42vh; background: #0b1220 !important; }
+.modal-body { padding: 26px clamp(22px,5vw,48px) 34px !important; }
+.modal-title { margin-bottom: 12px; color: #fff; font-size: clamp(24px,3vw,34px); font-weight: 700; line-height: 1.25; }
+.modal-desc { color: #cbd5e1; font-size: 16px; line-height: 1.8; }
+.modal-close {
+  position: sticky; top: 12px; float: right; z-index: 3; width: 38px; height: 38px; margin: 12px 12px -50px 0;
+  border: 1px solid rgba(255,255,255,.2); border-radius: 50%; background: rgba(10,15,27,.8); color: #fff;
+  font-size: 18px; cursor: pointer;
+}
+
+#ai-apps .container { justify-content: flex-start; }
+#ai-apps .section-label { margin-bottom: 8px; }
+#ai-apps .section-h1 { margin-bottom: 8px; }
+#ai-apps .container > p { max-width: 820px; margin-bottom: 0; font-size: 15px; }
+.ai-grid {
+  display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); grid-auto-rows: minmax(0,1fr);
+  flex: 1; min-height: 0; gap: 14px; margin-top: 18px; overflow: hidden;
+}
+.ai-venue-hitarea { position: absolute; inset: 0; z-index: 2; border-radius: inherit; }
+.ai-venue-hitarea:focus-visible { outline: 2px solid var(--act-color); outline-offset: -4px; }
+.ai-venue-description { display: -webkit-box; max-width: 46em; margin: 7px 0 0; overflow: hidden; color: #e2e8f0; font-size: 13px; line-height: 1.45; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.faq-venue-description { display: -webkit-box; margin: 7px 0 0; overflow: hidden; color: #e2e8f0; font-size: 13px; line-height: 1.45; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.q1-detail-overlay { display: none; position: fixed; inset: 0; z-index: 3000; overflow-y: auto; padding: clamp(18px,4vw,52px); background: radial-gradient(ellipse at 84% 18%,rgba(139,92,246,.2),transparent 42%), linear-gradient(135deg,#111226 0%,#1b1735 55%,#10172a 100%); color: var(--sp-fg); }
+.q1-detail-overlay.open { display: block; animation: q1-layer-fade-in .32s ease both; }
+.q1-detail-overlay.open.is-fading-out { animation: q1-layer-fade-out .26s ease both; pointer-events: none; }
+@keyframes q1-layer-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes q1-layer-fade-out { from { opacity: 1; } to { opacity: 0; } }
+.q1-detail-page { display: flex; flex-direction: column; width: min(100%,1160px); min-height: 100%; margin: 0 auto; color: var(--sp-fg); }
+.q1-detail-top { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.q1-detail-brand { display: inline-block; padding: 12px 25px; border: 1px solid rgba(196,181,253,.3); background: rgba(255,255,255,.07); color: #ddd6fe; font-size: 17px; font-weight: 800; letter-spacing: .04em; clip-path: polygon(3% 0,97% 0,100% 12%,100% 88%,97% 100%,3% 100%,0 88%,0 12%); }
+.q1-detail-close { border: 1px solid rgba(255,255,255,.24); border-radius: 999px; padding: 10px 17px; background: rgba(255,255,255,.05); color: var(--sp-fg); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+.q1-detail-close:hover { border-color: #c4b5fd; background: #c4b5fd; color: #111226; }
+.q1-detail-hero { display: grid; grid-template-columns: minmax(0,1fr); align-items: center; gap: 0; min-height: 0; padding: 30px 10px 38px; }
+.q1-detail-title { max-width: 690px; margin: 0 0 14px; color: #f8fafc; font-size: clamp(32px,4.8vw,58px); font-weight: 850; line-height: 1.2; letter-spacing: -.04em; }
+@media (min-width: 901px) {
+  .q1-detail-title.is-single-line { max-width: none; font-size: clamp(28px,3.1vw,42px); white-space: nowrap; }
+}
+.q1-detail-lead { width: 100%; max-width: none; margin: 0; color: #d5dce8; font-size: clamp(15px,1.5vw,18px); line-height: 1.8; }
+.q1-detail-panels { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(0,.85fr); gap: 14px; margin-top: auto; }
+.q1-detail-panels.is-collab-layout { grid-template-columns: repeat(2,minmax(0,1fr)); align-items: stretch; gap: clamp(14px,2.4vw,28px); margin-top: clamp(24px,4vh,48px); }
+.q1-detail-panels.is-collab-layout .q1-detail-point { display: grid; min-height: 0; padding: 0; overflow: hidden; border: 0; background: transparent; clip-path: none; }
+@property --compare-p { syntax: '<percentage>'; inherits: true; initial-value: 50%; }
+@keyframes q1-compare-hint { 0%,100% { --compare-p: 47%; } 50% { --compare-p: 53%; } }
+.q1-detail-collab-comparison { position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border: 1px solid rgba(196,181,253,.24); border-radius: var(--radius-md); background: #111226; --compare-p: 50%; touch-action: pan-y; cursor: col-resize; animation: q1-compare-hint 4.2s ease-in-out infinite; }
+.q1-detail-collab-comparison.is-interacted { animation: none; }
+.q1-detail-collab-comparison[hidden] { display: none !important; }
+.q1-detail-collab-comparison img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; user-select: none; -webkit-user-drag: none; }
+.q1-detail-collab-comparison .q1-detail-collab-after { clip-path: inset(0 0 0 var(--compare-p)); }
+.q1-detail-collab-labels { position: absolute; inset: 12px 12px auto; z-index: 2; display: flex; justify-content: space-between; pointer-events: none; }
+.q1-detail-collab-labels span { padding: 6px 9px; border: 1px solid rgba(221,214,254,.24); border-radius: 999px; background: rgba(9,14,27,.7); color: #f8fafc; font: 800 10px/1 ui-monospace,'SFMono-Regular',Consolas,monospace; letter-spacing: .12em; backdrop-filter: blur(8px); }
+.q1-detail-collab-divider { position: absolute; inset: 0 auto 0 var(--compare-p); z-index: 3; width: 2px; background: rgba(248,250,252,.94); box-shadow: 0 0 14px rgba(196,181,253,.72); pointer-events: none; transform: translateX(-50%); }
+.q1-detail-collab-handle { position: absolute; top: 50%; left: var(--compare-p); z-index: 4; display: flex; align-items: center; justify-content: center; gap: 4px; width: 48px; height: 48px; padding: 0; border: 1px solid rgba(255,255,255,.72); border-radius: 50%; background: rgba(27,23,53,.94); color: #f8fafc; font-size: 15px; line-height: 1; transform: translate(-50%,-50%); box-shadow: 0 4px 18px rgba(0,0,0,.36); pointer-events: none; }
+.q1-detail-collab-range { position: absolute; inset: 0; z-index: 5; display: block; width: 100%; height: 100%; margin: 0; padding: 0; appearance: none; -webkit-appearance: none; border: 0; border-radius: 0; background: transparent; opacity: 0; cursor: ew-resize; touch-action: pan-y; }
+.q1-detail-collab-range::-webkit-slider-runnable-track { width: 100%; height: 100%; border: 0; background: transparent; }
+.q1-detail-collab-range::-webkit-slider-thumb { width: 48px; height: 100%; appearance: none; -webkit-appearance: none; border: 0; background: transparent; }
+.q1-detail-collab-range::-moz-range-track { width: 100%; height: 100%; border: 0; background: transparent; }
+.q1-detail-collab-range::-moz-range-thumb { width: 48px; height: 100%; border: 0; border-radius: 0; background: transparent; }
+.q1-detail-collab-range:focus-visible ~ .q1-detail-collab-handle { outline: 2px solid rgba(196,181,253,.72); outline-offset: 4px; }
+.q1-detail-panels.is-collab-layout .q1-detail-point h3,
+.q1-detail-panels.is-collab-layout .q1-detail-point .q1-detail-list { display: none !important; }
+.q1-detail-panels.is-collab-layout .q1-detail-highlight .q1-detail-mark { display: none; }
+.q1-detail-panels.is-collab-layout .q1-detail-highlight { display: flex; flex-direction: column; justify-content: center; min-height: 0; aspect-ratio: 4 / 3; padding: clamp(18px,3vw,36px); border: 0; background: transparent; clip-path: none; }
+.q1-detail-gallery { position: relative; width: 100%; margin-top: auto; }
+.q1-detail-panels[hidden], .q1-detail-gallery[hidden] { display: none !important; }
+.q1-detail-extra-gallery { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; width: 100%; margin: 10px 0 auto; }
+.q1-detail-extra-gallery[hidden] { display: none !important; }
+.q1-detail-extra-gallery a { display: grid; place-items: center; min-width: 0; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid rgba(196,181,253,.24); border-radius: 14px; background: rgba(9,14,27,.72); }
+.q1-detail-extra-gallery a:hover, .q1-detail-extra-gallery a:focus-visible { border-color: #c4b5fd; outline: none; box-shadow: 0 12px 30px rgba(7,8,25,.3); }
+.q1-detail-extra-gallery img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.q1-detail-overlay.is-extra-project .q1-detail-hero { padding-bottom: 12px; }
+.q1-detail-overlay.is-extra-project .q1-detail-title { max-width: none; }
+.q1-detail-overlay.is-extra-project .q1-detail-footer { display: none; }
+.q1-gallery-stage { position: relative; width: 100%; height: clamp(440px,52vh,500px); overflow: hidden; }
+.q1-detail-image { position: absolute; top: auto; left: 0; bottom: 0; display: block; width: min(22%,240px); aspect-ratio: 1 / 1; overflow: hidden; padding: 0; border: 1px solid rgba(196,181,253,.26); border-radius: var(--radius-md); background: rgba(9,14,27,.7); cursor: zoom-in; transition: left .45s ease, width .45s ease, opacity .45s ease, filter .45s ease, border-color .2s, box-shadow .2s; }
+.q1-detail-image.no-transition { transition: none !important; }
+.q1-detail-image.is-active { left: calc(50% - min(22%,220px)); z-index: 3; width: min(44%,440px); opacity: 1; filter: none; }
+.q1-detail-image.is-prev, .q1-detail-image.is-next, .q1-detail-image.is-far-prev, .q1-detail-image.is-far-next { width: min(22%,240px); }
+.q1-detail-image.is-prev, .q1-detail-image.is-next { z-index: 2; opacity: .68; filter: brightness(.68); }
+.q1-detail-image.is-prev { left: 17%; }
+.q1-detail-image.is-next { left: calc(83% - min(22%,240px)); }
+.q1-detail-image.is-far-prev, .q1-detail-image.is-far-next { z-index: 1; opacity: .42; filter: brightness(.48); }
+.q1-detail-image.is-far-prev { left: 0; }
+.q1-detail-image.is-far-next { left: calc(100% - min(22%,240px)); }
+.q1-detail-image.is-prev:hover, .q1-detail-image.is-next:hover { opacity: .86; filter: brightness(.84); }
+.q1-detail-image.is-far-prev:hover, .q1-detail-image.is-far-next:hover { opacity: .62; filter: brightness(.65); }
+.q1-detail-image.is-active:hover, .q1-detail-image:focus-visible { border-color: #c4b5fd; box-shadow: 0 16px 36px rgba(7,8,25,.32); outline: none; }
+.q1-detail-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.q1-gallery-arrow { position: absolute; top: 50%; z-index: 5; display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 1px solid rgba(221,214,254,.36); border-radius: 50%; background: rgba(27,23,53,.88); color: #ddd6fe; font-size: 20px; line-height: 1; cursor: pointer; transform: translateY(-50%); transition: background .2s, color .2s, transform .2s; }
+.q1-gallery-arrow:hover, .q1-gallery-arrow:focus-visible { background: #c4b5fd; color: #111226; transform: translateY(-50%) scale(1.08); outline: none; }
+.q1-gallery-arrow--prev { left: 27%; }
+.q1-gallery-arrow--next { right: 27%; }
+.q1-image-lightbox { position: fixed; inset: 0; display: none; width: 100vw; max-width: none; height: 100vh; height: 100dvh; max-height: none; margin: 0; padding: 0; overflow: hidden; border: 0; background: #111226; color: #f8fafc; }
+.q1-image-lightbox[open] { display: block; animation: q1-layer-fade-in .32s ease both; }
+.q1-image-lightbox.is-closing[open] { animation: q1-layer-fade-out .26s ease both; }
+.q1-image-lightbox::backdrop { background: #111226; }
+.q1-image-page { position: relative; width: 100vw; height: 100vh; height: 100dvh; overflow-y: auto; overscroll-behavior: contain; scroll-behavior: smooth; scroll-snap-type: y mandatory; background: radial-gradient(ellipse at 82% 28%,rgba(139,92,246,.2),transparent 42%),linear-gradient(135deg,#111226 0%,#1b1735 55%,#10172a 100%); color: #f8fafc; transition: opacity .3s ease; }
+.q1-image-page.is-fade-hidden { opacity: 0; }
+.q1-image-cover-space { height: 100vh; height: 100dvh; scroll-snap-align: start; scroll-snap-stop: always; }
+.q1-image-detail-slide { display: none !important; }
+.q1-image-scene { position: fixed; inset: 0; z-index: 5; width: 100vw; height: 100vh; height: 100dvh; overflow: hidden; background: radial-gradient(ellipse at 82% 28%,rgba(139,92,246,.2),transparent 42%),linear-gradient(135deg,#111226 0%,#1b1735 55%,#10172a 100%); pointer-events: none; }
+.q1-image-copy { position: absolute; top: 50%; left: clamp(24px,8vw,126px); z-index: 1; width: min(37vw,520px); max-height: calc(100svh - 100px); overflow-y: auto; opacity: 0; transform: translate3d(-42px,-50%,0); will-change: opacity,transform; }
+.q1-image-copy-label { margin-bottom: 16px; color: #c4b5fd; font: 800 11px/1.5 ui-monospace,'SFMono-Regular',Consolas,monospace; letter-spacing: .18em; text-transform: uppercase; }
+.q1-image-copy h2 { margin: 0 0 16px; color: #f8fafc; font-size: clamp(32px,5vw,64px); font-weight: 850; line-height: 1.18; letter-spacing: -.04em; }
+.q1-image-copy p { max-width: 34em; margin: 0; color: #d5dce8; font-size: clamp(15px,1.5vw,19px); line-height: 1.9; white-space: pre-line; }
+.q1-image-visual { position: absolute; top: 50%; left: 50%; z-index: 0; width: min(62vh,48vw,640px); aspect-ratio: 1 / 1; overflow: hidden; border: 1px solid rgba(221,214,254,.28); border-radius: 20px 4px 20px 4px; background: #111226; transform: translate3d(-50%,-50%,0) scale(1); will-change: transform; }
+.q1-image-scene.is-transitioning .q1-image-visual { transition: transform 1.05s cubic-bezier(.16,1,.3,1); }
+.q1-image-scene.is-transitioning .q1-image-copy { transition: opacity .82s ease,transform 1s cubic-bezier(.16,1,.3,1); }
+.q1-image-scene.is-transitioning .q1-image-scroll-hint { transition: opacity .6s ease,transform .8s cubic-bezier(.16,1,.3,1); }
+.q1-image-scroll-hint { position: absolute; bottom: clamp(22px,5vh,48px); left: 50%; z-index: 4; display: flex; align-items: center; gap: 10px; color: rgba(248,250,252,.88); font: 800 10px/1.4 ui-monospace,'SFMono-Regular',Consolas,monospace; letter-spacing: .16em; text-transform: uppercase; white-space: nowrap; transform: translateX(-50%); pointer-events: none; }
+.q1-image-scroll-hint span:last-child { color: #c4b5fd; font-size: 20px; line-height: 1; }
+.q1-image-visual img { display: block; width: 100%; height: 100%; max-width: none; max-height: none; object-fit: cover; border-radius: 0; box-shadow: none; }
+.q1-image-detail-slide { display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); align-items: center; gap: clamp(24px,5vw,40px); width: 100%; height: 100vh; height: 100dvh; min-height: 100vh; min-height: 100dvh; padding: clamp(32px,6vw,88px); overflow: hidden; scroll-snap-align: start; scroll-snap-stop: always; background: radial-gradient(ellipse at 82% 28%,rgba(139,92,246,.18),transparent 42%),linear-gradient(135deg,#111226 0%,#1b1735 55%,#10172a 100%); }
+.q1-image-detail-copy { position: relative; z-index: 1; width: min(100%,520px); }
+.q1-image-detail-copy-label { margin-bottom: 16px; color: #c4b5fd; font: 800 11px/1.5 ui-monospace,'SFMono-Regular',Consolas,monospace; letter-spacing: .18em; text-transform: uppercase; }
+.q1-image-detail-copy h2 { margin: 0 0 16px; color: #f8fafc; font-size: clamp(32px,5vw,64px); font-weight: 850; line-height: 1.18; letter-spacing: -.04em; }
+.q1-image-detail-copy p { max-width: 34em; margin: 0; color: #d5dce8; font-size: clamp(15px,1.5vw,19px); line-height: 1.9; }
+.q1-image-detail-visual { justify-self: center; width: min(62vh,48vw,640px); aspect-ratio: 1 / 1; overflow: hidden; border: 1px solid rgba(221,214,254,.28); border-radius: 50%; background: #111226; box-shadow: 0 24px 90px rgba(5,7,24,.48),0 0 0 1px rgba(196,181,253,.1); }
+.q1-image-detail-visual img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.q1-image-project-slide { display: flex; flex-direction: column; justify-content: space-between; gap: clamp(18px,3vw,38px); width: 100%; height: 100vh; height: 100dvh; min-height: 100vh; min-height: 100dvh; padding: clamp(28px,5vw,72px); overflow: hidden; scroll-snap-align: start; scroll-snap-stop: always; background: radial-gradient(ellipse at 82% 28%,rgba(139,92,246,.2),transparent 42%),linear-gradient(135deg,#111226 0%,#1b1735 55%,#10172a 100%); }
+.q1-image-project-hero { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: center; gap: clamp(16px,2vw,28px); flex: 1 1 auto; min-height: 0; }
+.q1-image-project-copy { max-width: 620px; }
+.q1-image-project-brand { display: inline-block; margin-bottom: clamp(14px,2vw,24px); padding: 10px 18px; border: 1px solid rgba(196,181,253,.28); border-radius: 4px 14px 4px 14px; background: rgba(196,181,253,.1); color: #ddd6fe; font-size: 13px; font-weight: 800; letter-spacing: .08em; }
+.q1-image-project-copy h2 { margin: 0 0 16px; color: #f8fafc; font-size: clamp(32px,4.8vw,58px); font-weight: 850; line-height: 1.2; letter-spacing: -.04em; }
+.q1-image-project-copy-kicker { margin: 0 0 8px; color: #c4b5fd; font-size: clamp(15px,1.55vw,19px); font-weight: 800; letter-spacing: .04em; }
+.q1-image-project-copy-kicker[hidden] { display: none !important; }
+.q1-image-project-copy p { max-width: 35em; margin: 0; color: #d5dce8; font-size: clamp(15px,1.45vw,18px); line-height: 1.9; }
+.q1-image-project-visual { width: 100%; aspect-ratio: 16 / 10; overflow: hidden; border: 1px solid rgba(196,181,253,.3); border-radius: 20px 4px 20px 4px; background: rgba(9,14,27,.55); box-shadow: 0 20px 60px rgba(5,7,24,.35); }
+.q1-image-project-visual img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.q1-image-project-panels { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; flex: 0 0 auto; }
+.q1-image-project-concert-gallery { display: grid; grid-template-columns: minmax(0,1.55fr) minmax(0,.8fr); gap: clamp(16px,2vw,26px); flex: 0 0 auto; height: clamp(210px,32vh,320px); }
+.q1-image-project-concert-gallery[hidden] { display: none !important; }
+.q1-image-project-concert-gallery a { display: grid; place-items: center; min-width: 0; overflow: hidden; border: 1px solid rgba(196,181,253,.25); border-radius: 4px 16px 4px 16px; background: rgba(5,7,18,.86); box-shadow: 0 14px 38px rgba(5,7,24,.25); }
+.q1-image-project-concert-gallery img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.q1-image-project-slide.is-concert-project { gap: clamp(22px,3vh,38px); }
+.q1-image-project-slide.is-concert-project .q1-image-project-hero { grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr); }
+.q1-image-project-slide.is-concert-project .q1-image-project-copy { max-width: none; }
+.q1-image-project-slide.is-concert-project .q1-image-project-brand { display: none; }
+.q1-image-project-slide.is-concert-project .q1-image-project-copy h2 { display: none; }
+.q1-image-project-slide.is-concert-project .q1-image-project-visual { align-self: center; height: clamp(220px,34vh,360px); min-height: 0; aspect-ratio: auto; }
+.q1-image-project-slide.is-concert-project .q1-image-project-visual img { object-fit: cover; }
+.q1-image-project-visual[hidden], .q1-image-project-package-gallery[hidden] { display: none !important; }
+.q1-image-project-package-gallery { display: block; align-self: center; justify-self: center; width: min(100%,68vh); min-width: 0; margin-inline: auto; }
+.q1-image-project-package-gallery a { display: block; width: 100%; overflow: hidden; border: 0; border-radius: 8px; background: transparent; }
+.q1-image-project-package-gallery img { display: block; width: 100%; height: auto; object-fit: contain; }
+.q1-image-project-slide.is-seven-eleven-project .q1-image-project-hero { grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr); }
+.q1-image-project-slide.is-seven-eleven-project .q1-image-project-copy { max-width: none; }
+.q1-image-project-slide.is-seven-eleven-project .q1-image-project-copy h2 { display: none; }
+.q1-image-project-slide.is-seven-eleven-project .q1-image-project-copy { display: none; }
+.q1-image-project-slide.is-seven-eleven-project .q1-image-project-hero { grid-template-columns: minmax(0,1fr); }
+.q1-image-project-slide.is-seven-eleven-project .q1-image-project-package-gallery { width: min(100%,100vh); }
+.q1-image-concert-collab-slide { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(0,.8fr); align-items: center; gap: clamp(28px,5vw,72px); width: 100%; height: 100vh; height: 100dvh; min-height: 100vh; min-height: 100dvh; padding: clamp(32px,6vw,88px); overflow: hidden; scroll-snap-align: start; scroll-snap-stop: always; background: radial-gradient(ellipse at 84% 25%,rgba(139,92,246,.2),transparent 42%),linear-gradient(135deg,#111226 0%,#1b1735 55%,#10172a 100%); }
+.q1-image-concert-collab-slide[hidden] { display: none !important; }
+.q1-image-concert-collab-media { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); align-items: stretch; justify-self: center; gap: clamp(8px,1vw,14px); width: min(100%,680px); aspect-ratio: 1.05 / 1; min-width: 0; }
+.q1-image-concert-collab-visual, .q1-image-concert-collab-video { width: 100%; height: 100%; min-width: 0; min-height: 0; overflow: hidden; border: 1px solid rgba(196,181,253,.28); border-radius: 14px 4px 14px 4px; background: rgba(5,7,18,.72); box-shadow: 0 18px 52px rgba(5,7,24,.32); }
+.q1-image-concert-collab-visual img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.q1-image-concert-collab-video video { display: block; width: 100%; height: 100%; object-fit: contain; background: #050712; }
+.q1-image-concert-collab-copy { max-width: 660px; }
+.q1-image-concert-collab-label { margin-bottom: 16px; color: #c4b5fd; font: 800 11px/1.5 ui-monospace,'SFMono-Regular',Consolas,monospace; letter-spacing: .18em; text-transform: uppercase; }
+.q1-image-concert-collab-copy h2 { margin: 0 0 16px; color: #f8fafc; font-size: clamp(32px,4.8vw,58px); font-weight: 850; line-height: 1.2; letter-spacing: -.04em; }
+.q1-image-concert-collab-copy p { margin: 0; color: #d5dce8; font-size: clamp(15px,1.45vw,18px); line-height: 1.9; }
+.q1-image-concert-detail-slide { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,.9fr); align-items: center; gap: clamp(28px,6vw,84px); width: 100%; height: 100vh; height: 100dvh; min-height: 100vh; min-height: 100dvh; padding: clamp(32px,6vw,88px); overflow: hidden; scroll-snap-align: start; scroll-snap-stop: always; background: radial-gradient(ellipse at 84% 25%,rgba(139,92,246,.2),transparent 42%),linear-gradient(135deg,#111226 0%,#1b1735 55%,#10172a 100%); }
+.q1-image-concert-detail-slide[hidden] { display: none !important; }
+.q1-image-concert-detail-visual { display: grid; place-items: center; justify-self: center; width: min(100%,860px); min-width: 0; overflow: hidden; background: transparent; }
+.q1-image-concert-detail-visual img { display: block; width: 100%; height: auto; object-fit: contain; }
+.q1-image-concert-detail-copy { max-width: 660px; }
+.q1-image-concert-detail-label { margin-bottom: 16px; color: #c4b5fd; font: 800 11px/1.5 ui-monospace,'SFMono-Regular',Consolas,monospace; letter-spacing: .18em; text-transform: uppercase; }
+.q1-image-concert-detail-copy h2 { margin: 0 0 16px; color: #f8fafc; font-size: clamp(32px,4.8vw,58px); font-weight: 850; line-height: 1.2; letter-spacing: -.04em; }
+.q1-image-concert-detail-copy p { margin: 0; color: #d5dce8; font-size: clamp(15px,1.45vw,18px); line-height: 1.9; }
+.q1-image-concert-venue-slide { display: flex; flex-direction: column; justify-content: center; gap: clamp(18px,3vh,32px); width: 100%; height: 100vh; height: 100dvh; min-height: 100vh; min-height: 100dvh; padding: clamp(32px,6vw,88px); overflow: hidden; scroll-snap-align: start; scroll-snap-stop: always; background: radial-gradient(ellipse at 84% 25%,rgba(139,92,246,.2),transparent 42%),linear-gradient(135deg,#111226 0%,#1b1735 55%,#10172a 100%); }
+.q1-image-concert-venue-slide[hidden] { display: none !important; }
+.q1-image-concert-venue-copy { width: 100%; max-width: 1200px; margin: 0 auto; }
+.q1-image-concert-venue-label { margin-bottom: 12px; color: #c4b5fd; font: 800 11px/1.5 ui-monospace,'SFMono-Regular',Consolas,monospace; letter-spacing: .18em; text-transform: uppercase; }
+.q1-image-concert-venue-copy h2 { margin: 0; color: #f8fafc; font-size: clamp(28px,4.2vw,52px); font-weight: 850; line-height: 1.25; letter-spacing: -.035em; }
+.q1-image-concert-venue-copy p { margin: 12px 0 0; color: #d5dce8; font-size: clamp(15px,1.45vw,18px); line-height: 1.8; }
+.q1-image-concert-venue-visual { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: clamp(10px,2vh,18px); width: min(100%,1600px); max-height: 58vh; margin: 0 auto; }
+.q1-image-concert-venue-visual img { display: block; flex: none; width: 100%; max-width: 100%; height: auto; object-fit: contain; }
+.q1-image-concert-venue-visual img:first-child { max-height: 42vh; }
+.q1-image-concert-venue-visual img:nth-child(2) { max-height: 14vh; }
+.q1-image-project-panel { min-height: 145px; padding: clamp(18px,2.5vw,30px); border: 1px solid rgba(255,255,255,.12); border-radius: 4px 18px 4px 18px; background: rgba(9,14,27,.56); color: #f8fafc; }
+.q1-image-project-panel--accent { border-color: rgba(196,181,253,.26); background: linear-gradient(145deg,rgba(139,92,246,.28),rgba(49,46,129,.35)); }
+.q1-image-project-panel h3 { margin: 0 0 12px; color: #ddd6fe; font-size: clamp(16px,1.8vw,21px); line-height: 1.4; }
+.q1-image-project-panel p { max-width: 44em; margin: 0; color: #d5dce8; font-size: clamp(13px,1.25vw,16px); line-height: 1.75; }
+.q1-image-close { position: fixed; top: 22px; right: 24px; z-index: 10; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; background: rgba(22,20,44,.82); color: #fff; font-size: 26px; line-height: 1; cursor: pointer; transition: background .2s,border-color .2s; }
+.q1-image-close:hover, .q1-image-close:focus-visible { border-color: #c4b5fd; background: #352d5c; outline: none; }
+@media (prefers-reduced-motion: reduce) {
+  .q1-image-copy, .q1-image-visual, .q1-image-scroll-hint { transition: none !important; }
+}
+.q1-detail-panel { min-height: 198px; padding: clamp(20px,3vw,34px); }
+.q1-detail-panel h3 { display: flex; align-items: center; gap: 10px; margin: 0 0 16px; color: #f8fafc; font-size: clamp(17px,1.8vw,22px); line-height: 1.35; }
+.q1-detail-point { border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius-md); background: rgba(9,14,27,.58); clip-path: polygon(2% 0,98% 0,100% 5%,100% 95%,98% 100%,2% 100%,0 95%,0 5%); }
+.q1-detail-mark { display: inline-grid; place-items: center; width: 24px; height: 24px; border: 1.5px solid currentColor; border-radius: 50%; font-size: 12px; }
+.q1-detail-list { display: flex; flex-wrap: wrap; gap: 9px; margin: 0; padding: 0; list-style: none; }
+.q1-detail-list li { padding: 8px 11px; border: 1px solid rgba(196,181,253,.22); border-radius: 999px; background: rgba(196,181,253,.08); color: #e2e8f0; font-size: 13px; line-height: 1.4; }
+.q1-detail-highlight { position: relative; overflow: hidden; border: 1px solid rgba(196,181,253,.24); border-radius: var(--radius-md); background: linear-gradient(145deg,rgba(139,92,246,.28),rgba(49,46,129,.35)); color: #fff; clip-path: polygon(3% 0,100% 0,100% 100%,3% 100%,0 92%,0 8%); }
+.q1-detail-highlight h3 { color: #ddd6fe; }
+.q1-detail-highlight p { max-width: 36em; margin: 0; color: #d5dce8; font-size: 15px; line-height: 1.75; }
+.q1-detail-footer { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding-top: 18px; color: #91a0b7; font: 700 10px/1.4 ui-monospace,'SFMono-Regular',Consolas,monospace; letter-spacing: .12em; }
+.q1-detail-back { color: #ddd6fe; font: inherit; letter-spacing: .04em; text-decoration: none; }
+.q1-detail-back:hover { text-decoration: underline; }
+.act-footer { flex: 0 0 auto; width: 100%; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--sp-line); color: var(--sp-fg-mute); font-size: 11px; text-align: right; }
+
+.reveal { opacity: 1; transform: translateY(0); transition: opacity .6s ease, transform .6s cubic-bezier(.22,1,.36,1); transition-delay: calc(var(--i,0) * 70ms); }
+.js-on .reveal:not(.in) { opacity: 0; transform: translateY(34px); }
+
+@media (max-width: 900px) {
+  .venue-list { grid-template-columns: repeat(2,minmax(0,1fr)); grid-template-rows: repeat(4,minmax(0,1fr)); }
+  .ai-grid { grid-template-columns: repeat(2,minmax(0,1fr)); overflow-y: auto; }
+  .ai-grid .venue-item { min-height: 190px; }
+  section[data-block]::before { left: 26px; }
+}
+@media (max-height: 700px) {
+  section[data-block] .container { padding-top: 64px; padding-bottom: 26px; }
+  .hero-display { font-size: clamp(54px,9vw,104px); }
+  #faq .faq-flow { max-height: 58vh; }
+  .venue-list { margin-top: 10px; gap: 9px; }
+  .ai-grid { margin-top: 10px; }
+}
+@media (max-width: 640px) {
+  body { font-size: 15px; }
+  .mini-map { right: 10px; gap: 12px; }
+  .mini-map .label { right: 21px; }
+  section[data-block]::before { top: 20px; left: 20px; font-size: 9px; }
+  section[data-block][data-act="2026 Dialogue and Year-end Review"]::before { left: auto; right: 20px; }
+  section[data-block] .container { padding: 58px 42px 24px 20px; }
+  #hero .container { padding-right: 36px; }
+  .hero-display { font-size: clamp(48px,14vw,78px); }
+  .hero-sub { font-size: 15px; margin-bottom: 24px; }
+  .btn { min-height: 42px; padding-inline: 17px; font-size: 13px; }
+  .section-h1 { font-size: clamp(28px,8vw,40px); }
+  .faq-slide .section-h1 { font-size: clamp(28px,8vw,40px); }
+  #faq .faq-flow { max-height: 65vh; padding-right: 4px; }
+  #faq details { padding-inline: 13px; }
+  #faq summary { padding: 14px 0; font-size: 14px; }
+  #faq .stats-grid { grid-template-columns: 1fr; gap: 8px; }
+  .faq-callouts { grid-template-columns: 1fr; margin-top: 14px; }
+  #faq .stat-card { padding: 11px; }
+  #faq .stat-number { font-size: 13px; }
+  #faq .stat-card .stat-label { font-size: 11px; }
+  #venues { height: auto; min-height: 100svh; overflow: visible; scroll-snap-stop: normal; }
+  #venues .container { height: auto; min-height: 100svh; justify-content: flex-start; padding-bottom: 32px; }
+  .venue-list { flex: none; grid-template-columns: repeat(2,minmax(0,1fr)); grid-template-rows: none; grid-auto-rows: minmax(132px,22vh); gap: 8px; }
+  .venue-body { padding: 11px; }
+  .venue-name { font-size: 13px; }
+  .venue-sub { font-size: 9px; }
+  .ai-grid { grid-template-columns: 1fr; grid-auto-rows: minmax(190px,1fr); gap: 10px; }
+  .ai-grid .venue-item { min-height: 190px; }
+  .ai-venue-description { font-size: 11px; }
+  .faq-venue-description { font-size: 11px; }
+  .q1-detail-overlay { padding: 14px; }
+  .q1-detail-brand { padding: 10px 17px; font-size: 14px; }
+  .q1-detail-close { padding: 8px 12px; font-size: 11px; }
+  .q1-detail-hero { grid-template-columns: 1fr; gap: 0; min-height: 0; padding: 22px 3px 20px; }
+  .q1-detail-panels { grid-template-columns: 1fr; gap: 10px; }
+  .q1-detail-panels.is-collab-layout { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+  .q1-gallery-stage { height: clamp(240px,40vh,340px); }
+  .q1-detail-image.is-active { left: calc(50% - min(23%,170px)); width: min(46%,340px); }
+  .q1-detail-image.is-prev, .q1-detail-image.is-next, .q1-detail-image.is-far-prev, .q1-detail-image.is-far-next { width: min(22%,160px); }
+  .q1-detail-image.is-prev { left: 12%; }
+  .q1-detail-image.is-next { left: calc(88% - min(22%,160px)); }
+  .q1-detail-image.is-far-prev { left: 0; }
+  .q1-detail-image.is-far-next { left: calc(100% - min(22%,160px)); }
+  .q1-gallery-arrow { width: 34px; height: 34px; font-size: 17px; }
+  .q1-gallery-arrow--prev { left: 24%; }
+  .q1-gallery-arrow--next { right: 24%; }
+  .q1-detail-panel { min-height: 0; padding: 18px; }
+  .q1-detail-panel h3 { margin-bottom: 10px; font-size: 17px; }
+  .q1-detail-list { gap: 6px; }
+  .q1-detail-list li { padding: 6px 9px; font-size: 11px; }
+  .q1-detail-highlight p { font-size: 13px; }
+  .q1-detail-panels.is-collab-layout .q1-detail-highlight { padding: 14px; }
+  .q1-image-lightbox { padding: 0; }
+  .q1-image-copy { left: 20px; width: min(44vw,270px); max-height: calc(100svh - 80px); }
+  .q1-image-copy h2 { font-size: clamp(28px,6vw,42px); }
+  .q1-image-copy p { font-size: 14px; line-height: 1.7; }
+  .q1-image-detail-slide { grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr); gap: 12px; padding: 58px 18px 24px; }
+  .q1-image-detail-copy-label { margin-bottom: 10px; font-size: 9px; }
+  .q1-image-detail-copy h2 { margin-bottom: 12px; font-size: clamp(25px,6vw,38px); }
+  .q1-image-detail-copy p { font-size: 13px; line-height: 1.7; }
+  .q1-image-detail-visual { width: min(48vh,42vw,300px); }
+  .q1-image-project-slide { padding: 54px 18px 20px; gap: 14px; }
+  .q1-image-project-hero { grid-template-columns: minmax(0,1.05fr) minmax(0,.95fr); gap: 12px; }
+  .q1-image-project-brand { margin-bottom: 10px; padding: 7px 10px; font-size: 10px; }
+  .q1-image-project-copy h2 { margin-bottom: 10px; font-size: clamp(24px,5.5vw,36px); }
+  .q1-image-project-copy p { font-size: 12px; line-height: 1.65; }
+  .q1-image-project-visual { aspect-ratio: 1 / 1; border-radius: 14px 4px 14px 4px; }
+  .q1-image-project-panels { gap: 8px; }
+  .q1-image-project-panel { min-height: 0; padding: 12px; border-radius: 4px 12px 4px 12px; }
+  .q1-image-project-panel h3 { margin-bottom: 8px; font-size: 14px; }
+  .q1-image-project-panel p { font-size: 11px; line-height: 1.6; }
+  .q1-image-close { top: 14px; right: 14px; width: 38px; height: 38px; font-size: 23px; }
+  .q1-detail-footer { padding-top: 12px; font-size: 9px; }
+  .act-footer { font-size: 10px; }
+  .modal-backdrop { padding: 12px; }
+  .modal { max-height: 90vh; }
+  .modal img { max-height: 30vh; }
+}
+@media (max-width: 480px) {
+  .q1-detail-panels.is-collab-layout { grid-template-columns: 1fr; }
+  .q1-detail-panels.is-collab-layout .q1-detail-highlight { aspect-ratio: auto; min-height: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .reveal, .js-on .reveal:not(.in) { opacity: 1 !important; transform: none !important; }
+}
+</style>
+<style id="q1-preview-polish">
+  .q1-image-visual {
+    transform-origin: center center;
+    will-change: transform;
+    backface-visibility: hidden;
+    contain: paint;
+  }
+  @media (min-width: 761px) {
+    .q1-image-project-hero {
+      gap: clamp(24px, 5vw, 40px) !important;
+    }
+  }
+</style>
+<style id="q1-project-gallery-style">
+  .q1-image-project-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(10px, 1.5vw, 18px);
+    flex: 0 0 auto;
+    height: clamp(120px, 18vh, 180px);
+  }
+  .q1-image-project-gallery[hidden], .q1-image-project-panels[hidden] { display: none !important; }
+  .q1-image-project-gallery-item {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-width: 0;
+    height: clamp(120px, 18vh, 180px);
+    overflow: hidden;
+    border: 1px solid rgba(196,181,253,.24);
+    border-radius: 4px 16px 4px 16px;
+    background: #0b1020;
+    box-shadow: 0 14px 36px rgba(5,7,24,.24);
+  }
+  .q1-image-project-gallery-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform .35s ease;
+  }
+  .q1-image-project-gallery-item::after {
+    position: absolute;
+    inset: 45% 0 0;
+    content: "";
+    background: linear-gradient(transparent,rgba(8,10,24,.86));
+    pointer-events: none;
+  }
+  .q1-image-project-gallery-item span {
+    position: absolute;
+    right: 14px;
+    bottom: 12px;
+    left: 14px;
+    z-index: 1;
+    color: #f8fafc;
+    font-size: clamp(12px,1.2vw,16px);
+    font-weight: 750;
+    text-shadow: 0 2px 12px rgba(0,0,0,.5);
+  }
+  .q1-image-project-gallery-item:hover img,
+  .q1-image-project-gallery-item:focus-visible img { transform: scale(1.035); }
+  .q1-image-project-gallery-item:focus-visible { outline: 2px solid #c4b5fd; outline-offset: 3px; }
+  .q1-image-project-hero[hidden], .q1-image-project-single-image[hidden] { display: none !important; }
+  .q1-image-project-single-image {
+    display: grid;
+    place-items: center;
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+    width: 100%;
+    overflow: hidden;
+  }
+  .q1-image-project-slide.is-single-image { gap: 0; padding: 0; background: #000; }
+  .q1-image-project-single-image a { display: block; width: 100%; height: 100%; cursor: zoom-in; }
+  .q1-image-project-single-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border: 0;
+    border-radius: 0;
+    background: #000;
+  }
+  @media (max-width: 760px) {
+    .q1-image-project-gallery { gap: 8px; height: clamp(78px,16vh,112px); }
+    .q1-image-project-gallery-item { height: clamp(78px,16vh,112px); border-radius: 4px 10px 4px 10px; }
+    .q1-image-project-gallery-item span { right: 7px; bottom: 7px; left: 7px; font-size: 9px; }
+  .q1-image-project-slide.is-concert-project .q1-image-project-hero { grid-template-columns: minmax(0,1fr); flex: 0 0 auto; gap: 10px; }
+  .q1-image-project-slide.is-concert-project .q1-image-project-copy h2 { margin-bottom: 6px; font-size: clamp(20px,4vw,30px); }
+  .q1-image-project-slide.is-concert-project .q1-image-project-copy p { font-size: 12px; line-height: 1.55; }
+  .q1-image-project-slide.is-concert-project { gap: 18px; }
+  .q1-image-project-slide.is-concert-project .q1-image-project-visual { height: clamp(180px,30vh,250px); aspect-ratio: auto; }
+  .q1-image-project-concert-gallery { grid-template-columns: minmax(0,1.35fr) minmax(0,.85fr); gap: 12px; height: clamp(180px,30vh,240px); }
+  .q1-image-project-slide.is-seven-eleven-project .q1-image-project-hero { grid-template-columns: minmax(0,1fr); flex: 0 0 auto; gap: 10px; }
+  .q1-image-project-package-gallery { width: 100%; margin: 0; }
+  .q1-image-concert-collab-slide { grid-template-columns: 1fr; align-content: center; gap: 18px; padding: 58px 18px 22px; }
+  .q1-image-concert-collab-media { width: auto; height: clamp(220px,52vh,420px); max-width: 100%; aspect-ratio: 1.05 / 1; }
+  .q1-image-concert-collab-copy h2 { margin-bottom: 10px; font-size: clamp(25px,6vw,38px); }
+  .q1-image-concert-collab-copy p { font-size: 14px; line-height: 1.7; }
+  .q1-image-concert-detail-slide { grid-template-columns: 1fr; align-content: center; gap: 18px; padding: 58px 18px 22px; }
+  .q1-image-concert-detail-visual { width: 100%; max-height: 44vh; }
+  .q1-image-concert-detail-visual img { max-height: 44vh; }
+  .q1-image-concert-detail-copy h2 { margin-bottom: 10px; font-size: clamp(25px,6vw,38px); }
+  .q1-image-concert-detail-copy p { font-size: 14px; line-height: 1.7; }
+  .q1-image-concert-venue-slide { justify-content: center; gap: 18px; padding: 58px 18px 22px; }
+  .q1-image-concert-venue-copy h2 { font-size: clamp(24px,6vw,36px); }
+.q1-image-concert-venue-visual { max-height: 45vh; gap: 10px; }
+.q1-image-concert-venue-visual img:first-child { max-height: 34vh; }
+.q1-image-concert-venue-visual img:nth-child(2) { max-height: 8vh; }
+  }
+</style>
+<style id="q1-expanding-gallery-style">
+  .q1-detail-gallery--expanding { margin-top: 18px; }
+  .q1-detail-gallery--expanding .q1-gallery-stage {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+    height: clamp(320px, 48vh, 500px);
+    overflow: hidden;
+  }
+  .q1-detail-gallery--expanding .q1-detail-image {
+    position: relative;
+    inset: auto;
+    display: block;
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    height: 100%;
+    aspect-ratio: auto;
+    z-index: 1;
+    opacity: 1;
+    filter: none;
+    border-color: rgba(196,181,253,.26);
+    border-radius: var(--radius-md);
+    cursor: zoom-in;
+    transition: flex-grow .6s cubic-bezier(.22,.61,.36,1), border-color .2s ease, box-shadow .2s ease;
+  }
+  .q1-detail-gallery--expanding .q1-detail-image:hover,
+  .q1-detail-gallery--expanding .q1-detail-image:focus-visible {
+    flex-grow: 4;
+    z-index: 2;
+    border-color: #c4b5fd;
+    box-shadow: 0 16px 36px rgba(7,8,25,.32);
+    outline: none;
+  }
+  .q1-detail-gallery--expanding .q1-detail-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .q1-detail-gallery--expanding .q1-detail-image::after {
+    position: absolute;
+    inset: 35% 0 0;
+    content: "";
+    background: linear-gradient(180deg, transparent, rgba(11,10,26,.82));
+    opacity: .86;
+    pointer-events: none;
+  }
+  .q1-detail-gallery--expanding .q1-expanding-title {
+    position: absolute;
+    left: 18px;
+    bottom: 18px;
+    z-index: 1;
+    max-width: calc(100% - 36px);
+    color: #f8fafc;
+    font-size: clamp(13px,1.25vw,17px);
+    font-weight: 800;
+    line-height: 1.4;
+    text-align: left;
+    text-shadow: 0 2px 12px rgba(7,8,25,.72);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .28s ease, transform .28s ease;
+    transition-delay: 0s;
+    pointer-events: none;
+  }
+  .q1-detail-gallery--expanding .q1-detail-image:hover .q1-expanding-title,
+  .q1-detail-gallery--expanding .q1-detail-image:focus-visible .q1-expanding-title {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: .6s;
+  }
+  @media (max-width: 640px) {
+    .q1-detail-gallery--expanding .q1-gallery-stage { gap: 6px; height: clamp(240px,38vh,340px); }
+    .q1-detail-gallery--expanding .q1-expanding-title {
+      left: 8px;
+      bottom: 10px;
+      max-width: calc(100% - 16px);
+      font-size: 11px;
+      line-height: 1.35;
+    }
+  }
+  @media (hover: none) {
+    .q1-detail-gallery--expanding .q1-expanding-title { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .q1-detail-gallery--expanding .q1-detail-image { transition: none; }
+    .q1-detail-gallery--expanding .q1-expanding-title { transition: none; }
+  }
+</style>
+<style id="hero-direction-fill-button-style">
+  #hero .btn.direction-fill {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-color: rgba(255,255,255,.42);
+    background: rgba(255,255,255,.04);
+    color: #f8fafc;
+    transition: transform .2s ease, border-color .3s ease, color .3s ease;
+  }
+  #hero .btn.direction-fill::before {
+    position: absolute;
+    top: var(--fill-y, 50%);
+    left: var(--fill-x, 50%);
+    z-index: 0;
+    width: var(--fill-size, 0px);
+    height: var(--fill-size, 0px);
+    border-radius: 50%;
+    background: var(--act-color);
+    content: "";
+    pointer-events: none;
+    transform: translate(-50%,-50%) scale(0);
+    transition: transform .55s cubic-bezier(.4,0,.2,1);
+  }
+  #hero .btn.direction-fill > span { position: relative; z-index: 1; color: inherit; }
+  #hero .btn.direction-fill.is-filled,
+  #hero .btn.direction-fill.is-filled:hover { border-color: var(--act-color); background: rgba(255,255,255,.04); color: #111226; }
+  #hero .btn.direction-fill.is-filled::before { transform: translate(-50%,-50%) scale(1); }
+  @media (prefers-reduced-motion: reduce) {
+    #hero .btn.direction-fill,
+    #hero .btn.direction-fill::before { transition-duration: .01ms; }
+  }
+</style>
+<style id="q1-detail-modal-style">
+  .q1-detail-overlay.is-modal {
+    align-items: stretch;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: clamp(12px,3vw,34px);
+    background: rgba(9,14,27,.52);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+  }
+  .q1-detail-overlay.is-modal .q1-detail-brand { display: none; }
+  .q1-detail-overlay.is-modal.open {
+    display: flex;
+    animation: q1-modal-backdrop-in .35s ease both;
+  }
+  .q1-detail-overlay.is-modal.open.is-fading-out {
+    animation: q1-modal-backdrop-out .26s ease both;
+    pointer-events: none;
+  }
+  .q1-detail-overlay.is-modal .q1-detail-page {
+    box-sizing: border-box;
+    width: min(100%,1160px);
+    min-height: 0;
+    max-height: 90vh;
+    max-height: 90dvh;
+    overflow-y: auto;
+    margin: auto;
+    padding: clamp(18px,3vw,34px);
+    border: 1px solid rgba(196,181,253,.28);
+    border-radius: 24px;
+    background: radial-gradient(ellipse at 84% 18%,rgba(139,92,246,.2),transparent 42%),linear-gradient(135deg,#111226 0%,#1b1735 55%,#10172a 100%);
+    box-shadow: 0 32px 100px rgba(0,0,0,.52);
+  }
+  .q1-detail-overlay.is-modal.open .q1-detail-page {
+    animation: q1-modal-dialog-in .58s cubic-bezier(.2,.85,.3,1.15) both;
+  }
+  .q1-detail-overlay.is-modal.open.is-fading-out .q1-detail-page {
+    animation: q1-modal-dialog-out .24s ease-in both;
+  }
+  .q1-detail-overlay.is-modal .q1-detail-hero { padding: 18px 4px 20px; }
+  .q1-detail-overlay.is-modal .q1-gallery-stage { height: clamp(260px,38vh,380px); }
+  @keyframes q1-modal-backdrop-in {
+    from { opacity: 0; -webkit-backdrop-filter: blur(0); backdrop-filter: blur(0); }
+    to { opacity: 1; -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); }
+  }
+  @keyframes q1-modal-backdrop-out {
+    from { opacity: 1; -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); }
+    to { opacity: 0; -webkit-backdrop-filter: blur(0); backdrop-filter: blur(0); }
+  }
+  @keyframes q1-modal-dialog-in {
+    0% { opacity: 0; transform: translateY(24px) scale(.9); }
+    72% { opacity: 1; transform: translateY(-3px) scale(1.018); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes q1-modal-dialog-out {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to { opacity: 0; transform: translateY(16px) scale(.9); }
+  }
+  @media (max-width: 640px) {
+    .q1-detail-overlay.is-modal { padding: 10px; }
+    .q1-detail-overlay.is-modal .q1-detail-page { max-height: 94vh; max-height: 94dvh; padding: 16px; border-radius: 18px; }
+    .q1-detail-overlay.is-modal .q1-gallery-stage { height: clamp(220px,34vh,300px); }
+  }
+</style>
+<style>
+  .q1-detail-panels.is-workflow-layout {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: clamp(16px, 2.4vw, 30px);
+    margin-top: clamp(24px, 4vh, 48px);
+  }
+  .q1-detail-panels.is-workflow-layout .q1-detail-panel {
+    min-width: 0;
+    min-height: 210px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(22px, 3vw, 38px);
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: var(--radius-md, 20px);
+    clip-path: none;
+  }
+  .q1-detail-panels.is-workflow-layout .q1-detail-point {
+    background: rgba(9, 14, 27, .58);
+  }
+  .q1-detail-panels.is-workflow-layout .q1-detail-highlight {
+    background: linear-gradient(145deg, rgba(139, 92, 246, .28), rgba(49, 46, 129, .35));
+  }
+  .q1-detail-panels.is-workflow-layout .q1-detail-mark {
+    display: none;
+  }
+  .q1-detail-panels.is-workflow-layout .q1-detail-panel h3 {
+    margin: 0 0 14px;
+  }
+  .q1-detail-workflow-copy {
+    max-width: 42em;
+    margin: 0;
+    color: #d5dce8;
+    font-size: clamp(15px, 1.45vw, 18px);
+    line-height: 1.8;
+  }
+  .q1-detail-workflow-copy[hidden] {
+    display: none !important;
+  }
+  @media (max-width: 760px) {
+    .q1-detail-panels.is-workflow-layout {
+      grid-template-columns: 1fr;
+    }
+    .q1-detail-panels.is-workflow-layout .q1-detail-panel {
+      min-height: 0;
+    }
+  }
+</style>
+<style>
+      .q2-tool-popup-backdrop{position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;padding:24px;background:rgba(8,7,22,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;transition:opacity .3s ease}
+      .q2-tool-popup-backdrop.is-open{opacity:1}
+      .q2-tool-popup{position:relative;width:min(760px,100%);max-height:min(82vh,760px);overflow:auto;padding:clamp(24px,5vw,48px);border:1px solid rgba(190,170,255,.3);border-radius:24px;background:linear-gradient(145deg,rgba(22,20,45,.98),rgba(43,32,77,.98));box-shadow:0 28px 90px rgba(0,0,0,.48);color:#f5f2ff;transform:translateY(16px) scale(.96);transition:transform .42s cubic-bezier(.2,.8,.2,1)}
+      .q2-tool-popup-backdrop.is-open .q2-tool-popup{transform:translateY(0) scale(1)}
+      .q2-tool-popup-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:32px}
+      .q2-tool-popup-back,.q2-tool-popup-close{border:1px solid rgba(208,193,255,.34);background:rgba(255,255,255,.05);color:inherit;cursor:pointer}
+      .q2-tool-popup-back{padding:10px 16px;border-radius:999px;font:inherit;font-size:14px;font-weight:700}
+      .q2-tool-popup-close{width:42px;height:42px;border-radius:50%;font-size:24px;line-height:1}
+      .q2-tool-popup-label{margin:0 0 12px;color:#c8b5ff;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+      .q2-tool-popup h2{margin:0 0 20px;font-size:clamp(28px,4vw,42px);line-height:1.2;color:#fff}
+      .q2-tool-popup-copy{font-size:clamp(16px,1.8vw,19px);line-height:1.9;color:rgba(241,237,255,.84);white-space:pre-line}
+      .q2-tool-popup-trigger{cursor:pointer;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+      .q2-tool-popup-trigger:hover,.q2-tool-popup-trigger:focus-visible{transform:translateY(-3px);border-color:rgba(193,169,255,.72);box-shadow:0 14px 36px rgba(20,12,54,.28);outline:none}
+      @media(max-width:640px){.q2-tool-popup-backdrop{padding:12px}.q2-tool-popup{max-height:88vh;padding:22px;border-radius:20px}.q2-tool-popup-top{margin-bottom:24px}}
+    </style></head>
+<body data-motion-type="scroll-driven">
+
+<div class="progress-bar" aria-hidden="true"><span class="fill"></span></div>
+
+<nav class="mini-map" aria-label="章節導覽">
+  <a href="#hero" class=""><span class="dot"></span><span class="label">首頁</span></a>
+  <a href="#faq-q1" class="active" aria-current="location"><span class="dot"></span><span class="label">Q&amp;A</span></a>
+  <a href="#venues"><span class="dot"></span><span class="label">專案</span></a>
+  <a href="#ai-apps"><span class="dot"></span><span class="label">AI應用</span></a>
+</nav>
+
+<main>
+
+<section id="hero" data-block="" data-act="2026 Dialogue and Year-end Review">
+  <div class="container">
+    <div class="inner reveal in">
+      <div class="section-label">年終考核 2026</div>
+      <h1 class="hero-display">Tammy年終對談</h1>
+      <p class="hero-sub">2026 年終考核報告，記錄個人的專案。</p>
+      <div class="btn-group">
+        <a href="#faq-q1" class="btn direction-fill"><span>Q&amp;A</span> <span aria-hidden="true">↘</span></a>
+        <a href="#venues" class="btn direction-fill"><span>專案</span> <span aria-hidden="true">↘</span></a>
+        <a href="#ai-apps" class="btn direction-fill"><span>AI應用</span> <span aria-hidden="true">↘</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" data-block="" data-act="2026 Dialogue and Year-end Review">
+  <div class="container">
+    <div class="faq-pages">
+      <article class="faq-slide" id="faq-q1" data-q="01">
+        <div class="faq-slide-content">
+          <div class="section-label reveal in">Q&amp;A · QUESTION 01 / 03</div>
+          <h2 class="section-h1 reveal in">題目一｜年度關鍵成果</h2>
+          <p class="faq-lead reveal in">今年完成遊戲活動、線下視覺及實體商品設計，並透過溝通協作推動專案落地。</p>
+          <div class="stats-grid q1-key-result-grid reveal in">
+            <article class="venue-item" role="button" tabindex="0" aria-label="查看遊戲內活動視覺詳情" onclick="openQ1Detail(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openQ1Detail(0)}">
+              <div class="venue-tint"></div><div class="venue-overlay"></div>
+              <div class="venue-body"><div class="q1-key-card-copy"><div class="venue-name">遊戲內活動視覺</div><p class="faq-venue-description">完成體育季賓果、靈靈造型、七日簽到、周年慶回流及冰雪節兌換等活動設計，完成多元視覺需求並協助成果落地。</p></div></div>
+            </article>
+            <article class="venue-item" role="button" tabindex="0" aria-label="查看線下活動與實體商品詳情" onclick="openQ1Detail(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openQ1Detail(1)}">
+              <div class="venue-tint"></div><div class="venue-overlay"></div>
+              <div class="venue-body"><div class="q1-key-card-copy"><div class="venue-name">線下活動與實體商品</div><p class="faq-venue-description">參與大巨蛋演唱會視覺、影片及會場輸出物設計監修；完成邀請函、7-11商品包裝與手機殼設計。</p></div></div>
+            </article>
+            <article class="venue-item" role="button" tabindex="0" aria-label="查看專案溝通與協作詳情" onclick="openQ1Detail(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openQ1Detail(2)}">
+              <div class="venue-tint"></div><div class="venue-overlay"></div>
+              <div class="venue-body"><div class="q1-key-card-copy"><div class="venue-name">專案溝通與協作</div><p class="faq-venue-description">協助外包團隊調整設計稿、運用素材及操作軟體，推進製作流程。</p></div></div>
+            </article>
+            <article class="venue-item" role="button" tabindex="0" aria-label="查看人工智慧應用與流程優化詳情" onclick="openQ1Detail(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openQ1Detail(3)}">
+              <div class="venue-tint"></div><div class="venue-overlay"></div>
+              <div class="venue-body"><div class="q1-key-card-copy"><div class="venue-name">人工智慧應用與流程優化</div><p class="faq-venue-description">製作技能工具，簡化素材產出流程，加快與騰訊的需求對焦與溝通。</p></div></div>
+            </article>
+          </div>
+          <section class="q1-workflow-note reveal in" aria-labelledby="q1-workflow-note-title">
+            <h3 id="q1-workflow-note-title">工作流程中的主要痛點</h3>
+            <p>今年主要負責多項遊戲內活動製作。執行期間較大的挑戰，是與原廠溝通及後期提出的修改。部分需求要等到成品完成後，才會出現新的方向或圖片調整，因此製作過程常需等待較長時間並多次修改，增加溝通與時程安排的成本。</p>
+          </section>
+          <nav class="faq-page-nav" aria-label="考核問答頁面">
+            <span class="faq-page-count">01 <i>/</i> 03</span>
+            <div><a class="current" href="#faq-q1" aria-current="page">01</a><a href="#faq-q2">02</a><a href="#faq-q3">03</a></div>
+          </nav>
+        </div>
+      </article>
+
+      <article class="faq-slide" id="faq-q2" data-q="02" data-tool-popups-ready="true" data-q2-venue-cards-ready="true">
+        <div class="faq-slide-content">
+          <div class="section-label reveal in">Q&amp;A · QUESTION 02 / 03</div>
+          <h2 class="section-h1 reveal in">題目二｜人工智慧應用成果</h2>
+          <p class="faq-lead reveal in">提升遊戲活動製作效率，確保產出符合需求</p>
+          <div class="faq-callouts reveal in stats-grid q1-key-result-grid q2-tool-grid">
+      <article class="venue-item q2-tool-card" role="button" tabindex="0" aria-label="VI 轉活動彈窗" onclick="openQ2ToolDetail(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openQ2ToolDetail(0)}">
+        <div class="venue-tint"></div><div class="venue-overlay"></div>
+        <div class="venue-body"><div class="q1-key-card-copy"><div class="venue-name">VI 轉活動彈窗</div></div></div>
+      </article>
+      <article class="venue-item q2-tool-card" role="button" tabindex="0" aria-label="PSD 自動轉存效果圖" onclick="openQ2ToolDetail(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openQ2ToolDetail(1)}">
+        <div class="venue-tint"></div><div class="venue-overlay"></div>
+        <div class="venue-body"><div class="q1-key-card-copy"><div class="venue-name">PSD 自動轉存效果圖</div></div></div>
+      </article></div>
+          <nav class="faq-page-nav" aria-label="考核問答頁面">
+            <span class="faq-page-count">02 <i>/</i> 03</span>
+            <div><a href="#faq-q1">01</a><a class="current" href="#faq-q2" aria-current="page">02</a><a href="#faq-q3">03</a></div>
+          </nav>
+        </div>
+      </article>
+
+      <article class="faq-slide" id="faq-q3" data-q="03">
+        <div class="faq-slide-content faq-slide-last">
+          <div class="section-label reveal in">Q&amp;A · QUESTION 03 / 03</div>
+          <h2 class="section-h1 reveal in">題目三｜能力與工作方式發展</h2>
+         <div class="stats-grid reveal in">
+            <article class="stat-card"><span class="stat-number">上半年｜人工智慧實作</span><span class="stat-label">完成旅遊記事、小遊戲及英文翻譯三項小型專案，練習整理需求與運用人工智慧完成任務。</span></article>
+            <article class="stat-card"><span class="stat-number">下半年｜流程工具化</span><span class="stat-label">製作兩個技能工具，簡化工作流程，加快視覺素材產出及與原廠的溝通修正。</span></article>
+            <article class="stat-card"><span class="stat-number">明年｜深化應用</span><span class="stat-label">將人工智慧工具融入日常設計流程，提升產出效率與協作順暢度。</span></article>
+          
+          </div>
+
+          <nav class="faq-page-nav" aria-label="考核問答頁面">
+            <span class="faq-page-count">03 <i>/</i> 03</span>
+            <div><a href="#faq-q1">01</a><a href="#faq-q2">02</a><a class="current" href="#faq-q3" aria-current="page">03</a></div>
+            <a class="next-section" href="#venues">前往專案 <span aria-hidden="true">↘</span></a>
+          </nav>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="venues" data-block="" data-act="2026 Dialogue and Year-end Review">
+  <div class="container">
+    <div class="section-label reveal in">Projects · 專案</div>
+    <h2 class="section-h1 reveal in">2026年專案一覽</h2>
+    <p class="reveal">點擊各專案查看詳細進展與成果。</p>
+    <div class="venue-list">
+      <article class="venue-item reveal" style="--i:0" role="button" tabindex="0" aria-label="足球賓果整體活動視覺設計" onclick="openQ1ProjectFromVenue('game',0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openQ1ProjectFromVenue('game',0)}">
+        <div class="venue-carousel" aria-hidden="true"><div class="venue-track">
+          <img class="venue-bg" src="assets/projects/bingo大圖.png" alt="">
+          <img class="venue-bg" src="assets/projects/bingo_頁面.jpg" alt="">
+          <img class="venue-bg" src="portfolio-assets/football-bingo/拍臉示意.png" alt="">
+          <img class="venue-bg" src="portfolio-assets/football-bingo/頁籤icon圖_預覽圖.png" alt="">
+        </div></div>
+        <div class="venue-tint"></div><div class="venue-overlay"></div>
+        <div class="venue-body"><p class="venue-sub">題目一 · 遊戲活動</p><div class="venue-name">足球賓果整體活動視覺設計</div></div>
+      </article>
+      <article class="venue-item reveal" style="--i:1" role="button" tabindex="0" aria-label="靈靈星月童話活動與拍臉設計" onclick="openQ1ProjectFromVenue('game',1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openQ1ProjectFromVenue('game',1)}">
+        <div class="venue-carousel" aria-hidden="true"><div class="venue-track">
+          <img class="venue-bg" src="assets/projects/靈靈大圖.png" alt="">
+          <img class="venue-bg" src="assets/projects/靈靈-星月童話ilua.png" alt="">
+          <img class="venue-bg" src="assets/projects/靈靈大圖.png" alt="">
+          <img class="venue-bg" src="assets/projects/靈靈-星月童話ilua.png" alt="">
+        </div></div>
+        <div class="venue-tint"></div><div class="venue-overlay"></div>
+        <div class="venue-body"><p class="venue-sub">題目一 · 遊戲活動</p><div class="venue-name">靈靈星月童話活動與拍臉設計</div></div>
+      </article>
+      <article class="venue-item reveal" style="--i:2" role="button" tabindex="0" aria-label="IP簽到活動與稱號設計" onclick="openQ1ProjectFromVenue('game',2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openQ1ProjectFromVenue('game',2)}">
+        <div class="venue-carousel" aria-hidden="true"><div class="venue-track">
+          <img class="venue-bg" src="assets/projects/IP大圖.png" alt="">
+          <img class="venue-bg" src="assets/projects/ilua_0701.png" alt="">
+          <img class="venue-bg" src="assets/projects/IP大圖.png" alt="">
+          <img class="venue-bg" src="assets/projects/ilua_0701.png" alt="">
+        </div></div>
+        <div class="venue-tint"></div><div class="venue-overlay"></div>
+        <div class="venue-body"><p class="venue-sub">題目一 · 遊戲活動</p><div class="venue-name">IP簽到活動與稱號設計</div></div>
+      </article>
+      <article class="venue-item reveal" style="--i:3" role="button" tabindex="0" aria-label="周年慶回流活動" onclick="openQ1ProjectFromVenue('game',3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openQ1ProjectFromVenue('game',3)}">
+        <div class="venue-carousel" aria-hidden="true"><div class="venue-track">
+          <img class="venue-bg" src="assets/projects/回流大圖.png" alt="">
+          <img class="venue-bg" src="assets/projects/主界面0922.jpg" alt="">
+          <img class="venue-bg" src="assets/projects/回流大圖.png" alt="">
+          <img class="venue-bg" src="assets/projects/主界面0922.jpg" alt="">
+        </div></div>
+        <div class="venue-tint"></div><div class="venue-overlay"></div>
+        <div class="venue-body"><p class="venue-sub">題目一 · 遊戲活動</p><div class="venue-name">周年慶回流活動</div></div>
+      </article>
+      <article class="venue-item reveal" style="--i:4" role="button" tabindex="0" aria-label="冰雪節兌換活動" onclick="openQ1ProjectFromVenue('game',4)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openQ1ProjectFromVenue('game',4)}">
+        <div class="venue-carousel" aria-hidden="true"><div class="venue-track">
+          <img class="venue-bg" src="assets/projects/冰雪大圖.png" alt="">
+          <img class="venue-bg" src="assets/projects/主介面-每日.jpg" alt="">
+          <img class="venue-bg" src="assets/projects/冰雪大圖.png" alt="">
+          <img class="venue-bg" src="assets/projects/主介面-每日.jpg" alt="">
+        </div></div>
+        <div class="venue-tint"></div><div class="venue-overlay"></div>
+        <div class="venue-body"><p class="venue-sub">題目一 · 遊戲活動</p><div class="venue-name">冰雪節兌換活動</div></div>
+      </article>
+      <article class="venue-item reveal" style="--i:5" role="button" tabindex="0" aria-label="大巨蛋演唱會整體視覺 VI 設計" onclick="openQ1ProjectFromVenue('offline',0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openQ1ProjectFromVenue('offline',0)}">
+        <div class="venue-carousel" aria-hidden="true"><div class="venue-track">
+          <img class="venue-bg" src="assets/projects/演唱會KV_final-0820.jpg" alt="">
+          <img class="venue-bg" src="assets/projects/演唱會邀請函.png" alt="">
+          <img class="venue-bg" src="assets/projects/大巨蛋弧形廣場貼.png" alt="">
+          <img class="venue-bg" src="assets/projects/7-11商品包裝完成示意.png" alt="">
+        </div></div>
+        <div class="venue-tint"></div><div class="venue-overlay"></div>
+        <div class="venue-body"><p class="venue-sub">題目一 · 線下延伸</p><div class="venue-name">將遊戲延伸至實體商品及演唱會視覺</div></div>
+      </article>
+      <article class="venue-item reveal" style="--i:6" role="button" tabindex="0" aria-label="手機殼設計" onclick="openQ1ProjectFromVenue('offline',2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openQ1ProjectFromVenue('offline',2)}">
+        <div class="venue-carousel" aria-hidden="true"><div class="venue-track">
+          <img class="venue-bg" src="assets/projects/手機殼合圖.png" alt="">
+          <img class="venue-bg" src="assets/projects/手機殼設計.png" alt="">
+          <img class="venue-bg" src="assets/projects/手機殼合圖.png" alt="">
+          <img class="venue-bg" src="assets/projects/手機殼設計.png" alt="">
+        </div></div>
+        <div class="venue-tint"></div><div class="venue-overlay"></div>
+        <div class="venue-body"><p class="venue-sub">題目一 · 實體商品</p><div class="venue-name">手機殼設計</div></div>
+      </article>
+      <article class="venue-item reveal" style="--i:7" role="button" tabindex="0" aria-label="拍臉圖" onclick="openQ1Detail(4)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openQ1Detail(4)}">
+        <div class="venue-carousel" aria-hidden="true"><div class="venue-track">
+          <img class="venue-bg" src="assets/projects/face-banners/01-doria-t3.png" alt="">
+          <img class="venue-bg" src="assets/projects/face-banners/02-returning-event.png" alt="">
+          <img class="venue-bg" src="assets/projects/face-banners/03-double-duel.png" alt="">
+          <img class="venue-bg" src="assets/projects/face-banners/04-7eleven-campaign.jpg" alt="">
+        </div></div>
+        <div class="venue-tint"></div><div class="venue-overlay"></div>
+        <div class="venue-body"><p class="venue-sub">活動視覺素材</p><div class="venue-name">拍臉圖</div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Modals -->
+<div class="modal-backdrop" id="modal-1" onclick="closeModal(event, 'modal-1')">
+  <div class="modal modal-wrap" style="max-width:1120px;">
+    <button class="modal-close" onclick="closeModal(null,'modal-1')">✕</button>
+    <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" style="width:100%; display:block; object-fit:contain; border-radius: var(--radius-lg) var(--radius-lg) 0 0; background:#111;">
+    <div class="modal-body" style="padding: 16px 48px 48px;">
+      <div class="modal-title" style="font-size:32px; margin-bottom:8px;">源寶頭相框設計及拍臉套圖</div>
+      <p class="modal-desc" style="font-size:18px; line-height:1.8;">為了讓這個專案的視覺呈現更豐富，我這次大膽嘗試利用 AI 來進行素材的深度拆解與重組。</p>
+      <p class="modal-desc" style="font-size:18px; line-height:1.8;">以往我們常受限於既有素材的「單一姿勢」或「固定視角」，這次我利用 AI 工具對主角進行了全身的解構，重新調整並延伸出各種不同的生動姿勢。同時，針對畫面中的重要物件，也使用 AI 製作出各種不同的翻轉角度與細項細節，讓素材的使用彈性大增。</p>
+      <p class="modal-desc" style="font-size:18px; line-height:1.8;">最重要的突破是場景的翻新：我將原本侷限的單一場景，透過 AI 重新構圖，設計出全新的平面平視角度。這樣的方法不僅讓整個畫面結構煥然一新，也為專案創造出有別於以往、更具空間層次感的全新視覺效果。</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modal-2" onclick="closeModal(event, 'modal-2')">
+  <div class="modal modal-wrap" style="max-width:1120px;">
+    <button class="modal-close" onclick="closeModal(null,'modal-2')">✕</button>
+    <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" style="width:100%; display:block; object-fit:contain; border-radius: var(--radius-lg) var(--radius-lg) 0 0; background:#111;">
+    <div class="modal-body" style="padding: 16px 48px 48px;">
+      <div class="modal-title" style="font-size:32px; margin-bottom:8px;">靈靈 星月童話 造型免單及拍臉套圖</div>
+      <p class="modal-desc" style="font-size:18px; line-height:1.8;">這個專案的執行週期相對較長，中間經歷了許多視覺上的調整與技術上的突破。</p>
+      <p class="modal-desc" style="font-size:18px; line-height:1.8;">在視覺發展初期，為了完美捕捉角色的神韻，觀察了整個立繪風格，並提取出核心物件。特別是畫面中間球體的「發光流動線條」，因為初期 AI 工具的精準度還沒辦法完全達到預期，所以我決定採用「AI 初步生成，再透過手繪輔助」的方式，一筆一畫地勾勒出符合標準的流動感。</p>
+      <p class="modal-desc" style="font-size:18px; line-height:1.8;">由於專案時間跨度大，從原本初期的偏綠色，調整為現在大家看到的深藍色系，為了讓視覺更適合，在過程中有重新調色、重做了標準字；這些雖然增加了工作量，但最終的成品在色彩深度與視覺完整度上，沒有出現太大的落差。</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modal-3" onclick="closeModal(event, 'modal-3')">
+  <div class="modal modal-wrap" style="max-width:1120px;">
+    <button class="modal-close" onclick="closeModal(null,'modal-3')">✕</button>
+    <div style="border-radius: var(--radius-lg) var(--radius-lg) 0 0; overflow:hidden; background:#111;">
+      <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" style="width:100%; display:block; object-fit:contain;">
+    </div>
+    <div class="modal-body" style="padding: 16px 48px 48px;">
+      <div class="modal-title" style="font-size:32px; margin-bottom:8px;">足球Bingo ilua 活動及拍臉套圖</div>
+      <p class="modal-desc" style="font-size:18px; line-height:1.8;">這組的 VI 設計，主要是希望透過設計將「緋淚」的角色魅力與運動熱血做完美的結合。</p>
+      <p class="modal-desc" style="font-size:18px; line-height:1.8;">在視覺上，挖掘緋淚身上的物件與場景元素。色彩上挑選了粉紫 以及 黃藍的搭配，能第一時間抓住大眾眼球。在元素應用上，結合了「門框」與「足球」等核心符號，並以幾何圖形進行簡約大方的點綴。</p>
+      <p class="modal-desc" style="font-size:18px; line-height:1.8;">為了讓視覺更具現代感，我們整體風格走向偏平面的幾何美學，讓畫面維持乾淨有力的節奏。更重要的是，這套設計是為了未來的行銷鋪路——我們在設計之初就預留了與兄弟象品牌跨界合作的空間。這種平面幾何且高相容性的設計風格，未來在與兄弟象聯名、開發周邊或實體活動延伸時，都能保有極高彈性與視覺的一致性。</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modal-4" onclick="closeModal(event, 'modal-4')">
+  <div class="modal modal-wrap" style="max-width:1120px;">
+    <button class="modal-close" onclick="closeModal(null,'modal-4')">✕</button>
+    <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" style="width:100%; display:block; object-fit:contain; border-radius: var(--radius-lg) var(--radius-lg) 0 0; background:#111;">
+    <div class="modal-body" style="padding: 16px 48px 48px;">
+      <div class="modal-title" style="font-size:32px; margin-bottom:8px;">大巨蛋視覺製作</div>
+      <p class="modal-desc" style="font-size:18px; line-height:1.8;">這個專案目前還在進行中，最終的反饋也還未知，但在這段高難度、高變動的創作過程中，我嘗試了非常大膽且豐富的視覺實驗。</p>
+      <p class="modal-desc" style="font-size:18px; line-height:1.8;">設計方向經歷了幾次的演變，從我初期規劃的「女團夢核風」，到後來結合老闆提出的具體參考方向，我目前已經延伸發展出了兩個版本。在視覺概念上，把「演唱會的渲染力、夢核與白日夢的迷幻感」，以及「都市街景與遊戲內主堡」的虛幻感融合在一起。</p>
+      <p class="modal-desc" style="font-size:18px; line-height:1.8;">為了呈現這種錯綜複雜的虛幻感，我再次發揮 AI 的優勢，利用 AI 將各種散落的物件重新上色、調整調性，最後拼湊並製作成現在的主視覺。這段過程雖然充滿挑戰，但讓我學會了如何在變動的需求中，利用新工具快速整合出兼具層次與創意的視覺成品。</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modal-5" onclick="closeModal(event, 'modal-5')">
+  <div class="modal modal-wrap" style="max-width:1120px;">
+    <button class="modal-close" onclick="closeModal(null,'modal-5')">✕</button>
+    <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" style="width:100%; display:block; object-fit:contain; border-radius: var(--radius-lg) var(--radius-lg) 0 0; background:#111;">
+    <div class="modal-body" style="padding: 16px 48px 48px;">
+      <div class="modal-title" style="font-size:32px; margin-bottom:8px;">其他</div>
+      <p class="modal-desc" style="font-size:18px; line-height:1.8;">在ilua專案之外，我的日常工作也涵蓋了許多需要效率的專案，以及各類緊急的修正需求。</p>
+      <p class="modal-desc" style="font-size:18px; line-height:1.8;">這段期間，我穩定推進了許多像是立繪拍臉套圖，確保日常產出的高效率。同時，我也扮演了團隊中可靠的「救火隊」角色。例如在女僕咖啡廳專案中，因為前期發生了尺寸規格錯誤的突發狀況，我在收到資訊後，立刻重新校對尺寸並重新製作。</p>
+      <p class="modal-desc" style="font-size:18px; line-height:1.8;">雖然這些工作比較偏向幕後與細節修正，但對我來說，無論是創新的大專案還是日常的緊急修正，都是確保團隊專案能完美落地的關鍵。這段經歷也讓我應對突發狀況時更加沉穩與敏捷。</p>
+    </div>
+  </div>
+</div>
+
+<section id="ai-apps" data-block="" data-act="2026 Dialogue and Year-end Review">
+  <div class="container">
+    <div class="section-label reveal in">AI 應用 · Side Projects</div>
+    <h2 class="section-h1 reveal in">實驗性app跟AI技能工具</h2>
+    <p class="reveal in">探索AI工具的各種可能性，持續累積AI製作經驗。</p>
+    <div class="ai-grid">
+      <article class="venue-item reveal" style="--i:0">
+        <a class="ai-venue-hitarea" href="https://forestgirrl.github.io/tokto-planner/" target="_blank" rel="noopener" aria-label="開啟旅遊記事 Web App"></a>
+        <div class="venue-tint"></div><div class="venue-overlay"></div>
+        <div class="venue-body"><p class="venue-sub">Web App · Gemini</p><div class="venue-name">旅遊記事 Web App</div><p class="ai-venue-description">以 Gemini 和 VS Code 從零開發旅遊記事 App，將創意整理成可使用的網頁工具。</p></div>
+      </article>
+      <article class="venue-item reveal" style="--i:1">
+        <a class="ai-venue-hitarea" href="https://forestgirrl.github.io/cat-travl/" target="_blank" rel="noopener" aria-label="開啟小遊戲開發實驗"></a>
+        <div class="venue-tint"></div><div class="venue-overlay"></div>
+        <div class="venue-body"><p class="venue-sub">小遊戲 · Claude</p><div class="venue-name">小遊戲開發實驗</div><p class="ai-venue-description">以 Claude 製作可遊玩的遊戲 Demo，協助團隊討論玩法、發想活動並銜接後續開發。</p></div>
+      </article>
+      <article class="venue-item reveal" style="--i:2">
+        <a class="ai-venue-hitarea" href="https://forestgirrl.github.io/cat-travl2/" target="_blank" rel="noopener" aria-label="開啟英文翻譯 Web App"></a>
+        <div class="venue-tint"></div><div class="venue-overlay"></div>
+        <div class="venue-body"><p class="venue-sub">Web App · Claude</p><div class="venue-name">英文翻譯 Web App</div><p class="ai-venue-description">以 Claude 製作旅遊中翻英 App，方便預存情境例句，並修復關閉 App 後資料遺失的問題。</p></div>
+      </article>
+    </div>
+    <footer class="act-footer">tammy liutam@garena.com</footer>
+  </div>
+</section>
+
+</main>
+
+
+
+<div class="q1-detail-overlay" id="q1-detail-overlay" aria-hidden="true">
+  <div class="q1-detail-page" role="dialog" aria-modal="true" aria-labelledby="q1-detail-title">
+    <div class="q1-detail-top">
+      <div class="q1-detail-brand">年度成果</div>
+      <button class="q1-detail-close" id="q1-detail-close" type="button" onclick="closeQ1Detail()">← 返回上一頁</button>
+    </div>
+    <div class="q1-detail-hero">
+      <div>
+        <h2 class="q1-detail-title" id="q1-detail-title">多元遊戲活動視覺設計</h2>
+        <p class="q1-detail-lead" id="q1-detail-lead"></p>
+      </div>
+    </div>
+    <div class="q1-detail-gallery q1-detail-gallery--expanding" id="q1-detail-gallery" role="group" aria-label="遊戲活動視覺展開式圖片面板">
+      <div class="q1-gallery-stage">
+        <button class="q1-detail-image is-far-prev" type="button" data-q1-gallery-group="game" data-q1-gallery-index="3" data-q1-full-image="assets/projects/主界面0922.jpg" data-q1-alt="周年慶回流活動視覺" data-q1-heading="周年慶回流活動" data-q1-description="本次活動大量運用人工智慧，加快視覺風格探索與修改。
+
+底圖可由人工智慧產出，減少等待外包繪圖的時間，也能自行掌握風格方向，降低素材風格不一致的情況。
+
+面對原廠後期提出的 Token 與元件修改，也能快速替換；需要新增人物素材時，則可直接運用人工智慧產出。" aria-label="檢視周年慶回流活動視覺大圖">
+          <img src="assets/projects/主界面0922.jpg" alt="周年慶回流活動視覺" loading="lazy">
+          <span class="q1-expanding-title">周年慶回流活動</span>
+        </button>
+        <button class="q1-detail-image is-prev" type="button" data-q1-gallery-group="game" data-q1-gallery-index="4" data-q1-full-image="assets/projects/主介面-每日.jpg" data-q1-alt="冰雪節兌換活動視覺" data-q1-heading="冰雪節兌換活動" data-q1-description="本次運用自行製作的 VI 技能工具，透過人工智慧初步產出符合需求的版位，再挑選並整理可用的部分，加快視覺製作。後期因視覺方向與活動內容有所調整，也配合需求修改相關設計。" aria-label="檢視冰雪節兌換活動視覺大圖">
+          <img src="assets/projects/主介面-每日.jpg" alt="冰雪節每日任務活動視覺" loading="lazy">
+          <span class="q1-expanding-title">冰雪節兌換活動</span>
+        </button>
+        <button class="q1-detail-image is-active" type="button" data-q1-gallery-group="game" data-q1-gallery-index="0" data-q1-full-image="assets/projects/bingo_頁面.jpg" data-q1-alt="足球賓果整體活動視覺設計" data-q1-heading="足球賓果整體活動視覺設計" data-q1-description="以角色立繪為基礎，設計雙色活動視覺，並完成遊戲內賓果活動頁面、拍臉套圖及活動氛圍素材，將活動主題延伸至遊戲介面與相關視覺內容。" aria-label="檢視足球賓果整體活動視覺設計大圖">
+          <img src="assets/projects/bingo_頁面.jpg" alt="足球賓果整體活動視覺設計" loading="lazy">
+          <span class="q1-expanding-title">足球賓果</span>
+        </button>
+        <button class="q1-detail-image is-next" type="button" data-q1-gallery-group="game" data-q1-gallery-index="1" data-q1-full-image="assets/projects/靈靈-星月童話ilua.png" data-q1-alt="靈靈星月童話活動視覺" data-q1-heading="靈靈星月童話活動與拍臉設計" data-q1-description="以角色立繪為發想基礎，設計符合「星月童話」主題與角色風格的活動內容及視覺。
+
+此案處於人工智慧應用初期，線條裝飾物件需透過多次生成與篩選，再進行人工修圖與後製調整，完成可用素材並整合至活動及拍臉設計中。" aria-label="檢視靈靈星月童話活動與拍臉設計大圖">
+          <img src="assets/projects/靈靈-星月童話ilua.png" alt="靈靈星月童話活動視覺" loading="lazy">
+          <span class="q1-expanding-title">靈靈星月童話</span>
+        </button>
+        <button class="q1-detail-image is-far-next" type="button" data-q1-gallery-group="game" data-q1-gallery-index="2" data-q1-full-image="assets/projects/ilua_0701.png" data-q1-alt="IP簽到活動與稱號設計" data-q1-heading="IP簽到活動與稱號設計" data-q1-description="此專案需依照版方的視覺規範設計，確保活動內容與稱號符合既有 IP 風格，設計調整空間較有限。製作期間也需配合版方審核與意見修正，因此整體製作及確認時間較長。" aria-label="檢視 IP 簽到活動與稱號設計大圖">
+          <img src="assets/projects/ilua_0701.png" alt="IP簽到活動與稱號設計" loading="lazy">
+          <span class="q1-expanding-title">IP簽到活動</span>
+        </button>
+      </div>
+    </div>
+    <div class="q1-detail-gallery q1-detail-gallery--expanding" id="q1-detail-gallery-offline" role="group" aria-label="線下活動與實體商品展開式圖片面板" hidden="">
+      <div class="q1-gallery-stage">
+        <button class="q1-detail-image is-prev" type="button" data-q1-gallery-group="offline" data-q1-gallery-index="2" data-q1-full-image="assets/projects/手機殼合圖.png" data-q1-alt="手機殼設計" data-q1-heading="手機殼設計" data-q1-description="完成手機殼視覺設計，將活動與角色素材延伸至實體商品。" aria-label="檢視手機殼設計大圖">
+          <img src="assets/projects/手機殼合圖.png" alt="手機殼設計" loading="lazy">
+          <span class="q1-expanding-title">手機殼設計</span>
+        </button>
+        <button class="q1-detail-image is-active" type="button" data-q1-gallery-group="offline" data-q1-gallery-index="0" data-q1-full-image="assets/projects/演唱會KV_final-0820.jpg" data-q1-alt="大巨蛋演唱會整體視覺 VI 設計" data-q1-heading="大巨蛋演唱會整體視覺VI設計" data-q1-description="大巨蛋演唱會視覺、影片及會場輸出物設計監修" aria-label="檢視大巨蛋演唱會整體視覺 VI 設計大圖">
+          <img src="assets/projects/演唱會KV_final-0820.jpg" alt="大巨蛋演唱會整體視覺 VI 設計" loading="lazy">
+          <span class="q1-expanding-title">大巨蛋演唱會視覺</span>
+        </button>
+        <button class="q1-detail-image is-next" type="button" data-q1-gallery-group="offline" data-q1-gallery-index="1" data-q1-full-image="assets/projects/7-11商品包裝完成示意.png" data-q1-alt="7-11商品包裝設計" data-q1-heading="7-11商品包裝設計" data-q1-description="使用 AI 產圖，再請外部繪師精修細節，減少與繪師溝通風格的成本。" aria-label="檢視7-11商品包裝設計大圖">
+          <img src="assets/projects/7-11商品包裝完成示意.png" alt="7-11商品包裝設計" loading="lazy">
+          <span class="q1-expanding-title">7-11商品包裝</span>
+        </button>
+      </div>
+    </div>
+    <div class="q1-detail-extra-gallery" id="q1-detail-extra-gallery" aria-label="拍臉圖作品展示" hidden="">
+      <a href="assets/projects/face-banners/01-doria-t3.png" target="_blank" rel="noopener" aria-label="開啟朵莉亞 T3 馬限拍臉圖"><img src="assets/projects/face-banners/01-doria-t3.png" alt="朵莉亞 T3 馬限拍臉圖" loading="lazy"></a>
+      <a href="assets/projects/face-banners/02-returning-event.png" target="_blank" rel="noopener" aria-label="開啟回流活動拍臉圖"><img src="assets/projects/face-banners/02-returning-event.png" alt="回流活動拍臉圖" loading="lazy"></a>
+      <a href="assets/projects/face-banners/03-double-duel.png" target="_blank" rel="noopener" aria-label="開啟雙人對抗拍臉圖"><img src="assets/projects/face-banners/03-double-duel.png" alt="雙人對抗拍臉圖" loading="lazy"></a>
+      <a href="assets/projects/face-banners/04-7eleven-campaign.jpg" target="_blank" rel="noopener" aria-label="開啟十週年 7-ELEVEN 活動拍臉圖"><img src="assets/projects/face-banners/04-7eleven-campaign.jpg" alt="十週年 7-ELEVEN 活動拍臉圖" loading="lazy"></a>
+      <a href="assets/projects/face-banners/05-ooh.png" target="_blank" rel="noopener" aria-label="開啟 OOH 拍臉圖"><img src="assets/projects/face-banners/05-ooh.png" alt="OOH 拍臉圖" loading="lazy"></a>
+      <a href="assets/projects/face-banners/06-aiwei-collab.png" target="_blank" rel="noopener" aria-label="開啟艾薇合作拍臉圖"><img src="assets/projects/face-banners/06-aiwei-collab.png" alt="艾薇合作拍臉圖" loading="lazy"></a>
+    </div>
+    <div class="q1-detail-panels" id="q1-detail-panels">
+      <article class="q1-detail-panel q1-detail-point">
+        <div class="q1-detail-collab-comparison" id="q1-detail-collab-comparison" role="group" aria-label="大巨蛋演唱會直螢幕前後對比">
+          <img class="q1-detail-collab-before" src="assets/projects/大巨蛋_直螢幕前後對比.png" alt="修改前：大巨蛋演唱會直螢幕視覺示意" loading="lazy" draggable="false">
+          <img class="q1-detail-collab-after" src="assets/projects/大巨蛋_實拍圖1.png" alt="修改後：大巨蛋演唱會現場實拍" loading="lazy" draggable="false">
+          <div class="q1-detail-collab-labels" aria-hidden="true"><span>BEFORE</span><span>AFTER</span></div>
+          <span class="q1-detail-collab-divider" aria-hidden="true"></span>
+          <input class="q1-detail-collab-range" type="range" min="0" max="100" step="0.1" value="50" aria-label="拖曳比較修改前後">
+          <span class="q1-detail-collab-handle" aria-hidden="true"><span>‹</span><span>›</span></span>
+        </div>
+        <h3><span class="q1-detail-mark">◎</span><span id="q1-detail-point-title">成果重點</span></h3>
+        <ul class="q1-detail-list" id="q1-detail-points"></ul>
+    <p class="q1-detail-workflow-copy" id="q1-detail-workflow-copy" hidden=""></p>
+      </article>
+      <article class="q1-detail-panel q1-detail-highlight">
+        <h3><span class="q1-detail-mark">✦</span><span id="q1-detail-highlight-title">執行亮點</span></h3>
+        <p id="q1-detail-highlight"></p>
+      </article>
+    </div>
+    <footer class="q1-detail-footer" id="q1-detail-footer">
+      <span>ANNUAL REVIEW · <span id="q1-detail-footer-number">01</span> / 04</span>
+      <a class="q1-detail-back" href="#faq-q1" onclick="closeQ1Detail()">← 回到年度成果</a>
+    </footer>
+  </div>
+</div>
+
+<dialog class="q1-image-lightbox" id="q1-image-lightbox" aria-labelledby="q1-image-lightbox-title">
+  <div class="q1-image-page" id="q1-image-page">
+    <div class="q1-image-cover-space" aria-hidden="true"></div>
+    <section class="q1-image-detail-slide">
+      <div class="q1-image-detail-copy">
+        <div class="q1-image-detail-copy-label">作品概覽</div>
+        <h2 id="q1-image-overview-title"></h2>
+        <p id="q1-image-overview-description"></p>
+      </div>
+      <div class="q1-image-detail-visual"><img id="q1-image-overview-image" src="" alt=""></div>
+    </section>
+    <section class="q1-image-project-slide">
+      <div class="q1-image-project-hero">
+        <div class="q1-image-project-copy">
+          <div class="q1-image-project-brand">作品案例</div>
+          <h2 id="q1-image-project-title"></h2>
+          <div class="q1-image-project-copy-kicker" id="q1-image-project-copy-kicker" hidden="">用 AI 試錯</div>
+          <p id="q1-image-project-description"></p>
+        </div>
+        <div class="q1-image-project-visual"><img id="q1-image-project-image" src="" alt=""></div>
+        <div class="q1-image-project-package-gallery" id="q1-image-project-package-gallery" role="group" aria-label="7-11 商品包裝設計示意圖" hidden="">
+          <a href="assets/projects/7-11商品包裝示意.png" target="_blank" rel="noopener" aria-label="開啟重量級奶油手撕餐包包裝示意原圖">
+            <img src="assets/projects/7-11商品包裝示意.png" alt="重量級奶油手撕餐包商品包裝示意" loading="lazy">
+          </a>
+        </div>
+      </div>
+      <div class="q1-image-project-panels" id="q1-image-project-panels">
+        <article class="q1-image-project-panel">
+          <h3>設計內容</h3>
+          <p id="q1-image-project-content"></p>
+        </article>
+        <article class="q1-image-project-panel q1-image-project-panel--accent">
+          <h3>成果呈現</h3>
+          <p id="q1-image-project-result"></p>
+        </article>
+      </div>
+      <div class="q1-image-project-concert-gallery" id="q1-image-project-concert-gallery" role="group" aria-label="大巨蛋演唱會 VI 延伸視覺" hidden="">
+        <a href="assets/projects/物件.jpg" target="_blank" rel="noopener" aria-label="開啟大巨蛋演唱會物件整體圖">
+          <img src="assets/projects/物件.jpg" alt="大巨蛋演唱會物件視覺全貌">
+        </a>
+        <a href="assets/projects/演唱會VI_標準字.png" target="_blank" rel="noopener" aria-label="開啟演唱會標準字 VI 原圖">
+          <img src="assets/projects/演唱會VI_標準字.png" alt="大巨蛋演唱會標準字 VI 規範">
+        </a>
+      </div>
+      <div class="q1-image-project-gallery" id="q1-image-project-gallery" role="group" aria-label="足球賓果延伸視覺作品" hidden="">
+        <a class="q1-image-project-gallery-item" href="portfolio-assets/football-bingo/拍臉示意.png" target="_blank" rel="noopener" aria-label="開啟足球賓果拍臉套圖原圖">
+          <img src="portfolio-assets/football-bingo/拍臉示意.png" alt="足球賓果拍臉套圖" loading="lazy">
+          <span>拍臉套圖</span>
+        </a>
+        <a class="q1-image-project-gallery-item" href="portfolio-assets/football-bingo/頁籤icon圖_預覽圖.png" target="_blank" rel="noopener" aria-label="開啟足球賓果頁籤視覺原圖">
+          <img src="portfolio-assets/football-bingo/頁籤icon圖_預覽圖.png" alt="足球賓果頁籤與遊戲介面視覺" loading="lazy">
+          <span>頁籤與介面視覺</span>
+        </a>
+        <a class="q1-image-project-gallery-item" href="portfolio-assets/football-bingo/VI_粉.png" target="_blank" rel="noopener" aria-label="開啟足球賓果粉色 VI 素材原圖">
+          <img src="portfolio-assets/football-bingo/VI_粉.png" alt="足球賓果粉色活動 VI 素材" loading="lazy">
+          <span>粉色 VI 素材</span>
+        </a>
+      </div>
+      <div class="q1-image-project-single-image" id="q1-image-project-single-image" hidden="">
+        <a id="q1-image-project-single-image-link" href="assets/projects/bingo大圖.png" target="_blank" rel="noopener" aria-label="在新分頁開啟作品原圖">
+          <img id="q1-image-project-single-image-img" src="assets/projects/bingo大圖.png" alt="作品活動視覺大圖">
+        </a>
+      </div>
+    </section>
+    <section class="q1-image-concert-collab-slide" id="q1-image-concert-collab-slide" aria-label="演唱會外部廠商合作" hidden="">
+      <div class="q1-image-concert-collab-media">
+        <div class="q1-image-concert-collab-visual">
+          <img src="assets/projects/演唱會KV_外部合作視覺.png" alt="演唱會外部合作視覺提案" loading="lazy">
+        </div>
+        <div class="q1-image-concert-collab-video">
+          <video src="assets/projects/演唱會外部合作影片.mp4" controls="" playsinline="" preload="metadata" poster="assets/projects/演唱會KV_外部合作視覺.png" aria-label="演唱會外部合作動態影片"></video>
+        </div>
+      </div>
+      <div class="q1-image-concert-collab-copy">
+        <div class="q1-image-concert-collab-label">外部協作</div>
+        <h2>與外部廠商合作</h2>
+        <p>提出視覺想法產出，減少外部廠商溝通成本。</p>
+      </div>
+    </section>
+    <section class="q1-image-concert-detail-slide" id="q1-image-concert-detail-slide" aria-label="演唱會視覺延伸設計" hidden="">
+      <div class="q1-image-concert-detail-visual">
+        <img src="assets/projects/演唱會邀請函.png" alt="大巨蛋演唱會邀請函設計" loading="lazy">
+      </div>
+      <div class="q1-image-concert-detail-copy">
+        <div class="q1-image-concert-detail-label">延伸製作物</div>
+        <h2>邀請函設計</h2>
+        <p>利用產出的 VI 重新設計邀請函。</p>
+      </div>
+    </section>
+    <section class="q1-image-concert-venue-slide" id="q1-image-concert-venue-slide" aria-label="大巨蛋場地製作物" hidden="">
+      <div class="q1-image-concert-venue-copy">
+        <div class="q1-image-concert-venue-label">延伸製作物</div>
+        <h2>場地製作物</h2>
+        <p>重新製作外包廠商的弧形廣場貼</p>
+      </div>
+      <div class="q1-image-concert-venue-visual">
+        <img src="assets/projects/大巨蛋_場地實拍_新版.png" alt="大巨蛋演唱會現場弧形廣場視覺" loading="lazy">
+    <img src="assets/projects/大巨蛋_南側貝殼梯_1005.jpg" alt="大巨蛋南側貝殼梯演唱會場地視覺" loading="lazy">
+      </div>
+    </section>
+  </div>
+  <section class="q1-image-scene" id="q1-image-scene">
+    <div class="q1-image-copy">
+      <div class="q1-image-copy-label">作品概覽</div>
+      <h2 id="q1-image-lightbox-title"></h2>
+      <p id="q1-image-lightbox-description"></p>
+    </div>
+    <div class="q1-image-visual">
+      <img id="q1-image-lightbox-image" src="" alt="">
+    </div>
+    <div class="q1-image-scroll-hint" id="q1-image-scroll-hint" aria-hidden="true"><span>向下滑動查看作品說明</span><span>↓</span></div>
+  </section>
+  <button class="q1-image-close" type="button" aria-label="關閉大圖" onclick="closeQ1ImageImmediately()">×</button>
+</dialog>
+
+<script>
+  document.querySelectorAll('#hero .btn.direction-fill').forEach((button) => {
+    const setFillOrigin = (event) => {
+      const rect = button.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      const farthestCorner = Math.max(
+        Math.hypot(x, y),
+        Math.hypot(rect.width - x, y),
+        Math.hypot(x, rect.height - y),
+        Math.hypot(rect.width - x, rect.height - y)
+      );
+      button.style.setProperty('--fill-x', `${x}px`);
+      button.style.setProperty('--fill-y', `${y}px`);
+      button.style.setProperty('--fill-size', `${farthestCorner * 2}px`);
+    };
+    button.addEventListener('pointerenter', (event) => {
+      if (event.pointerType === 'touch') return;
+      setFillOrigin(event);
+      void button.offsetWidth;
+      button.classList.add('is-filled');
+    });
+    button.addEventListener('pointerleave', (event) => {
+      if (event.pointerType === 'touch') return;
+      setFillOrigin(event);
+      button.classList.remove('is-filled');
+    });
+  });
+
+  const q1DetailData = [
+    {
+      title: '多元遊戲活動視覺設計',
+      lead: '完成體育季賓果、靈靈造型、七日簽到、周年慶回流及冰雪節兌換等活動設計，完成多元視覺需求並協助成果落地。',
+      pointTitle: '活動主題', points: ['體育季賓果', '靈靈造型', '七日簽到', '周年慶回流', '冰雪節兌換'],
+      highlightTitle: '設計成果', highlight: '跨越不同活動主題完成對應的視覺設計，支援活動製作並協助成果落地。'
+    },
+    {
+      title: '將遊戲延伸至實體商品及演唱會視覺',
+      lead: '參與大巨蛋演唱會視覺、影片及會場輸出物設計監修；完成邀請函、7-11商品包裝與手機殼設計。',
+      pointTitle: '設計項目', points: ['大巨蛋演唱會視覺', '演唱會影片', '會場輸出物監修', '邀請函', '7-11商品包裝', '手機殼'],
+      highlightTitle: '線下延伸', highlight: '從活動視覺與影片延伸到現場輸出物及實體商品，支援演唱會的線下呈現。'
+    },
+    {
+      title: '協作推進專案製作',
+      lead: '協助外包團隊調整設計稿、運用素材及操作軟體，推進製作流程。',
+      pointTitle: '協作內容', points: ['溝通設計需求', '調整設計稿', '素材運用協助', '軟體操作示範'],
+      highlightTitle: '演唱會的上方直螢幕', highlight: '提供視覺直接給外部製作，減少對稿、溝通上的時間成本。'
+    },
+    {
+      title: '以技能工具優化工作流程',
+      lead: '製作技能工具，簡化素材產出流程，加快與騰訊的需求對焦與溝通。',
+    pointTitle: 'VI 轉活動彈窗',
+    workflowDescription: '依照原廠視覺規範快速產出彈窗，縮短修改流程，靈活因應需求變動。',
+    points: ['製作技能工具', '簡化素材產出', '加快需求對焦', '支援與騰訊溝通'],
+    highlightTitle: 'PSD 自動轉存效果圖',
+    highlight: '一鍵產出完整效果圖，省去手動編排，方便與原廠對接。'
+    },
+    {
+      title: '拍臉圖',
+      lead: '',
+      pointTitle: '', points: [],
+      highlightTitle: '', highlight: ''
+    }
+  ];
+
+  let q1DetailReturnTarget = null;
+  let q1DetailCloseTimer = null;
+  const q1DetailOverlayElement = document.getElementById('q1-detail-overlay');
+  q1DetailOverlayElement.addEventListener('click', (event) => {
+    if (event.target === q1DetailOverlayElement && q1DetailOverlayElement.classList.contains('is-modal')) closeQ1Detail();
+  });
+  const q1GalleryCards = [...document.querySelectorAll('[data-q1-gallery-index]')];
+  const q1GalleryPositionClasses = ['is-active', 'is-next', 'is-far-next', 'is-far-prev', 'is-prev'];
+  const q1GalleryIndices = { game: 0, offline: 0 };
+  function getQ1GalleryCards(group) {
+    return q1GalleryCards.filter((card) => card.dataset.q1GalleryGroup === group);
+  }
+  function renderQ1Gallery(group) {
+    const cards = getQ1GalleryCards(group);
+    const count = cards.length;
+    const currentIndex = q1GalleryIndices[group] || 0;
+    cards.forEach((card) => {
+      const index = Number(card.dataset.q1GalleryIndex);
+      const position = (index - currentIndex + count) % count;
+      const positionClass = count === 3
+        ? ['is-active', 'is-next', 'is-prev'][position]
+        : q1GalleryPositionClasses[position];
+      q1GalleryPositionClasses.forEach((name) => card.classList.toggle(name, name === positionClass));
+      card.setAttribute('aria-current', position === 0 ? 'true' : 'false');
+    });
+  }
+  function moveQ1Gallery(direction, group) {
+    const cards = getQ1GalleryCards(group);
+    const count = cards.length;
+    if (!count) return;
+    const wrapPosition = count === 3 ? (direction > 0 ? 2 : 1) : (direction > 0 ? 3 : 2);
+    const currentIndex = q1GalleryIndices[group] || 0;
+    const wrapCard = cards.find((card) => (Number(card.dataset.q1GalleryIndex) - currentIndex + count) % count === wrapPosition);
+    if (wrapCard) wrapCard.classList.add('no-transition');
+    q1GalleryIndices[group] = (currentIndex + direction + count) % count;
+    renderQ1Gallery(group);
+    if (wrapCard) {
+      void wrapCard.offsetWidth;
+      requestAnimationFrame(() => wrapCard.classList.remove('no-transition'));
+    }
+  }
+  document.querySelectorAll('[data-q1-gallery-step]').forEach((button) => {
+    button.addEventListener('click', () => moveQ1Gallery(Number(button.dataset.q1GalleryStep), button.dataset.q1GalleryGroup));
+  });
+  q1GalleryCards.forEach((button) => {
+    button.addEventListener('click', () => openQ1Image(button.dataset.q1FullImage, button.dataset.q1Alt, button.dataset.q1Heading, button.dataset.q1Description));
+  });
+
+  const q1CollabComparison = document.getElementById('q1-detail-collab-comparison');
+  if (q1CollabComparison) {
+    const q1CollabRange = q1CollabComparison.querySelector('.q1-detail-collab-range');
+    const setComparePosition = () => {
+      const percent = Math.min(100, Math.max(0, Number(q1CollabRange.value)));
+      q1CollabComparison.style.setProperty('--compare-p', `${percent}%`);
+      q1CollabComparison.classList.add('is-interacted');
+      q1CollabRange.setAttribute('aria-valuetext', `${Math.round(percent)}% 修改後`);
+    };
+    q1CollabRange.addEventListener('input', setComparePosition);
+    q1CollabRange.addEventListener('change', setComparePosition);
+  }
+
+  function openQ1Detail(index, updateHistory = true) {
+    const data = q1DetailData[index];
+    const overlay = document.getElementById('q1-detail-overlay');
+    if (!data || !overlay) return;
+    window.clearTimeout(q1DetailCloseTimer);
+    q1DetailCloseTimer = null;
+    overlay.classList.remove('is-fading-out');
+    q1DetailReturnTarget = document.activeElement;
+    const number = String(index + 1).padStart(2, '0');
+    const detailTitle = document.getElementById('q1-detail-title');
+    detailTitle.textContent = data.title;
+    const showExtraGallery = index === 4;
+    detailTitle.classList.toggle('is-single-line', index === 1 || showExtraGallery);
+    const detailLead = document.getElementById('q1-detail-lead');
+    detailLead.textContent = data.lead;
+    detailLead.hidden = showExtraGallery;
+    const showAsModal = index < 4;
+    overlay.classList.toggle('is-modal', showAsModal);
+    document.querySelector('main').inert = showAsModal;
+    document.getElementById('q1-detail-footer-number').textContent = number;
+    const showGameGallery = index === 0;
+    const showOfflineGallery = index === 1;
+    const showGallery = showGameGallery || showOfflineGallery;
+    overlay.classList.toggle('is-extra-project', showExtraGallery);
+    document.getElementById('q1-detail-gallery').hidden = !showGameGallery;
+    document.getElementById('q1-detail-gallery-offline').hidden = !showOfflineGallery;
+    document.getElementById('q1-detail-extra-gallery').hidden = !showExtraGallery;
+    document.getElementById('q1-detail-panels').hidden = showGallery || showExtraGallery;
+    if (showGameGallery) {
+      q1GalleryIndices.game = 0;
+      renderQ1Gallery('game');
+    }
+    if (showOfflineGallery) {
+      q1GalleryIndices.offline = 0;
+      renderQ1Gallery('offline');
+    }
+    document.getElementById('q1-detail-point-title').textContent = data.pointTitle;
+    document.getElementById('q1-detail-highlight-title').textContent = data.highlightTitle;
+    document.getElementById('q1-detail-highlight').textContent = data.highlight;
+    const pointList = document.getElementById('q1-detail-points');
+    const panels = document.getElementById('q1-detail-panels');
+    const isCollabLayout = index === 2;
+    const pointPanel = panels.querySelector('.q1-detail-point');
+    pointPanel.querySelector('.q1-detail-collab-comparison').hidden = !isCollabLayout;
+    pointPanel.querySelector('h3').hidden = isCollabLayout;
+const isWorkflowLayout = index === 3;
+pointList.hidden = isCollabLayout || isWorkflowLayout;
+const workflowCopy = document.getElementById('q1-detail-workflow-copy');
+workflowCopy.hidden = !isWorkflowLayout;
+workflowCopy.textContent = data.workflowDescription || '';
+panels.classList.toggle('is-collab-layout', isCollabLayout);
+panels.classList.toggle('is-workflow-layout', isWorkflowLayout);
+    pointList.replaceChildren(...data.points.map((point) => {
+      const item = document.createElement('li');
+      item.textContent = point;
+      return item;
+    }));
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (updateHistory) history.pushState({ q1Detail: index }, '', `#q1-detail-${index + 1}`);
+    document.getElementById('q1-detail-close').focus();
+  }
+
+  function openQ1ProjectFromVenue(group, imageIndex) {
+    const target = getQ1GalleryCards(group).find((card) => Number(card.dataset.q1GalleryIndex) === imageIndex);
+    if (!target) return;
+    openQ1Image(target.dataset.q1FullImage, target.dataset.q1Alt, target.dataset.q1Heading, target.dataset.q1Description);
+  }
+
+  let q1ImageCloseTimer = null;
+  let q1ImageIntroTimer = null;
+  let q1ImageClosing = false;
+  let q1ImageCloseAnimating = false;
+  let q1ImageIntroRevealed = false;
+  let q1ImageGeometry = null;
+  function syncQ1ImageGeometry() {
+    const detailVisual = document.querySelector('.q1-image-project-visual');
+    const detailCopy = document.querySelector('.q1-image-project-copy');
+    const copy = document.querySelector('.q1-image-copy');
+    if (!detailVisual || !detailCopy || !copy) return false;
+    const visualRect = detailVisual.getBoundingClientRect();
+    const copyRect = detailCopy.getBoundingClientRect();
+    if (!visualRect.width || !copyRect.width) return false;
+    const compactSize = window.innerWidth <= 760
+      ? Math.min(window.innerHeight * .48, window.innerWidth * .42, 300)
+      : Math.min(window.innerHeight * .62, window.innerWidth * .48, 640);
+    q1ImageGeometry = {
+      compactSize,
+      targetLeft: (visualRect.left + visualRect.width / 2) / Math.max(window.innerWidth, 1) * 100,
+      copyLeft: copyRect.left,
+      copyWidth: copyRect.width
+    };
+    copy.style.left = `${q1ImageGeometry.copyLeft}px`;
+    copy.style.width = `${q1ImageGeometry.copyWidth}px`;
+    return true;
+  }
+  function updateQ1ImageScroll() {
+    const page = document.getElementById('q1-image-page');
+    const scene = document.getElementById('q1-image-scene');
+    const visual = document.querySelector('.q1-image-visual');
+    const copy = document.querySelector('.q1-image-copy');
+    const hint = document.getElementById('q1-image-scroll-hint');
+    if (!page || !scene || !visual || !copy || !hint) return;
+    const scrollProgress = Math.min(1, Math.max(0, page.scrollTop / Math.max(window.innerHeight, 1)));
+    const rawProgress = Math.max(scrollProgress, q1ImageIntroRevealed ? 1 : 0);
+    const progress = rawProgress * rawProgress * (3 - 2 * rawProgress);
+    const sceneFade = Math.min(1, Math.max(0, (scrollProgress - .88) / .12));
+    const fadeProgress = sceneFade * sceneFade * (3 - 2 * sceneFade);
+  const startSize = Math.max(window.innerWidth, window.innerHeight) * 1.45;
+  const isCompactViewport = window.innerWidth <= 760;
+  const fallbackSize = isCompactViewport
+    ? Math.min(window.innerHeight * .48, window.innerWidth * .42, 300)
+    : Math.min(window.innerHeight * .62, window.innerWidth * .48, 640);
+  const compactSize = q1ImageGeometry ? q1ImageGeometry.compactSize : fallbackSize;
+  const targetLeft = q1ImageGeometry ? q1ImageGeometry.targetLeft : (isCompactViewport ? 72.5 : 72);
+  if (visual.dataset.compactSize !== String(compactSize)) {
+    visual.style.width = `${compactSize}px`;
+    visual.dataset.compactSize = String(compactSize);
+  }
+  const startScale = startSize / compactSize;
+  const scale = startScale + (1 - startScale) * progress;
+  const offsetX = (targetLeft - 50) * window.innerWidth / 100 * progress;
+  scene.style.opacity = 1 - fadeProgress;
+  visual.style.transform = `translate3d(calc(-50% + ${offsetX}px),-50%,0) scale(${scale})`;
+    copy.style.opacity = progress;
+    copy.style.transform = `translate3d(${(1 - progress) * -42}px,-50%,0)`;
+    hint.style.opacity = 1 - progress;
+    hint.style.transform = `translate(-50%,${progress * 10}px)`;
+  }
+
+  function openQ1Image(src, alt, heading, description) {
+    const lightbox = document.getElementById('q1-image-lightbox');
+    const image = document.getElementById('q1-image-lightbox-image');
+    const page = document.getElementById('q1-image-page');
+    const scene = document.getElementById('q1-image-scene');
+    const visual = document.querySelector('.q1-image-visual');
+    if (!lightbox || !image || !page || !scene || !visual) return;
+    window.clearTimeout(q1ImageCloseTimer);
+    window.clearTimeout(q1ImageIntroTimer);
+    q1ImageClosing = false;
+    q1ImageCloseAnimating = false;
+    q1ImageIntroRevealed = false;
+    q1ImageGeometry = null;
+    lightbox.classList.remove('is-closing');
+    const copy = document.querySelector('.q1-image-copy');
+    if (copy) {
+      copy.style.left = '';
+      copy.style.width = '';
+    }
+    scene.classList.remove('is-transitioning');
+    page.scrollTop = 0;
+    image.src = src;
+    image.alt = alt;
+    const projectTitle = heading || alt;
+    const projectDescription = description || '';
+    const isFootballBingo = projectTitle === '足球賓果整體活動視覺設計';
+    const isLinglingProject = projectTitle === '靈靈星月童話活動與拍臉設計';
+    const isIpCheckinProject = projectTitle === 'IP簽到活動與稱號設計';
+    const isAnniversaryProject = projectTitle === '周年慶回流活動';
+    const isIceFestivalProject = projectTitle === '冰雪節兌換活動';
+    const isPhoneCaseProject = projectTitle === '手機殼設計';
+    const isConcertProject = projectTitle === '大巨蛋演唱會整體視覺VI設計';
+    const isSevenElevenProject = projectTitle === '7-11商品包裝設計';
+    const isImageOnlyProject = isFootballBingo || isLinglingProject || isIpCheckinProject || isAnniversaryProject || isIceFestivalProject || isPhoneCaseProject;
+    scene.classList.toggle('is-seven-eleven-project', isSevenElevenProject);
+    const singleImageSrc = isFootballBingo
+      ? 'assets/projects/bingo大圖.png'
+      : isLinglingProject
+        ? 'assets/projects/靈靈大圖.png'
+        : isIpCheckinProject
+          ? 'assets/projects/IP大圖.png'
+          : isAnniversaryProject
+            ? 'assets/projects/回流大圖.png'
+            : isPhoneCaseProject
+              ? 'assets/projects/手機殼合圖.png'
+              : 'assets/projects/冰雪大圖.png';
+    const projectSlide = document.querySelector('.q1-image-project-slide');
+    const projectHero = document.querySelector('.q1-image-project-hero');
+    const projectPanels = document.getElementById('q1-image-project-panels');
+    const projectConcertGallery = document.getElementById('q1-image-project-concert-gallery');
+    const projectPackageGallery = document.getElementById('q1-image-project-package-gallery');
+    const projectVisual = document.querySelector('.q1-image-project-visual');
+    const projectConcertCollabSlide = document.getElementById('q1-image-concert-collab-slide');
+    const projectConcertDetailSlide = document.getElementById('q1-image-concert-detail-slide');
+    const projectConcertVenueSlide = document.getElementById('q1-image-concert-venue-slide');
+    const projectKicker = document.getElementById('q1-image-project-copy-kicker');
+    const projectGallery = document.getElementById('q1-image-project-gallery');
+    const projectSingleImage = document.getElementById('q1-image-project-single-image');
+    if (projectSlide) projectSlide.classList.toggle('is-single-image', isImageOnlyProject);
+    if (projectSlide) projectSlide.classList.toggle('is-concert-project', isConcertProject);
+    if (projectSlide) projectSlide.classList.toggle('is-seven-eleven-project', isSevenElevenProject);
+    if (projectKicker) projectKicker.hidden = !isConcertProject;
+    if (projectConcertCollabSlide) projectConcertCollabSlide.hidden = !isConcertProject;
+    if (projectConcertDetailSlide) projectConcertDetailSlide.hidden = !isConcertProject;
+    if (projectConcertVenueSlide) projectConcertVenueSlide.hidden = !isConcertProject;
+    if (projectHero) projectHero.hidden = isImageOnlyProject;
+    if (projectPanels) projectPanels.hidden = isImageOnlyProject || isConcertProject || isSevenElevenProject;
+    if (projectConcertGallery) projectConcertGallery.hidden = !isConcertProject;
+    if (projectVisual) projectVisual.hidden = isSevenElevenProject;
+    if (projectPackageGallery) projectPackageGallery.hidden = !isSevenElevenProject;
+    if (projectGallery) projectGallery.hidden = true;
+    if (projectSingleImage) projectSingleImage.hidden = !isImageOnlyProject;
+    const projectSingleImageLink = document.getElementById('q1-image-project-single-image-link');
+    const projectSingleImageElement = document.getElementById('q1-image-project-single-image-img');
+    if (projectSingleImageLink && projectSingleImageElement && isImageOnlyProject) {
+      projectSingleImageLink.href = singleImageSrc;
+      projectSingleImageLink.setAttribute('aria-label', `在新分頁開啟${projectTitle}原圖`);
+      projectSingleImageElement.src = singleImageSrc;
+      projectSingleImageElement.alt = `${projectTitle}作品大圖`;
+    }
+    document.getElementById('q1-image-lightbox-title').textContent = projectTitle;
+    document.getElementById('q1-image-lightbox-description').textContent = projectDescription;
+    document.getElementById('q1-image-overview-title').textContent = projectTitle;
+    document.getElementById('q1-image-overview-description').textContent = projectDescription;
+    const overviewImage = document.getElementById('q1-image-overview-image');
+    overviewImage.src = src;
+    overviewImage.alt = alt;
+    document.getElementById('q1-image-project-title').textContent = projectTitle;
+    document.getElementById('q1-image-project-description').textContent = projectDescription;
+    const projectImage = document.getElementById('q1-image-project-image');
+    projectImage.src = src;
+    projectImage.alt = alt;
+    document.getElementById('q1-image-project-content').textContent = `依據「${projectTitle}」主題完成對應視覺設計。`;
+    document.getElementById('q1-image-project-result').textContent = '支援活動製作，完成多元視覺需求並協助成果落地。';
+    q1ImageIntroRevealed = true;
+    updateQ1ImageScroll();
+    lightbox.showModal();
+    requestAnimationFrame(() => {
+      if (!lightbox.open || q1ImageClosing) return;
+      syncQ1ImageGeometry();
+      updateQ1ImageScroll();
+    });
+  }
+
+  function animateQ1ImageClose() {
+    const lightbox = document.getElementById('q1-image-lightbox');
+    if (!lightbox || !lightbox.open || q1ImageCloseAnimating) return;
+    window.clearTimeout(q1ImageCloseTimer);
+    window.clearTimeout(q1ImageIntroTimer);
+    q1ImageCloseTimer = null;
+    q1ImageIntroTimer = null;
+    q1ImageCloseAnimating = true;
+    q1ImageClosing = true;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      lightbox.close();
+      return;
+    }
+    lightbox.classList.add('is-closing');
+    q1ImageCloseTimer = window.setTimeout(() => {
+      q1ImageCloseTimer = null;
+      if (lightbox.open) lightbox.close();
+    }, 260);
+  }
+
+  function closeQ1Image() {
+    const lightbox = document.getElementById('q1-image-lightbox');
+    if (!lightbox || !lightbox.open) return;
+    if (q1ImageClosing) return;
+    animateQ1ImageClose();
+  }
+
+  function closeQ1ImageImmediately() {
+    const lightbox = document.getElementById('q1-image-lightbox');
+    const page = document.getElementById('q1-image-page');
+    const scene = document.getElementById('q1-image-scene');
+    if (!lightbox || !lightbox.open) return;
+    window.clearTimeout(q1ImageCloseTimer);
+    window.clearTimeout(q1ImageIntroTimer);
+    q1ImageCloseTimer = null;
+    q1ImageIntroTimer = null;
+    q1ImageClosing = false;
+    q1ImageCloseAnimating = false;
+    q1ImageIntroRevealed = false;
+    lightbox.classList.remove('is-closing');
+    if (scene) scene.classList.remove('is-transitioning');
+    if (page) {
+      page.classList.remove('is-fade-hidden');
+      page.scrollTop = 0;
+    }
+    updateQ1ImageScroll();
+    lightbox.close();
+  }
+
+  const q1ImageLightbox = document.getElementById('q1-image-lightbox');
+  const q1ImagePage = document.getElementById('q1-image-page');
+  let q1ImageFrame = null;
+  q1ImagePage.addEventListener('scroll', () => {
+    if (q1ImageFrame !== null) return;
+    q1ImageFrame = requestAnimationFrame(() => {
+      q1ImageFrame = null;
+      updateQ1ImageScroll();
+      if (q1ImageClosing && !q1ImageCloseAnimating && q1ImagePage.scrollTop <= 1) {
+        window.clearTimeout(q1ImageCloseTimer);
+        q1ImageCloseTimer = null;
+        animateQ1ImageClose();
+      }
+    });
+  }, { passive: true });
+  window.addEventListener('resize', () => {
+    if (q1ImageLightbox.open) {
+      syncQ1ImageGeometry();
+      updateQ1ImageScroll();
+    }
+  });
+  q1ImageLightbox.addEventListener('cancel', (event) => {
+    event.preventDefault();
+    closeQ1ImageImmediately();
+  });
+  q1ImageLightbox.addEventListener('close', () => {
+    window.clearTimeout(q1ImageCloseTimer);
+    window.clearTimeout(q1ImageIntroTimer);
+    q1ImageCloseTimer = null;
+    q1ImageIntroTimer = null;
+    q1ImageClosing = false;
+    q1ImageCloseAnimating = false;
+    q1ImageIntroRevealed = false;
+    q1ImageLightbox.classList.remove('is-closing');
+    q1ImagePage.classList.remove('is-fade-hidden');
+    document.getElementById('q1-image-scene').classList.remove('is-transitioning');
+    q1ImagePage.scrollTop = 0;
+    updateQ1ImageScroll();
+  });
+  q1ImagePage.addEventListener('click', (event) => {
+    const target = event.target;
+    if (target === q1ImagePage || target.classList.contains('q1-image-scene') || target.classList.contains('q1-image-cover-space') || target.classList.contains('q1-image-detail-slide') || target.classList.contains('q1-image-project-slide')) closeQ1Image();
+  });
+  q1ImageLightbox.addEventListener('click', (event) => {
+    if (event.target === event.currentTarget) closeQ1Image();
+  });
+
+  function hideQ1Detail() {
+    const overlay = document.getElementById('q1-detail-overlay');
+    if (!overlay || !overlay.classList.contains('open')) return;
+    if (overlay.classList.contains('is-fading-out')) return;
+    overlay.classList.add('is-fading-out');
+    document.body.style.overflow = '';
+    window.clearTimeout(q1DetailCloseTimer);
+    q1DetailCloseTimer = window.setTimeout(() => {
+      overlay.classList.remove('open', 'is-fading-out');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.querySelector('main').inert = false;
+      q1DetailCloseTimer = null;
+      if (q1DetailReturnTarget && q1DetailReturnTarget.focus) q1DetailReturnTarget.focus({ preventScroll: true });
+    }, 260);
+  }
+
+  function closeQ1Detail() {
+    if (location.hash.startsWith('#q1-detail-')) history.replaceState(null, '', '#faq-q1');
+    hideQ1Detail();
+  }
+
+  window.addEventListener('popstate', () => {
+    const match = location.hash.match(/^#q1-detail-(\d)$/);
+    if (match) openQ1Detail(Number(match[1]) - 1, false);
+    else hideQ1Detail();
+  });
+
+  function openModal(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(e, id) {
+    if (e && e.target !== e.currentTarget) return;
+    const modal = document.getElementById(id);
+    if (modal) modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', (e) => {
+    const detailOverlay = document.getElementById('q1-detail-overlay');
+    const imageLightbox = document.getElementById('q1-image-lightbox');
+    if (e.key === 'Tab' && detailOverlay.classList.contains('open') && detailOverlay.classList.contains('is-modal') && !imageLightbox.open) {
+      const focusable = [...detailOverlay.querySelectorAll('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])')]
+        .filter((element) => element.getClientRects().length > 0);
+      if (focusable.length) {
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && (document.activeElement === first || !detailOverlay.contains(document.activeElement))) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && (document.activeElement === last || !detailOverlay.contains(document.activeElement))) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
+    if (e.key === 'Escape') {
+      if (imageLightbox.open) return;
+      if (detailOverlay.classList.contains('open')) closeQ1Detail();
+      document.querySelectorAll('.modal-backdrop.open').forEach((modal) => modal.classList.remove('open'));
+      document.body.style.overflow = '';
+    }
+  });
+
+  (() => {
+    const sections = [...document.querySelectorAll('section[data-block]')];
+    const dots = [...document.querySelectorAll('.mini-map a')];
+    const setActive = (section) => {
+      const index = sections.indexOf(section);
+      dots.forEach((dot, i) => {
+        const active = i === index;
+        dot.classList.toggle('active', active);
+        if (active) dot.setAttribute('aria-current', 'location');
+        else dot.removeAttribute('aria-current');
+      });
+    };
+
+    if ('IntersectionObserver' in window) {
+      const revealSection = (entries) => entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.querySelectorAll('.reveal').forEach((element) => element.classList.add('in'));
+      });
+      const revealObserver = new IntersectionObserver(revealSection, { threshold: 0.3 });
+      const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => { if (entry.isIntersecting) setActive(entry.target); });
+      }, { threshold: 0.5 });
+      sections.forEach((section) => {
+        navObserver.observe(section);
+        if (section.id !== 'faq') revealObserver.observe(section);
+      });
+      const faqPages = document.querySelector('.faq-pages');
+      if (faqPages) {
+        const faqObserver = new IntersectionObserver(revealSection, { root: faqPages, threshold: 0.3 });
+        faqPages.querySelectorAll('.faq-slide').forEach((slide) => faqObserver.observe(slide));
+      }
+    } else {
+      document.querySelectorAll('.reveal').forEach((element) => element.classList.add('in'));
+    }
+
+    let ticking = false;
+    const updateProgress = () => {
+      const root = document.documentElement;
+      const max = root.scrollHeight - window.innerHeight;
+      root.style.setProperty('--scroll-progress', max > 0 ? window.scrollY / max : 0);
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(updateProgress); ticking = true; }
+    }, { passive: true });
+    updateProgress();
+  })();
+</script>
+<script>
+(() => {
+  const copyByTitle = [
+    ["VI轉活動彈窗", "今年遊戲內活動製作比例較高，每項活動通常需要製作多種類型與多頁彈窗，無論是否有既定 VI，都有大量頁面設計需求。因此，我製作此技能工具，協助快速產出彈窗的基礎架構，提升初期製作效率；當騰訊後續提出修改時，也能更快調整與更新。"],
+    ["PSD自動轉存效果圖", "每項活動完成後，都需要整理效果圖提供騰訊校稿與確認。彈窗數量較多時，逐一編排效果圖會增加不少後製時間，因此我製作此技能工具，讓使用者匯入檔案後即可自動排版，減少手動整理的時間。"]
+  ];
+  const normalize = value => (value || "").replace(/\s/g, "");
+  const findCard = title => {
+    const headings = [...document.querySelectorAll("h1,h2,h3,h4,[role=heading],.q1-detail-workflow-title")];
+    const heading = headings.find(el => normalize(el.textContent).includes(normalize(title)));
+    if (!heading) return null;
+    return heading.closest("article,.q1-detail-workflow-card,.q1-detail-workflow-item,.q1-detail-panel") || heading.parentElement;
+  };
+  const updateWorkflowCards = () => {
+    const cards = copyByTitle.map(([title, copy]) => {
+      const card = findCard(title);
+      if (!card) return null;
+      const paragraphs = [...card.querySelectorAll("p")];
+      const body = paragraphs.find(p => p !== card.querySelector("h1,h2,h3,h4"));
+      if (body && body.textContent.trim() !== copy) body.textContent = copy;
+      return card;
+    });
+    const tagList = document.querySelector("#q1-detail-points");
+    if (tagList) {
+      const hideTagList = Boolean(cards[0] && cards[1]);
+      tagList.hidden = hideTagList;
+      tagList.style.display = hideTagList ? "none" : "";
+    }
+    if (!cards[0] || !cards[1]) return;
+    let container = cards[0].parentElement;
+    while (container && !container.contains(cards[1])) container = container.parentElement;
+    if (!container) return;
+    Object.assign(container.style, {display:"grid", gridTemplateColumns:"repeat(2,minmax(0,1fr))", alignItems:"stretch", gap:"clamp(16px,2vw,28px)"});
+    const psdStyle = getComputedStyle(cards[1]);
+    const viTitle = document.querySelector("#q1-detail-point-title");
+    const psdTitle = document.querySelector("#q1-detail-highlight-title");
+    if (viTitle && psdTitle) {
+      const titleStyle = getComputedStyle(psdTitle);
+      Object.assign(viTitle.style, {fontFamily:titleStyle.fontFamily, fontSize:titleStyle.fontSize, fontWeight:titleStyle.fontWeight, lineHeight:titleStyle.lineHeight, letterSpacing:titleStyle.letterSpacing, color:titleStyle.color});
+    }
+    const bodyReference = cards[0].querySelector("p");
+    if (bodyReference) {
+      const bodyFontSize = getComputedStyle(bodyReference).fontSize;
+      for (const card of cards) card.querySelectorAll("p").forEach(p => p.style.fontSize = bodyFontSize);
+      const outsideCopy = document.querySelector("#q1-detail-lead");
+      if (outsideCopy) outsideCopy.style.fontSize = bodyFontSize;
+    }
+    for (const card of cards) {
+      Object.assign(card.style, {
+        height:"100%", boxSizing:"border-box", background:psdStyle.background,
+        borderColor:psdStyle.borderColor, borderStyle:psdStyle.borderStyle,
+        borderWidth:psdStyle.borderWidth, borderRadius:psdStyle.borderRadius,
+        color:psdStyle.color
+      });
+    }
+  };
+  const observer = new MutationObserver(updateWorkflowCards);
+  const start = () => {
+    updateWorkflowCards();
+    observer.observe(document.body, {subtree:true, childList:true, characterData:true});
+  };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start, {once:true});
+  else start();
+})();
+</script>
+<script>
+(() => {
+  const installToolPopups = () => {
+    const q2 = document.querySelector("#faq-q2");
+    if (!q2 || q2.dataset.toolPopupsReady === "true") return;
+    q2.dataset.toolPopupsReady = "true";
+    const definitions = [
+      {match:/VI\s*轉活動彈窗/i, title:"VI 轉活動彈窗"},
+      {match:/PSD\s*自動轉存效果圖/i, title:"PSD 自動轉存效果圖"}
+    ];
+    const style = document.createElement("style");
+    style.textContent = `
+      .q2-tool-popup-backdrop{position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;padding:24px;background:rgba(8,7,22,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;transition:opacity .3s ease}
+      .q2-tool-popup-backdrop.is-open{opacity:1}
+      .q2-tool-popup{position:relative;width:min(760px,100%);max-height:min(82vh,760px);overflow:auto;padding:clamp(24px,5vw,48px);border:1px solid rgba(190,170,255,.3);border-radius:24px;background:linear-gradient(145deg,rgba(22,20,45,.98),rgba(43,32,77,.98));box-shadow:0 28px 90px rgba(0,0,0,.48);color:#f5f2ff;transform:translateY(16px) scale(.96);transition:transform .42s cubic-bezier(.2,.8,.2,1)}
+      .q2-tool-popup-backdrop.is-open .q2-tool-popup{transform:translateY(0) scale(1)}
+      .q2-tool-popup-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:32px}
+      .q2-tool-popup-back,.q2-tool-popup-close{border:1px solid rgba(208,193,255,.34);background:rgba(255,255,255,.05);color:inherit;cursor:pointer}
+      .q2-tool-popup-back{padding:10px 16px;border-radius:999px;font:inherit;font-size:14px;font-weight:700}
+      .q2-tool-popup-close{width:42px;height:42px;border-radius:50%;font-size:24px;line-height:1}
+      .q2-tool-popup-label{margin:0 0 12px;color:#c8b5ff;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+      .q2-tool-popup h2{margin:0 0 20px;font-size:clamp(28px,4vw,42px);line-height:1.2;color:#fff}
+      .q2-tool-popup-copy{font-size:clamp(16px,1.8vw,19px);line-height:1.9;color:rgba(241,237,255,.84);white-space:pre-line}
+      .q2-tool-popup-trigger{cursor:pointer;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+      .q2-tool-popup-trigger:hover,.q2-tool-popup-trigger:focus-visible{transform:translateY(-3px);border-color:rgba(193,169,255,.72);box-shadow:0 14px 36px rgba(20,12,54,.28);outline:none}
+      @media(max-width:640px){.q2-tool-popup-backdrop{padding:12px}.q2-tool-popup{max-height:88vh;padding:22px;border-radius:20px}.q2-tool-popup-top{margin-bottom:24px}}
+    `;
+    document.head.appendChild(style);
+
+    const getCard = definition => {
+      const titleNode = [...q2.querySelectorAll("h2,h3,h4,.stat-number,.venue-name,.ai-card-title")].find(el => definition.match.test(el.textContent || ""));
+      if (!titleNode) return null;
+      return titleNode.closest("article,.stat-card,.venue-item,.ai-card,[role=button]") || titleNode.parentElement;
+    };
+    const openPopup = (definition, card) => {
+      if (document.querySelector(".q2-tool-popup-backdrop")) return;
+      const titleNode = card.querySelector("h2,h3,h4,.stat-number,.venue-name,.ai-card-title");
+      const copyNode = card.querySelector(".stat-label,.ai-card-copy,.q1-detail-workflow-copy,p") || card;
+      const copy = copyNode.textContent.trim();
+      const overlay = document.createElement("div");
+      overlay.className = "q2-tool-popup-backdrop";
+      overlay.innerHTML = `<section class="q2-tool-popup" role="dialog" aria-modal="true" aria-labelledby="q2-tool-popup-title"><div class="q2-tool-popup-top"><button class="q2-tool-popup-back" type="button">← 返回題目二</button><button class="q2-tool-popup-close" type="button" aria-label="關閉">×</button></div><p class="q2-tool-popup-label">AI 應用 · 技能工具</p><h2 id="q2-tool-popup-title"></h2><div class="q2-tool-popup-copy"></div></section>`;
+      overlay.querySelector("h2").textContent = titleNode ? titleNode.textContent.trim() : definition.title;
+      overlay.querySelector(".q2-tool-popup-copy").textContent = copy;
+      const close = () => {
+        overlay.classList.remove("is-open");
+        document.body.style.overflow = "";
+        document.removeEventListener("keydown", onKeydown);
+        window.setTimeout(() => overlay.remove(), 320);
+        card.focus();
+      };
+      const onKeydown = event => { if (event.key === "Escape") close(); };
+      overlay.addEventListener("click", event => { if (event.target === overlay) close(); });
+      overlay.querySelectorAll(".q2-tool-popup-back,.q2-tool-popup-close").forEach(button => button.addEventListener("click", close));
+      document.body.appendChild(overlay);
+      document.body.style.overflow = "hidden";
+      document.addEventListener("keydown", onKeydown);
+      requestAnimationFrame(() => overlay.classList.add("is-open"));
+      overlay.querySelector(".q2-tool-popup-close").focus();
+    };
+
+    definitions.forEach(definition => {
+      const card = getCard(definition);
+      if (!card) return;
+      card.classList.add("q2-tool-popup-trigger");
+      if (!card.hasAttribute("role")) card.setAttribute("role", "button");
+      if (!card.hasAttribute("tabindex")) card.tabIndex = 0;
+      card.addEventListener("click", event => {
+        event.preventDefault();
+        event.stopPropagation();
+        openPopup(definition, card);
+      });
+      card.addEventListener("keydown", event => {
+        if (event.target !== card || (event.key !== "Enter" && event.key !== " ")) return;
+        event.preventDefault();
+        openPopup(definition, card);
+      });
+    });
+  };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", installToolPopups, {once:true});
+  else installToolPopups();
+})();
+</script>
+<script>
+(() => {
+  const installQ2VenueCards = () => {
+    const q2 = document.querySelector("#faq-q2");
+    if (!q2 || q2.dataset.q2VenueCardsReady === "true") return;
+    const findCard = pattern => {
+      const title = [...q2.querySelectorAll("*")].find(el => el.children.length === 0 && pattern.test((el.textContent || "").replace(/\s/g, "")));
+      return title ? (title.closest("article,.stat-card,.venue-item,[role=button]") || title.parentElement) : null;
+    };
+    const first = findCard(/VI轉活動彈窗/i);
+    const second = findCard(/PSD自動轉存效果圖/i);
+    if (!first || !second) return;
+    const grid = first.closest(".stats-grid") || (first.parentElement === second.parentElement ? first.parentElement : null);
+    if (!grid || !grid.contains(second)) return;
+    grid.classList.add("stats-grid", "q1-key-result-grid", "reveal", "in");
+    grid.innerHTML = `
+      <article class="venue-item" role="button" tabindex="0" aria-label="VI轉活動彈窗" onclick="openQ2ToolDetail(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openQ2ToolDetail(0)}">
+        <div class="venue-tint"></div><div class="venue-overlay"></div>
+        <div class="venue-body"><div class="q1-key-card-copy"><div class="venue-name">遊戲內活動視覺</div><p class="faq-venue-description">依照原廠視覺規範快速產出彈窗，縮短修改流程，靈活因應需求變動。</p></div></div>
+      </article>
+      <article class="venue-item" role="button" tabindex="0" aria-label="PSD自動轉存效果圖" onclick="openQ2ToolDetail(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openQ2ToolDetail(1)}">
+        <div class="venue-tint"></div><div class="venue-overlay"></div>
+        <div class="venue-body"><div class="q1-key-card-copy"><div class="venue-name">線下活動與實體商品</div><p class="faq-venue-description">一鍵產出完整效果圖，省去手動編排，方便與原廠對接。</p></div></div>
+      </article>`;
+    q2.dataset.q2VenueCardsReady = "true";
+  };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", installQ2VenueCards, {once:true});
+  else installQ2VenueCards();
+})();
+</script>
+<style id="q2-tool-detail-styles">
+  .q2-tool-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2vw,24px)}
+  .q2-tool-grid>.q2-tool-card{min-height:clamp(250px,32vw,380px)}
+  .q2-tool-card .venue-body{display:flex;align-items:center;justify-content:center}
+  .q2-tool-card .q1-key-card-copy{width:100%;text-align:left}
+  .q2-tool-card .venue-name{margin:0;text-align:left}
+  .q2-tool-detail-backdrop{position:fixed;inset:0;z-index:10050;display:grid;place-items:center;padding:clamp(14px,3vw,36px);background:rgba(7,8,22,.72);backdrop-filter:blur(12px);opacity:0;visibility:hidden;transition:opacity .32s ease,visibility .32s ease}
+  .q2-tool-detail-backdrop.is-open{opacity:1;visibility:visible}
+  .q2-tool-detail-dialog{position:relative;width:min(1120px,100%);max-height:min(88vh,900px);overflow:auto;padding:clamp(24px,4vw,52px);border:1px solid rgba(195,174,255,.28);border-radius:28px;background:linear-gradient(135deg,rgba(35,27,67,.98),rgba(15,18,39,.98));box-shadow:0 32px 100px rgba(0,0,0,.48);color:var(--sp-fg,#f6f3ff);transform:translateY(18px) scale(.97);transition:transform .42s cubic-bezier(.2,.8,.2,1)}
+  .q2-tool-detail-backdrop.is-open .q2-tool-detail-dialog{transform:translateY(0) scale(1)}
+  .q2-tool-detail-close{position:absolute;right:clamp(16px,3vw,28px);top:clamp(16px,3vw,28px);width:44px;height:44px;border:1px solid rgba(214,199,255,.38);border-radius:50%;background:rgba(16,18,39,.55);color:inherit;font-size:24px;line-height:1;cursor:pointer}
+  .q2-tool-detail-back{display:inline-flex;align-items:center;gap:8px;margin:0 58px 24px 0;padding:10px 16px;border:1px solid rgba(214,199,255,.3);border-radius:999px;background:rgba(255,255,255,.04);color:inherit;font:inherit;font-size:14px;cursor:pointer}
+  .q2-tool-detail-kicker{margin:0 0 10px;color:var(--sp-accent,#c3aaff);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+  .q2-tool-detail-tags{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 24px}
+  .q2-tool-detail-tags span{padding:8px 14px;border:1px solid rgba(197,178,255,.3);border-radius:999px;background:rgba(155,125,238,.14);color:rgba(245,240,255,.94);font-size:14px;font-weight:650;letter-spacing:.03em}
+  .q2-tool-detail-dialog h2{margin:0 0 12px;font-size:clamp(30px,4vw,46px);line-height:1.16;letter-spacing:.01em}
+  .q2-tool-detail-subtitle{max-width:850px;margin:0 0 clamp(24px,4vw,40px);color:rgba(239,235,255,.78);font-size:clamp(16px,1.6vw,19px);line-height:1.8}
+  .q2-tool-detail-panels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .q2-tool-detail-panel{min-height:260px;padding:clamp(22px,3vw,34px);border:1px solid rgba(197,178,255,.22);border-radius:22px;background:linear-gradient(145deg,rgba(77,56,133,.56),rgba(30,29,65,.72));display:flex;flex-direction:column;justify-content:center}
+  .q2-tool-detail-panel h3{margin:0 0 14px;font-size:clamp(19px,2vw,24px);color:#f4efff}
+  .q2-tool-detail-panel p{margin:0;color:rgba(239,235,255,.82);font-size:clamp(15px,1.45vw,18px);line-height:1.9}
+  .q2-tool-detail-current{justify-content:flex-start;grid-column:1}
+  .q2-tool-detail-side{display:grid;grid-template-rows:1fr 1fr;gap:18px;grid-column:2;grid-row:1 / span 2}
+  .q2-tool-detail-side .q2-tool-detail-panel{min-height:0}
+  .q2-tool-gallery{margin-top:24px}
+  .q2-tool-gallery[hidden],.q2-tool-future[hidden]{display:none!important}
+  .q2-gallery-viewer{position:relative;overflow:hidden;isolation:isolate;aspect-ratio:16/10;border:1px solid rgba(197,178,255,.25);border-radius:16px;background:rgba(5,8,20,.68)}
+  .q2-gallery-image{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:transform .6s cubic-bezier(.22,.78,.22,1);will-change:transform}
+  .q2-gallery-image.is-incoming{transform:translateX(100%) scale(1.25);z-index:2}
+  .q2-gallery-arrow{position:absolute;top:50%;z-index:4;display:grid;place-items:center;width:38px;height:38px;border:1px solid rgba(238,230,255,.34);border-radius:50%;background:rgba(15,16,37,.72);color:#fff;font-size:20px;cursor:pointer;transform:translateY(-50%)}
+  .q2-gallery-arrow.is-prev{left:12px}.q2-gallery-arrow.is-next{right:12px}
+  .q2-gallery-thumbnails{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:12px}
+  .q2-gallery-thumb{position:relative;overflow:hidden;aspect-ratio:1.25;border:1px solid rgba(197,178,255,.2);border-radius:10px;padding:0;background:rgba(8,10,24,.72);opacity:.48;cursor:pointer;transition:opacity .24s ease,border-color .24s ease,transform .24s ease}
+  .q2-gallery-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+  .q2-gallery-thumb.is-active{opacity:1;border-color:rgba(197,178,255,.78);transform:translateY(-2px)}
+  .q2-gallery-indicator{position:relative;height:3px;margin-top:10px;border-radius:10px;background:rgba(220,209,255,.16)}
+  .q2-gallery-indicator span{position:absolute;left:0;top:0;width:25%;height:100%;border-radius:inherit;background:var(--sp-accent,#c3aaff);transform:translateX(0);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+  body.q2-tool-detail-open{overflow:hidden}
+  @media(max-width:700px){.q2-tool-grid{grid-template-columns:1fr}.q2-tool-grid>.q2-tool-card{min-height:210px}.q2-tool-detail-panels{grid-template-columns:1fr}.q2-tool-detail-panel{min-height:unset}.q2-tool-detail-dialog{max-height:92vh;border-radius:22px}}
+</style>
+<script id="q2-tool-detail-script">
+(()=>{
+  const entries=[
+    {title:'VI 轉活動彈窗',subtitle:'依照活動需求快速建立彈窗基礎架構，提升初期製作與後續修改效率。',leftTitle:'目前使用時機 及 使用方式',left:'開發遊戲內活動時可以看到大致的成品效果，減省製作時間。',rightTitle:'遇到的痛點',right:'遊戲內活動通常需要製作多種類型與多頁彈窗，無論是否有既定 VI，都有大量頁面設計需求；後續方向或內容調整，也會增加反覆修改的時間。',futureTitle:'未來的優化',future:'',gallery:true},
+    {title:'PSD 自動轉存效果圖',subtitle:'自動整理活動效果圖，減少手動編排與後製整理時間。',leftTitle:'目前使用時機 及 使用方式',left:'每項活動完成後，將 PSD 檔案匯入工具，自動編排成效果圖，提供騰訊校稿與確認。',rightTitle:'遇到的痛點',right:'彈窗數量較多時，逐一編排效果圖會增加不少後製時間；透過自動排版可減少手動整理，讓交付版面更一致。',futureTitle:'',future:'',gallery:false}
+  ];
+  let opener=null, overlay=null;
+  function buildOverlay(){
+    if(overlay)return overlay;
+    overlay=document.createElement('div');overlay.className='q2-tool-detail-backdrop';overlay.setAttribute('aria-hidden','true');
+    overlay.innerHTML='<section class="q2-tool-detail-dialog" role="dialog" aria-modal="true" aria-labelledby="q2-tool-detail-title"><button class="q2-tool-detail-close" type="button" aria-label="關閉">×</button><button class="q2-tool-detail-back" type="button">← 返回題目二</button><div class="q2-tool-detail-tags" aria-label="工具效益"><span>節省時間</span><span>品質穩定</span><span>溝通效率</span></div><h2 id="q2-tool-detail-title"></h2><p class="q2-tool-detail-subtitle"></p><div class="q2-tool-detail-panels"><article class="q2-tool-detail-panel q2-tool-detail-current"><h3></h3><p></p><div class="q2-tool-gallery" hidden><div class="q2-gallery-viewer"><img class="q2-gallery-image is-current" alt="VI 工具畫面"><img class="q2-gallery-image is-incoming" alt="" aria-hidden="true"><button class="q2-gallery-arrow is-prev" type="button" aria-label="上一張">‹</button><button class="q2-gallery-arrow is-next" type="button" aria-label="下一張">›</button></div><div class="q2-gallery-thumbnails"></div><div class="q2-gallery-indicator" aria-hidden="true"><span></span></div></div></article><div class="q2-tool-detail-side"><article class="q2-tool-detail-panel q2-tool-detail-pain"><h3></h3><p></p></article><article class="q2-tool-detail-panel q2-tool-future" hidden><h3></h3><p></p></article></div></div></section>';
+    document.body.appendChild(overlay);
+    const close=()=>closeOverlay();
+    overlay.querySelector('.q2-tool-detail-close').addEventListener('click',close);
+    overlay.querySelector('.q2-tool-detail-back').addEventListener('click',close);
+    overlay.addEventListener('click',e=>{if(e.target===overlay)close()});
+    return overlay;
+  }
+  function openOverlay(index,trigger){
+    const data=entries[index];if(!data)return;
+    opener=trigger||document.activeElement;const el=buildOverlay();
+    el.querySelector('#q2-tool-detail-title').textContent=data.title;
+    el.querySelector('.q2-tool-detail-subtitle').textContent=data.subtitle;
+    const panels=el.querySelectorAll('.q2-tool-detail-panel');
+    panels[0].querySelector('h3').textContent=data.leftTitle;panels[0].querySelector('p').textContent=data.left;
+    panels[1].querySelector('h3').textContent=data.rightTitle;panels[1].querySelector('p').textContent=data.right;
+    el.classList.add('is-open');el.setAttribute('aria-hidden','false');document.body.classList.add('q2-tool-detail-open');
+    requestAnimationFrame(()=>el.querySelector('.q2-tool-detail-close').focus());
+  }
+  function closeOverlay(){if(!overlay)return;overlay.classList.remove('is-open');overlay.setAttribute('aria-hidden','true');document.body.classList.remove('q2-tool-detail-open');if(opener&&opener.isConnected)opener.focus();}
+  window.openQ2ToolDetail=(index)=>openOverlay(index,document.activeElement);
+  function installCards(){
+    const root=document.querySelector('#faq-q2')||[...document.querySelectorAll('article,section')].find(el=>el.textContent.includes('VI 轉活動彈窗')&&el.textContent.includes('PSD 自動轉存效果圖'));
+    if(!root)return false;
+    let grid=root.querySelector('.q1-key-result-grid,.stats-grid,.faq-callouts');
+    if(!grid){grid=[...root.querySelectorAll('[class*="grid"],[class*="callout"]')].find(el=>el.querySelectorAll('article').length>=2)}
+    if(!grid)return false;
+    grid.classList.add('q1-key-result-grid','q2-tool-grid');grid.innerHTML=`
+      <article class="venue-item q2-tool-card" role="button" tabindex="0" aria-label="VI 轉活動彈窗" onclick="openQ2ToolDetail(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openQ2ToolDetail(0)}">
+        <div class="venue-tint"></div><div class="venue-overlay"></div>
+        <div class="venue-body"><div class="q1-key-card-copy"><div class="venue-name">VI 轉活動彈窗</div></div></div>
+      </article>
+      <article class="venue-item q2-tool-card" role="button" tabindex="0" aria-label="PSD 自動轉存效果圖" onclick="openQ2ToolDetail(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openQ2ToolDetail(1)}">
+        <div class="venue-tint"></div><div class="venue-overlay"></div>
+        <div class="venue-body"><div class="q1-key-card-copy"><div class="venue-name">PSD 自動轉存效果圖</div></div></div>
+      </article>`;
+    return true;
+  }
+  function init(){if(installCards())return;const observer=new MutationObserver(()=>{if(installCards())observer.disconnect()});observer.observe(document.body,{childList:true,subtree:true});setTimeout(()=>observer.disconnect(),10000)}
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay?.classList.contains('is-open'))closeOverlay()});
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+</script>
+<style id="q2-tool-gallery-layout">
+.q2-tool-detail-panels{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch}
+.q2-tool-detail-current{align-self:stretch}
+.q2-tool-detail-side{display:grid;grid-template-rows:repeat(2,minmax(0,1fr));gap:18px;min-width:0}
+.q2-tool-detail-side>.q2-tool-detail-panel{min-height:0}
+.q2-tool-gallery{margin-top:22px;width:100%}
+.q2-gallery-viewer{position:relative;isolation:isolate;overflow:hidden;aspect-ratio:16/10;border:1px solid var(--sp-border,rgba(201,183,255,.28));border-radius:18px;background:rgba(5,7,19,.82)}
+.q2-gallery-image{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transform:translateX(0) scale(1);z-index:1;pointer-events:none}
+.q2-gallery-image.is-current{opacity:1;z-index:1}
+.q2-gallery-image.is-incoming{z-index:2}
+.q2-gallery-image.is-incoming.is-entering,.q2-gallery-image.is-current.is-leaving{transition:transform .62s cubic-bezier(.22,.75,.22,1),opacity .62s ease}
+.q2-gallery-arrow{position:absolute;z-index:4;top:50%;display:grid;place-items:center;width:38px;height:38px;transform:translateY(-50%);border:1px solid rgba(215,199,255,.5);border-radius:50%;background:rgba(17,17,39,.72);color:var(--sp-fg,#f5f1ff);font-size:25px;line-height:1;cursor:pointer;backdrop-filter:blur(8px)}
+.q2-gallery-arrow:hover{background:rgba(110,78,187,.88)}
+.q2-gallery-arrow.is-prev{left:12px}.q2-gallery-arrow.is-next{right:12px}
+.q2-gallery-thumbnails{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:12px}
+.q2-gallery-thumb{position:relative;overflow:hidden;aspect-ratio:16/10;padding:0;border:1px solid rgba(201,183,255,.22);border-radius:10px;background:rgba(5,7,19,.68);opacity:.5;cursor:pointer;transition:opacity .3s ease,border-color .3s ease,transform .3s ease}
+.q2-gallery-thumb:hover{opacity:.8;transform:translateY(-2px)}
+.q2-gallery-thumb.is-active{opacity:1;border-color:rgba(201,183,255,.82)}
+.q2-gallery-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+.q2-gallery-indicator{height:3px;margin-top:8px;overflow:hidden;border-radius:10px;background:rgba(201,183,255,.14)}
+.q2-gallery-indicator span{display:block;width:25%;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--sp-accent,#9d83ff),var(--sp-highlight,#d7c7ff));transform:translateX(0);transition:transform .45s cubic-bezier(.22,.75,.22,1)}
+@media(max-width:700px){.q2-tool-detail-panels{grid-template-columns:1fr}.q2-tool-detail-side{grid-template-rows:auto}.q2-tool-gallery{margin-top:18px}}
+</style>
+<script id="q2-tool-gallery-script">
+(()=>{
+  const base='file:///G:/共用雲端硬碟/AOV_創意_創意工作使用/SHARE/DDeepix skill教學用的截圖/event popup vi designer/';
+  const sources=['001.png','002.png','003.png','004.png'].map(name=>encodeURI(base+name));
+  const titles=['目前使用時機 及 使用方式','遇到的痛點','未來的優化'];
+  const labels=['001 · 生圖與 VI 設計稿','002 · 活動彈窗 VI 設計','003 · 彈窗版型成果','004 · 獎勵彈窗成果'];
+  function createGallery(panel){
+    const gallery=panel.querySelector('.q2-tool-gallery')||document.createElement('div');gallery.className='q2-tool-gallery';
+    gallery.innerHTML='<div class="q2-gallery-viewer"><img class="q2-gallery-image is-current" alt=""><img class="q2-gallery-image is-incoming" alt="" aria-hidden="true"><button class="q2-gallery-arrow is-prev" type="button" aria-label="上一張">‹</button><button class="q2-gallery-arrow is-next" type="button" aria-label="下一張">›</button></div><div class="q2-gallery-thumbnails" aria-label="圖片縮圖"></div><div class="q2-gallery-indicator" aria-hidden="true"><span></span></div>';
+    if(!gallery.isConnected)panel.append(gallery);gallery.dataset.ready='true';
+    const current=gallery.querySelector('.is-current'),incoming=gallery.querySelector('.is-incoming'),thumbs=gallery.querySelector('.q2-gallery-thumbnails'),indicator=gallery.querySelector('.q2-gallery-indicator span');
+    let active=0,busy=false,timer;
+    current.src=sources[0];current.alt=labels[0];
+    const buttons=sources.map((src,index)=>{const button=document.createElement('button');button.type='button';button.className='q2-gallery-thumb'+(index===0?' is-active':'');button.setAttribute('aria-label','顯示'+labels[index]);button.setAttribute('aria-pressed',String(index===0));const img=document.createElement('img');img.src=src;img.alt='';img.loading='lazy';button.append(img);button.addEventListener('click',()=>show(index,index>active?1:-1));thumbs.append(button);return button;});
+    function mark(index){buttons.forEach((button,i)=>{button.classList.toggle('is-active',i===index);button.setAttribute('aria-pressed',String(i===index));});indicator.style.transform='translateX('+index*100+'%)';}
+    function show(index,direction){if(busy||index===active)return;busy=true;incoming.src=sources[index];incoming.alt=labels[index];incoming.style.opacity='1';incoming.style.transform='translateX('+(direction*100)+'%) scale(1.25)';current.classList.add('is-leaving');current.style.transform='translateX('+(-direction*30)+'%) scale(.96)';incoming.classList.add('is-entering');mark(index);requestAnimationFrame(()=>requestAnimationFrame(()=>{incoming.style.transform='translateX(0) scale(1)';current.style.transform='translateX('+(-direction*30)+'%) scale(.96)';}));window.setTimeout(()=>{current.src=sources[index];current.alt=labels[index];current.style.transform='translateX(0) scale(1)';current.classList.remove('is-leaving');incoming.src='';incoming.alt='';incoming.style.opacity='0';incoming.style.transform='translateX(0) scale(1)';incoming.classList.remove('is-entering');active=index;busy=false;},660);}
+    gallery.querySelector('.is-prev').addEventListener('click',()=>show((active+sources.length-1)%sources.length,-1));
+    gallery.querySelector('.is-next').addEventListener('click',()=>show((active+1)%sources.length,1));
+    timer=window.setInterval(()=>{if(!busy&&getComputedStyle(gallery).display!=='none')show((active+1)%sources.length,1);},5000);
+    gallery.addEventListener('mouseenter',()=>{window.clearInterval(timer);});
+    gallery.addEventListener('mouseleave',()=>{window.clearInterval(timer);timer=window.setInterval(()=>{if(!busy&&getComputedStyle(gallery).display!=='none')show((active+1)%sources.length,1);},5000);});
+  }
+  function sync(){
+    document.querySelectorAll('.q2-tool-detail-dialog').forEach(dialog=>{
+      const title=dialog.querySelector('#q2-tool-detail-title');if(!title)return;
+      const isVi=/VI\s*轉活動彈窗/i.test(title.textContent)||title.textContent.includes('VI 轉活動彈窗');
+      const panels=dialog.querySelector('.q2-tool-detail-panels');if(!panels)return;
+      let current=panels.querySelector('.q2-tool-detail-current')||panels.querySelector('.q2-tool-detail-panel');
+      let side=panels.querySelector('.q2-tool-detail-side');
+      let pain=panels.querySelector('.q2-tool-detail-pain')||Array.from(panels.querySelectorAll('.q2-tool-detail-panel')).find(panel=>panel!==current&&!panel.classList.contains('q2-tool-future'));
+      if(!current||!pain)return;
+      current.classList.add('q2-tool-detail-current');pain.classList.add('q2-tool-detail-pain');
+      if(!side){side=document.createElement('div');side.className='q2-tool-detail-side';panels.append(side);side.append(pain);}
+      let future=panels.querySelector('.q2-tool-future');
+      if(!future){future=document.createElement('article');future.className='q2-tool-detail-panel q2-tool-future';future.innerHTML='<h3>未來的優化</h3>';}
+      if(future.parentElement!==side)side.append(future);
+      future.hidden=!isVi;
+      const currentHeading=current.querySelector('h3');if(currentHeading&&currentHeading.textContent!==titles[0])currentHeading.textContent=titles[0];
+      const painHeading=pain.querySelector('h3');if(painHeading&&painHeading.textContent!==titles[1])painHeading.textContent=titles[1];
+      let gallery=current.querySelector('.q2-tool-gallery');
+      if(isVi&&(!gallery||gallery.dataset.ready!=='true'))createGallery(current);
+      if(gallery)gallery.hidden=!isVi;
+      if(isVi){
+        const galleryText=Array.from(current.querySelectorAll('p')).find(p=>p.textContent.trim()==='');
+        if(galleryText)galleryText.remove();
+      }
+    });
+  }
+  const observer=new MutationObserver(()=>requestAnimationFrame(sync));
+  observer.observe(document.documentElement,{childList:true,subtree:true,characterData:true});
+  sync();
+})();
+</script>
+<script id="q2-tool-vi-copy-script">
+(()=>{
+    const currentLines=['上傳 VI 之後，AI 會把元件先拆出來，再放到對應位置。','快速按照 UX 稿產出對應視覺設計。','可以按照 wireframe 產圖。'];
+    const painCopy='活動彈窗會有基本架構，現階段會有文字大小跑版及重複做圖的問題。每種彈窗都需要製作一個基本框架才能執行。';
+    const futureCopy='未來希望可以多一些步驟，讓 AI 把拆出來的元件先讓使用者作確認；確認完成後再進入下個步驟，去選擇要製作哪些彈窗，最後再進行運算。';
+  function setLines(node,lines){
+    if(!node||node.textContent===lines.join(''))return;
+    node.replaceChildren();
+    lines.forEach((line,index)=>{if(index)node.append(document.createElement('br'));node.append(document.createTextNode(line));});
+  }
+  function sync(){
+    document.querySelectorAll('.q2-tool-detail-dialog').forEach(dialog=>{
+      const title=dialog.querySelector('#q2-tool-detail-title');
+      if(!title||!title.textContent.includes('VI 轉活動彈窗'))return;
+      const current=dialog.querySelector('.q2-tool-detail-current');
+      const pain=dialog.querySelector('.q2-tool-detail-pain');
+      const future=dialog.querySelector('.q2-tool-future');
+      setLines(current?.querySelector('p'),currentLines);
+      const painParagraph=pain?.querySelector('p');
+      if(painParagraph&&painParagraph.textContent!==painCopy)painParagraph.textContent=painCopy;
+      if(future){let paragraph=future.querySelector('p');if(!paragraph){paragraph=document.createElement('p');future.append(paragraph);}if(paragraph.textContent!==futureCopy)paragraph.textContent=futureCopy;}
+    });
+  }
+  const observer=new MutationObserver(()=>requestAnimationFrame(sync));
+  observer.observe(document.documentElement,{childList:true,subtree:true,characterData:true});
+  sync();
+})();
+</script>
+<script id="q2-tool-psd-copy-script">
+(() => {
+  const titleText = '展示效果圖 自動轉存';
+  const subtitleText = '減少出效果圖的編排時間，效果圖需要清楚列出所有的視覺效果；使用這個技能工具可以減少手動排版的時間。';
+  function syncPsdCopy() {
+    document.querySelectorAll('.q2-tool-detail-dialog').forEach(dialog => {
+      const title = dialog.querySelector('#q2-tool-detail-title');
+      if (!title || !title.textContent.includes('PSD 自動轉存效果圖') && !title.textContent.includes(titleText)) return;
+      if (title.textContent !== titleText) title.textContent = titleText;
+      const subtitle = dialog.querySelector('.q2-tool-detail-subtitle');
+      if (subtitle && subtitle.textContent !== subtitleText) subtitle.textContent = subtitleText;
+    });
+  }
+  const observer = new MutationObserver(() => requestAnimationFrame(syncPsdCopy));
+  observer.observe(document.documentElement, { childList: true, subtree: true, characterData: true });
+  syncPsdCopy();
+})();
+</script>
+<style id="q2-tool-vi-three-card-layout">
+  .q2-tool-detail-dialog.q2-tool-vi-layout .q2-tool-detail-panels {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.7fr) repeat(2, minmax(0, .9fr));
+    gap: clamp(14px, 1.8vw, 24px);
+    align-items: stretch;
+  }
+  .q2-tool-detail-dialog.q2-tool-vi-layout .q2-tool-detail-side { display: contents !important; }
+  .q2-tool-detail-dialog.q2-tool-vi-layout .q2-tool-detail-current,
+  .q2-tool-detail-dialog.q2-tool-vi-layout .q2-tool-detail-pain,
+  .q2-tool-detail-dialog.q2-tool-vi-layout .q2-tool-future {
+    min-width: 0;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  .q2-tool-detail-dialog.q2-tool-vi-layout .q2-tool-detail-current {
+    display: grid !important;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    grid-template-rows: auto 1fr;
+    align-content: start;
+    align-items: center;
+    gap: 14px;
+  }
+  .q2-tool-detail-dialog.q2-tool-vi-layout .q2-tool-detail-current > h3,
+  .q2-tool-detail-dialog.q2-tool-vi-layout .q2-tool-detail-current > p { grid-column: 1; }
+  .q2-tool-detail-dialog.q2-tool-vi-layout .q2-tool-detail-current > h3 { grid-row: 1; }
+  .q2-tool-detail-dialog.q2-tool-vi-layout .q2-tool-detail-current > p { grid-row: 2; align-self: start; }
+  .q2-tool-detail-dialog.q2-tool-vi-layout .q2-tool-detail-current > .q2-vi-gallery-slot {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    width: 100%;
+    min-width: 0;
+    align-self: center;
+  }
+  .q2-tool-detail-dialog.q2-tool-vi-layout .q2-vi-gallery-slot img { max-width: 100%; }
+  @media (max-width: 760px) {
+    .q2-tool-detail-dialog.q2-tool-vi-layout .q2-tool-detail-panels { grid-template-columns: minmax(0, 1fr); }
+    .q2-tool-detail-dialog.q2-tool-vi-layout .q2-tool-detail-current { grid-template-columns: minmax(0, 1fr); }
+    .q2-tool-detail-dialog.q2-tool-vi-layout .q2-tool-detail-current > h3,
+    .q2-tool-detail-dialog.q2-tool-vi-layout .q2-tool-detail-current > p,
+    .q2-tool-detail-dialog.q2-tool-vi-layout .q2-tool-detail-current > .q2-vi-gallery-slot {
+      grid-column: 1;
+      grid-row: auto;
+    }
+  }
+</style>
+<script id="q2-tool-vi-three-card-script">
+(() => {
+  function arrangeViDialog() {
+    document.querySelectorAll('.q2-tool-detail-dialog').forEach(dialog => {
+      const title = dialog.querySelector('#q2-tool-detail-title');
+      if (!title || !title.textContent.includes('VI 轉活動彈窗')) return;
+      dialog.classList.add('q2-tool-vi-layout');
+      const panels = dialog.querySelector('.q2-tool-detail-panels');
+      if (!panels) return;
+      const current = panels.querySelector('.q2-tool-detail-current');
+      const pain = panels.querySelector('.q2-tool-detail-pain');
+      const future = panels.querySelector('.q2-tool-future') || panels.querySelector('.q2-tool-detail-side article:nth-of-type(2)');
+      if (current) {
+        const gallery = [...current.children].find(child => child.querySelectorAll('img').length >= 4);
+        if (gallery) gallery.classList.add('q2-vi-gallery-slot');
+      }
+      const futureTitle = future?.querySelector('h3');
+      if (futureTitle && futureTitle.textContent !== '未來的優化方向') futureTitle.textContent = '未來的優化方向';
+      if (pain) pain.style.order = '2';
+      if (future) future.style.order = '3';
+      if (current) current.style.order = '1';
+    });
+  }
+  const observer = new MutationObserver(() => requestAnimationFrame(arrangeViDialog));
+  observer.observe(document.documentElement, { childList: true, subtree: true, characterData: true });
+  arrangeViDialog();
+})();
+</script>
+<script id="q2-tool-vi-subtitle-copy-script">
+(() => {
+  const copy = '依照活動需求快速建立彈窗基礎架構，提升初期製作與後續修改效率。';
+  function syncSubtitle() {
+    document.querySelectorAll('.q2-tool-detail-dialog').forEach(dialog => {
+      const title = dialog.querySelector('#q2-tool-detail-title');
+      if (!title || !title.textContent.includes('VI 轉活動彈窗')) return;
+      const subtitle = dialog.querySelector('.q2-tool-detail-subtitle');
+      if (subtitle && subtitle.textContent !== copy) subtitle.textContent = copy;
+    });
+  }
+  const observer = new MutationObserver(() => requestAnimationFrame(syncSubtitle));
+  observer.observe(document.documentElement, { childList: true, subtree: true, characterData: true });
+  syncSubtitle();
+})();
+</script>
+<script id="q2-tool-vi-subtitle-copy-script">
+(() => {
+  const copy = '依照活動需求快速建立彈窗基礎架構，提升初期製作與後續修改效率。';
+  function syncSubtitle() {
+    document.querySelectorAll('.q2-tool-detail-dialog').forEach(dialog => {
+      const title = dialog.querySelector('#q2-tool-detail-title');
+      if (!title || !title.textContent.includes('VI 轉活動彈窗')) return;
+      const subtitle = dialog.querySelector('.q2-tool-detail-subtitle');
+      if (subtitle && subtitle.textContent !== copy) subtitle.textContent = copy;
+    });
+  }
+  const observer = new MutationObserver(() => requestAnimationFrame(syncSubtitle));
+  observer.observe(document.documentElement, { childList: true, subtree: true, characterData: true });
+  syncSubtitle();
+})();
+</script>
+<style id="q2-vi-horizontal-panels">
+  /* VI 活動彈窗：橫向內容卡片，延續原有紫色視覺 */
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panels {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: clamp(16px, 2.2vw, 24px) !important;
+    align-items: stretch;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-side {
+    display: contents !important;
+  }
+
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    padding: clamp(22px, 3vw, 36px) !important;
+    display: grid !important;
+    grid-template-columns: minmax(190px, 0.38fr) minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    column-gap: clamp(24px, 4vw, 52px);
+    row-gap: 12px;
+    align-items: center;
+    border: 1px solid rgba(198, 178, 255, 0.25) !important;
+    border-radius: 28px !important;
+    background: linear-gradient(115deg, rgba(151, 126, 221, 0.22), rgba(105, 82, 168, 0.17)) !important;
+  }
+
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel > h3 {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: end;
+    margin: 0 !important;
+  }
+
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel > p {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
+    margin: 0 !important;
+  }
+
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel.q2-tool-detail-current {
+    grid-template-columns: minmax(250px, 0.82fr) minmax(320px, 1.18fr);
+    grid-template-rows: auto 1fr;
+    min-height: clamp(270px, 31vw, 390px);
+  }
+
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel.q2-tool-detail-current > :not(h3):not(p) {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    min-width: 0;
+    align-self: stretch;
+  }
+
+  /* 主圖優先使用右側空間；版面緊湊時略去縮圖列 */
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel.q2-tool-detail-current [class*="thumb"],
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel.q2-tool-detail-current [class*="thumbnail"] {
+    display: none !important;
+  }
+
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel.q2-tool-detail-current img {
+    max-width: 100%;
+  }
+
+  @media (max-width: 760px) {
+    body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel,
+    body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel.q2-tool-detail-current {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: auto auto auto;
+      gap: 12px;
+      min-height: 0;
+      padding: 22px !important;
+    }
+
+    body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel > h3,
+    body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel > p,
+    body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel.q2-tool-detail-current > :not(h3):not(p) {
+      grid-column: 1;
+      grid-row: auto;
+    }
+
+    body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel.q2-tool-detail-current > :not(h3):not(p) {
+      margin-top: 8px;
+    }
+  }
+</style>
+<style id="q2-vi-horizontal-panels-final">
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panels {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: clamp(16px, 2.2vw, 24px) !important;
+    align-items: stretch;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    padding: clamp(22px, 3vw, 36px) !important;
+    display: grid !important;
+    grid-template-columns: minmax(190px, .38fr) minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    column-gap: clamp(24px, 4vw, 52px);
+    row-gap: 12px;
+    align-items: center;
+    border: 1px solid rgba(198, 178, 255, .25) !important;
+    border-radius: 28px !important;
+    background: linear-gradient(115deg, rgba(151, 126, 221, .22), rgba(105, 82, 168, .17)) !important;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel > h3 {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+    align-self: end;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel > p {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0;
+    align-self: start;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel:not(.q2-tool-detail-current) > p {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-current {
+    grid-template-columns: minmax(220px, .82fr) minmax(0, 1.18fr);
+    grid-template-rows: 1fr;
+    min-height: clamp(270px, 31vw, 390px);
+  }
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-current > h3 {
+    grid-row: 1;
+    align-self: end;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-current > p {
+    grid-row: 1;
+    align-self: start;
+    margin-top: 48px;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-current > :not(h3):not(p) {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+    width: 100%;
+    height: 100%;
+    align-self: stretch;
+    justify-self: stretch;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-current [class*="thumb"],
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-current [class*="thumbnail"] {
+    display: none !important;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-current img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  @media (max-width: 680px) {
+    body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel,
+    body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-current {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: auto auto auto;
+      min-height: 0;
+    }
+    body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel > h3,
+    body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel > p,
+    body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel:not(.q2-tool-detail-current) > p,
+    body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-current > :not(h3):not(p) {
+      grid-column: 1;
+      grid-row: auto;
+      margin-top: 0;
+    }
+    body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-current > :not(h3):not(p) {
+      min-height: 220px;
+    }
+  }
+</style>
+<style id="q2-tool-dialog-layout-stability">
+  body.q2-tool-detail-open .q2-tool-detail-dialog {
+    box-sizing: border-box;
+    max-height: calc(100vh - 32px);
+    max-height: calc(100dvh - 32px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panels {
+    height: auto !important;
+    min-height: 0 !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-auto-rows: auto;
+    align-content: start;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-side {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: clamp(16px, 2.2vw, 24px) !important;
+    min-width: 0;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel {
+    height: auto !important;
+    min-height: 220px;
+    max-height: none !important;
+    grid-template-rows: auto minmax(0, 1fr) !important;
+    align-content: start;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-current {
+    height: auto !important;
+    min-height: clamp(250px, 30vw, 360px) !important;
+    grid-template-rows: minmax(0, 1fr) !important;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-current > :not(h3):not(p) {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: 300px;
+    align-self: stretch;
+    overflow: hidden;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-current img {
+    display: block;
+    width: 100%;
+    height: auto !important;
+    max-height: 260px;
+    object-fit: contain;
+  }
+  @media (max-width: 680px) {
+    body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panel {
+      min-height: 0;
+    }
+    body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-current {
+      min-height: 0 !important;
+    }
+    body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-current > :not(h3):not(p) {
+      max-height: 280px;
+    }
+  }
+</style>
+<style id="q2-dialog-viewport-stability">
+/* Keep both Q2 detail dialogs in a stable viewport layer with one bounded scroller. */
+body.q2-tool-detail-open .q2-tool-detail-backdrop.is-open {
+  position: fixed !important;
+  inset: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  padding: clamp(12px, 3vh, 28px) !important;
+  box-sizing: border-box !important;
+}
+body.q2-tool-detail-open .q2-tool-detail-dialog {
+  position: relative !important;
+  inset: auto !important;
+  flex: 0 1 1080px !important;
+  width: min(1080px, 100%) !important;
+  max-width: 100% !important;
+  max-height: calc(100dvh - 2 * clamp(12px, 3vh, 28px)) !important;
+  min-height: 0 !important;
+  height: auto !important;
+  margin: auto !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+  box-sizing: border-box !important;
+  contain: layout paint;
+}
+body.q2-tool-detail-open .q2-tool-detail-panels,
+body.q2-tool-detail-open .q2-tool-detail-side,
+body.q2-tool-detail-open .q2-tool-detail-panel {
+  min-width: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+}
+body.q2-tool-detail-open .q2-tool-detail-current > :not(h3):not(p) {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: 300px !important;
+  overflow: hidden !important;
+}
+@media (max-width: 700px) {
+  body.q2-tool-detail-open .q2-tool-detail-backdrop.is-open { padding: 10px !important; }
+  body.q2-tool-detail-open .q2-tool-detail-dialog { max-height: calc(100dvh - 20px) !important; }
+}
+</style>
+<style id="q2-dialog-stability-and-vi-image-removal">
+/* Keep both Q2 tool dialogs anchored to the viewport. The dialog itself owns scrolling. */
+body.q2-tool-detail-open { overflow: hidden !important; }
+body.q2-tool-detail-open .q2-tool-detail-backdrop.is-open {
+  position: fixed !important; inset: 0 !important; z-index: 9999 !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  box-sizing: border-box !important; padding: 16px !important; overflow: hidden !important;
+}
+body.q2-tool-detail-open .q2-tool-detail-dialog {
+  position: relative !important; inset: auto !important; flex: 0 1 1080px !important;
+  width: min(1080px, calc(100vw - 32px)) !important; max-width: 100% !important;
+  height: auto !important; min-height: 0 !important; max-height: calc(100vh - 32px) !important;
+  margin: auto !important; box-sizing: border-box !important; overflow-x: hidden !important;
+  overflow-y: auto !important; overscroll-behavior: contain;
+}
+body.q2-tool-detail-open .q2-tool-detail-panels,
+body.q2-tool-detail-open .q2-tool-detail-side,
+body.q2-tool-detail-open .q2-tool-detail-panel {
+  min-width: 0 !important; min-height: 0 !important; height: auto !important; max-height: none !important;
+}
+body.q2-tool-detail-open .q2-tool-detail-current {
+  grid-template-columns: minmax(0, 1fr) !important; align-content: start !important;
+}
+/* The VI explanation is text-only for now; remove its gallery area and controls. */
+body.q2-tool-detail-open .q2-tool-detail-current > :nth-child(n+3),
+body.q2-tool-detail-open .q2-tool-detail-current [class*="gallery"],
+body.q2-tool-detail-open .q2-tool-detail-current [class*="carousel"],
+body.q2-tool-detail-open .q2-tool-detail-current [class*="thumbnail"],
+body.q2-tool-detail-open .q2-tool-detail-current [class*="thumb"] {
+  display: none !important;
+}
+body.q2-tool-detail-open .q2-tool-detail-current img { display: none !important; }
+@media (max-width: 700px) {
+  body.q2-tool-detail-open .q2-tool-detail-backdrop.is-open { padding: 10px !important; }
+  body.q2-tool-detail-open .q2-tool-detail-dialog {
+    width: calc(100vw - 20px) !important; max-height: calc(100vh - 20px) !important;
+  }
+}
+</style>
+<style id="q2-modal-layout-fix">
+/* Keep both Q2 tool dialogs in a viewport-sized layer. The dialog itself scrolls,
+   preventing content height and percentage-height rules from pushing the page. */
+body.q2-tool-detail-open{overflow:hidden!important}
+body.q2-tool-detail-open .q2-tool-detail-backdrop.is-open{
+  position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;height:100dvh!important;
+  z-index:10000!important;display:grid!important;place-items:center!important;
+  box-sizing:border-box!important;padding:16px!important;overflow:hidden!important;
+}
+body.q2-tool-detail-open .q2-tool-detail-dialog{
+  position:relative!important;inset:auto!important;transform:none!important;
+  width:min(1080px,100%)!important;max-width:1080px!important;
+  height:auto!important;min-height:0!important;max-height:calc(100vh - 32px)!important;max-height:calc(100dvh - 32px)!important;
+  margin:0!important;box-sizing:border-box!important;overflow-x:hidden!important;overflow-y:auto!important;
+  overscroll-behavior:contain!important;flex:none!important;
+}
+body.q2-tool-detail-open .q2-tool-detail-dialog,
+body.q2-tool-detail-open .q2-tool-detail-dialog *{min-width:0}
+body.q2-tool-detail-open .q2-tool-detail-panels,
+body.q2-tool-detail-open .q2-tool-detail-side{height:auto!important;min-height:0!important;max-height:none!important}
+body.q2-tool-detail-open .q2-tool-detail-side{display:grid!important;align-content:start!important;gap:16px!important}
+body.q2-tool-detail-open .q2-tool-detail-panel{min-height:0!important;height:auto!important;max-height:none!important}
+body.q2-tool-detail-open .q2-tool-detail-current{align-content:start!important}
+body.q2-tool-detail-open .q2-tool-detail-dialog.is-vi-tool .q2-tool-detail-current img,
+body.q2-tool-detail-open .q2-tool-detail-dialog.is-vi-tool .q2-tool-detail-current [class*="gallery"],
+body.q2-tool-detail-open .q2-tool-detail-dialog.is-vi-tool .q2-tool-detail-current [class*="carousel"],
+body.q2-tool-detail-open .q2-tool-detail-dialog.is-vi-tool .q2-tool-detail-current [class*="thumbnail"],
+body.q2-tool-detail-open .q2-tool-detail-dialog.is-vi-tool .q2-tool-detail-current [class*="thumb"],
+body.q2-tool-detail-open .q2-tool-detail-dialog.is-vi-tool .q2-tool-detail-current [class*="slider"]{display:none!important}
+@media(max-width:700px){
+  body.q2-tool-detail-open .q2-tool-detail-backdrop.is-open{padding:10px!important}
+  body.q2-tool-detail-open .q2-tool-detail-dialog{width:100%!important;max-height:calc(100vh - 20px)!important;max-height:calc(100dvh - 20px)!important}
+}
+</style>
+<script id="q2-vi-image-area-removal">
+(()=>{
+  const setup=()=>{
+    const dialog=document.querySelector('.q2-tool-detail-dialog');
+    if(!dialog)return;
+    const sync=()=>{
+      const title=dialog.querySelector('h1,h2,h3,[class*="title"]');
+      dialog.classList.toggle('is-vi-tool',/VI\s*轉活動彈窗/i.test((title?.textContent||'').trim()));
+    };
+    sync();
+    new MutationObserver(sync).observe(dialog,{subtree:true,childList:true,characterData:true});
+    document.addEventListener('click',()=>requestAnimationFrame(sync),true);
+  };
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup,{once:true});else setup();
+})();
+</script>
+<style id="q2-modal-stability-final">
+  /* Keep the Q2 detail dialogs anchored to the viewport. Let only the dialog
+     scroll; nested percentage heights and contents-based grids cause reflow. */
+  body.q2-tool-detail-open { overflow: hidden !important; }
+  body.q2-tool-detail-open .q2-tool-detail-backdrop.is-open {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 10000 !important;
+    display: grid !important;
+    place-items: center !important;
+    box-sizing: border-box !important;
+    padding: clamp(10px, 2vw, 24px) !important;
+    overflow: hidden !important;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-dialog {
+    position: relative !important;
+    inset: auto !important;
+    width: min(1080px, calc(100vw - 32px)) !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: calc(100vh - 32px) !important;
+    max-height: calc(100dvh - 32px) !important;
+    margin: 0 !important;
+    flex: none !important;
+    align-self: center !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-panels,
+  body.q2-tool-detail-open .q2-tool-detail-side,
+  body.q2-tool-detail-open .q2-tool-detail-panel {
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    align-content: start !important;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-side {
+    display: grid !important;
+    position: relative !important;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-current {
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+  /* Only the VI tool dialog is temporarily text-only. Keep PSD media intact. */
+  body.q2-tool-detail-open .q2-tool-detail-dialog.is-vi-tool .q2-tool-detail-current img,
+  body.q2-tool-detail-open .q2-tool-detail-dialog.is-vi-tool .q2-tool-detail-current video,
+  body.q2-tool-detail-open .q2-tool-detail-dialog.is-vi-tool .q2-tool-detail-current picture,
+  body.q2-tool-detail-open .q2-tool-detail-dialog.is-vi-tool .q2-tool-detail-current figure,
+  body.q2-tool-detail-open .q2-tool-detail-dialog.is-vi-tool .q2-tool-detail-current [class*="gallery"],
+  body.q2-tool-detail-open .q2-tool-detail-dialog.is-vi-tool .q2-tool-detail-current [class*="carousel"],
+  body.q2-tool-detail-open .q2-tool-detail-dialog.is-vi-tool .q2-tool-detail-current [class*="thumbnail"],
+  body.q2-tool-detail-open .q2-tool-detail-dialog.is-vi-tool .q2-tool-detail-current [class*="thumb"],
+  body.q2-tool-detail-open .q2-tool-detail-dialog.is-vi-tool .q2-tool-detail-current [class*="media"],
+  body.q2-tool-detail-open .q2-tool-detail-dialog.is-vi-tool .q2-tool-detail-current [class*="image"],
+  body.q2-tool-detail-open .q2-tool-detail-dialog.is-vi-tool .q2-tool-detail-current [class*="visual"] {
+    display: none !important;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-dialog:not(.is-vi-tool) .q2-tool-detail-current img {
+    display: initial !important;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-dialog:not(.is-vi-tool) .q2-tool-detail-current [class*="gallery"],
+  body.q2-tool-detail-open .q2-tool-detail-dialog:not(.is-vi-tool) .q2-tool-detail-current [class*="carousel"],
+  body.q2-tool-detail-open .q2-tool-detail-dialog:not(.is-vi-tool) .q2-tool-detail-current [class*="thumbnail"],
+  body.q2-tool-detail-open .q2-tool-detail-dialog:not(.is-vi-tool) .q2-tool-detail-current [class*="thumb"] {
+    display: revert !important;
+  }
+  body.q2-tool-detail-open .q2-tool-detail-dialog.is-vi-tool .q2-tool-detail-current {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  @media (max-width: 700px) {
+    body.q2-tool-detail-open .q2-tool-detail-backdrop.is-open { padding: 10px !important; }
+    body.q2-tool-detail-open .q2-tool-detail-dialog {
+      width: calc(100vw - 20px) !important;
+      max-height: calc(100vh - 20px) !important;
+      max-height: calc(100dvh - 20px) !important;
+    }
+  }
+</style>
+<script id="q2-modal-vi-image-toggle">
+(() => {
+  const syncQ2DialogType = () => {
+    document.querySelectorAll('.q2-tool-detail-dialog').forEach((dialog) => {
+      const title = dialog.querySelector('h1, h2, h3');
+      const text = title ? title.textContent : dialog.textContent;
+      dialog.classList.toggle('is-vi-tool', /VI\s*轉活動彈窗/.test(text || ''));
+    });
+  };
+  syncQ2DialogType();
+  const observer = new MutationObserver(syncQ2DialogType);
+  observer.observe(document.body, { childList: true, subtree: true, characterData: true });
+})();
+</script>
+<style id="q2-tool-dialog-rebuild-final">
+  /* Keep the Q2 tool dialogs in the same centered, scrollable frame as the workflow detail page. */
+  .q2-tool-detail-backdrop.is-open {
+    position: fixed !important;
+    inset: 0 !important;
+    display: grid !important;
+    place-items: center !important;
+    padding: clamp(12px, 3vw, 32px) !important;
+    overflow: auto !important;
+    overscroll-behavior: contain;
+    z-index: 10000 !important;
+  }
+  .q2-tool-detail-backdrop.is-open .q2-tool-detail-dialog {
+    position: relative !important;
+    inset: auto !important;
+    transform: none !important;
+    width: min(1120px, 100%) !important;
+    max-width: 1120px !important;
+    max-height: min(90vh, 920px) !important;
+    margin: auto !important;
+    overflow: auto !important;
+    overscroll-behavior: contain;
+  }
+  .q2-tool-detail-dialog .q2-tool-detail-panels.q2-tool-rebuilt-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    align-items: stretch !important;
+    gap: clamp(12px, 1.8vw, 22px) !important;
+    margin-top: clamp(24px, 4vw, 40px) !important;
+  }
+  .q2-tool-detail-dialog .q2-tool-rebuilt-grid > .q2-tool-detail-panel {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    min-width: 0 !important;
+    min-height: 220px !important;
+    padding: clamp(20px, 2.4vw, 32px) !important;
+    border: 1px solid var(--sp-border, rgba(190, 166, 255, .24)) !important;
+    border-radius: 24px !important;
+    background: linear-gradient(145deg, rgba(107, 78, 174, .34), rgba(30, 27, 62, .76)) !important;
+    color: var(--sp-fg, #f5f1ff) !important;
+  }
+  .q2-tool-detail-dialog .q2-tool-rebuilt-grid > .q2-tool-detail-panel h3 {
+    margin: 0 0 16px !important;
+    color: var(--sp-fg, #f5f1ff) !important;
+    font-size: clamp(18px, 1.7vw, 22px) !important;
+    line-height: 1.4 !important;
+  }
+  .q2-tool-detail-dialog .q2-tool-rebuilt-grid > .q2-tool-detail-panel p {
+    margin: 0 !important;
+    color: var(--sp-fg-soft, #d6cee9) !important;
+    font-size: clamp(15px, 1.35vw, 17px) !important;
+    line-height: 1.85 !important;
+  }
+  @media (max-width: 760px) {
+    .q2-tool-detail-backdrop.is-open .q2-tool-detail-dialog {
+      max-height: 94vh !important;
+    }
+    .q2-tool-detail-dialog .q2-tool-detail-panels.q2-tool-rebuilt-grid {
+      grid-template-columns: minmax(0, 1fr) !important;
+    }
+    .q2-tool-detail-dialog .q2-tool-rebuilt-grid > .q2-tool-detail-panel {
+      min-height: 0 !important;
+    }
+  }
+</style>
+<script id="q2-tool-dialog-rebuild-final-script">
+(() => {
+  const content = {
+    vi: {
+      title: 'VI 轉活動彈窗',
+      intro: '依照活動需求快速建立彈窗基礎架構，提升初期製作與後續修改效率。',
+      boxes: [
+        ['目前使用時機 及 使用方式', '上傳 VI 之後，AI 會先拆出元件，再放入對應位置；可依 UX 稿快速產出對應視覺設計，也可以按照 wireframe 產圖。'],
+        ['遇到的痛點', '活動彈窗會有基本架構，現階段會遇到文字大小跑版及重複做圖的問題。每種彈窗都需要先製作一個基本框架才能執行。'],
+        ['未來的優化方向', '未來希望增加一些步驟，讓使用者先確認 AI 拆出的元件，再選擇要製作的彈窗，確認完成後才進行運算。']
+      ]
+    },
+    psd: {
+      title: 'PSD 自動轉存效果圖',
+      intro: '減少出效果圖的編排時間，清楚列出所有視覺效果，降低手動排版所需的時間。',
+      boxes: [
+        ['目前使用時機 及 使用方式', '每項活動完成後，將 PSD 檔案匯入工具，自動編排成效果圖，提供騰訊校稿與確認。'],
+        ['遇到的痛點', '彈窗數量較多時，逐一編排效果圖會增加不少後製時間；手動整理也容易讓交付版面不一致。'],
+        ['工具效益', '自動整理並清楚呈現所有視覺效果，減少出效果圖的編排與手動排版時間，讓校稿及確認更有效率。']
+      ]
+    }
+  };
+
+  function rebuild(dialog) {
+    const heading = dialog.querySelector('h1, h2, h3');
+    const panels = dialog.querySelector('.q2-tool-detail-panels');
+    if (!heading || !panels) return;
+    const label = heading.textContent || '';
+    const kind = /PSD|效果圖/i.test(label) ? 'psd' : /VI|彈窗/i.test(label) ? 'vi' : '';
+    if (!kind) return;
+    const data = content[kind];
+    if (panels.dataset.rebuiltKind === kind && panels.classList.contains('q2-tool-rebuilt-grid')) return;
+    if (heading.textContent.trim() !== data.title) heading.textContent = data.title;
+    const subtitle = dialog.querySelector('.q2-tool-detail-subtitle');
+    if (subtitle && subtitle.textContent.trim() !== data.intro) subtitle.textContent = data.intro;
+
+    panels.dataset.rebuiltKind = kind;
+    panels.classList.add('q2-tool-rebuilt-grid');
+    panels.replaceChildren(...data.boxes.map(([title, body]) => {
+      const card = document.createElement('article');
+      card.className = 'q2-tool-detail-panel';
+      const cardTitle = document.createElement('h3');
+      const paragraph = document.createElement('p');
+      cardTitle.textContent = title;
+      paragraph.textContent = body;
+      card.append(cardTitle, paragraph);
+      return card;
+    }));
+  }
+
+  const observer = new MutationObserver(() => {
+    document.querySelectorAll('.q2-tool-detail-backdrop.is-open .q2-tool-detail-dialog').forEach(rebuild);
+  });
+  observer.observe(document.documentElement, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['class'] });
+  document.querySelectorAll('.q2-tool-detail-backdrop.is-open .q2-tool-detail-dialog').forEach(rebuild);
+})();
+</script>
+
+
+</body></html>
