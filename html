@@ -2449,22 +2449,6 @@ panels.classList.toggle('is-workflow-layout', isWorkflowLayout);
   syncSubtitle();
 })();
 </script>
-<script id="q2-tool-vi-subtitle-copy-script">
-(() => {
-  const copy = '依照活動需求快速建立彈窗基礎架構，提升初期製作與後續修改效率。';
-  function syncSubtitle() {
-    document.querySelectorAll('.q2-tool-detail-dialog').forEach(dialog => {
-      const title = dialog.querySelector('#q2-tool-detail-title');
-      if (!title || !title.textContent.includes('VI 轉活動彈窗')) return;
-      const subtitle = dialog.querySelector('.q2-tool-detail-subtitle');
-      if (subtitle && subtitle.textContent !== copy) subtitle.textContent = copy;
-    });
-  }
-  const observer = new MutationObserver(() => requestAnimationFrame(syncSubtitle));
-  observer.observe(document.documentElement, { childList: true, subtree: true, characterData: true });
-  syncSubtitle();
-})();
-</script>
 <style id="q2-vi-horizontal-panels">
   /* VI 活動彈窗：橫向內容卡片，延續原有紫色視覺 */
   body.q2-tool-detail-open .q2-tool-detail-dialog .q2-tool-detail-panels {
