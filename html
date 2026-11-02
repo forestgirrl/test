@@ -2432,34 +2432,7 @@ panels.classList.toggle('is-workflow-layout', isWorkflowLayout);
     }
   }
 </style>
-<script id="q2-tool-vi-three-card-script">
-(() => {
-  function arrangeViDialog() {
-    document.querySelectorAll('.q2-tool-detail-dialog').forEach(dialog => {
-      const title = dialog.querySelector('#q2-tool-detail-title');
-      if (!title || !title.textContent.includes('VI 轉活動彈窗')) return;
-      dialog.classList.add('q2-tool-vi-layout');
-      const panels = dialog.querySelector('.q2-tool-detail-panels');
-      if (!panels) return;
-      const current = panels.querySelector('.q2-tool-detail-current');
-      const pain = panels.querySelector('.q2-tool-detail-pain');
-      const future = panels.querySelector('.q2-tool-future') || panels.querySelector('.q2-tool-detail-side article:nth-of-type(2)');
-      if (current) {
-        const gallery = [...current.children].find(child => child.querySelectorAll('img').length >= 4);
-        if (gallery) gallery.classList.add('q2-vi-gallery-slot');
-      }
-      const futureTitle = future?.querySelector('h3');
-      if (futureTitle && futureTitle.textContent !== '未來的優化方向') futureTitle.textContent = '未來的優化方向';
-      if (pain) pain.style.order = '2';
-      if (future) future.style.order = '3';
-      if (current) current.style.order = '1';
-    });
-  }
-  const observer = new MutationObserver(() => requestAnimationFrame(arrangeViDialog));
-  observer.observe(document.documentElement, { childList: true, subtree: true, characterData: true });
-  arrangeViDialog();
-})();
-</script>
+
 <script id="q2-tool-vi-subtitle-copy-script">
 (() => {
   const copy = '依照活動需求快速建立彈窗基礎架構，提升初期製作與後續修改效率。';
@@ -3039,63 +3012,7 @@ body.q2-tool-detail-open .q2-tool-detail-dialog.is-vi-tool .q2-tool-detail-curre
     }
   }
 </style>
-<script id="q2-tool-dialog-rebuild-final-script">
-(() => {
-  const content = {
-    vi: {
-      title: 'VI 轉活動彈窗',
-      intro: '依照活動需求快速建立彈窗基礎架構，提升初期製作與後續修改效率。',
-      boxes: [
-        ['目前使用時機 及 使用方式', '上傳 VI 之後，AI 會先拆出元件，再放入對應位置；可依 UX 稿快速產出對應視覺設計，也可以按照 wireframe 產圖。'],
-        ['遇到的痛點', '活動彈窗會有基本架構，現階段會遇到文字大小跑版及重複做圖的問題。每種彈窗都需要先製作一個基本框架才能執行。'],
-        ['未來的優化方向', '未來希望增加一些步驟，讓使用者先確認 AI 拆出的元件，再選擇要製作的彈窗，確認完成後才進行運算。']
-      ]
-    },
-    psd: {
-      title: 'PSD 自動轉存效果圖',
-      intro: '減少出效果圖的編排時間，清楚列出所有視覺效果，降低手動排版所需的時間。',
-      boxes: [
-        ['目前使用時機 及 使用方式', '每項活動完成後，將 PSD 檔案匯入工具，自動編排成效果圖，提供騰訊校稿與確認。'],
-        ['遇到的痛點', '彈窗數量較多時，逐一編排效果圖會增加不少後製時間；手動整理也容易讓交付版面不一致。'],
-        ['工具效益', '自動整理並清楚呈現所有視覺效果，減少出效果圖的編排與手動排版時間，讓校稿及確認更有效率。']
-      ]
-    }
-  };
 
-  function rebuild(dialog) {
-    const heading = dialog.querySelector('h1, h2, h3');
-    const panels = dialog.querySelector('.q2-tool-detail-panels');
-    if (!heading || !panels) return;
-    const label = heading.textContent || '';
-    const kind = /PSD|效果圖/i.test(label) ? 'psd' : /VI|彈窗/i.test(label) ? 'vi' : '';
-    if (!kind) return;
-    const data = content[kind];
-    if (panels.dataset.rebuiltKind === kind && panels.classList.contains('q2-tool-rebuilt-grid')) return;
-    if (heading.textContent.trim() !== data.title) heading.textContent = data.title;
-    const subtitle = dialog.querySelector('.q2-tool-detail-subtitle');
-    if (subtitle && subtitle.textContent.trim() !== data.intro) subtitle.textContent = data.intro;
-
-    panels.dataset.rebuiltKind = kind;
-    panels.classList.add('q2-tool-rebuilt-grid');
-    panels.replaceChildren(...data.boxes.map(([title, body]) => {
-      const card = document.createElement('article');
-      card.className = 'q2-tool-detail-panel';
-      const cardTitle = document.createElement('h3');
-      const paragraph = document.createElement('p');
-      cardTitle.textContent = title;
-      paragraph.textContent = body;
-      card.append(cardTitle, paragraph);
-      return card;
-    }));
-  }
-
-  const observer = new MutationObserver(() => {
-    document.querySelectorAll('.q2-tool-detail-backdrop.is-open .q2-tool-detail-dialog').forEach(rebuild);
-  });
-  observer.observe(document.documentElement, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['class'] });
-  document.querySelectorAll('.q2-tool-detail-backdrop.is-open .q2-tool-detail-dialog').forEach(rebuild);
-})();
-</script>
 
 
 </body></html>
